@@ -9,7 +9,7 @@ editor confirms before anything publishes.
 
 ```
 sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.json  →  widget
-   (stubs)             address-keyed accrual         static        committed       deferred
+   (live)              address-keyed accrual         static        committed       Pages
                        + editorial gate              JSON          by Actions
 ```
 
@@ -23,6 +23,12 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
 - `pipeline/sources/` — one adapter per source, `fetch(aliases) -> list[Signal]`,
   contracts in docstrings and docs/SIGNALS.md
 - `data/overrides/locations.yaml` — the ONLY publication mechanism
+- `data/transfers_ledger.json` — accrue-only; transfer signals must outlive
+  the sibling's rolling 30-day feed (committed back by the nightly run)
+- `scripts/enrich_geo.py` — deploy-time lat/lon join against the permit
+  ledger's geocodes; committed public/ files are never touched
+- `web/` — the widget (index) + internal editor queue page (queue.html),
+  deployed to https://rowanflynnpilot.github.io/wpr-coming-soon/ by build.yml
 
 ## Principles (do not drift)
 
@@ -44,13 +50,18 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
 
 ## Status / next steps
 
-All three adapters are live (2026-08-19; wiring decisions in each adapter's
-docstring — note licenses.py reads Wausau's CivicClerk API directly, not
-marathon-meetings output), the nightly cron runs, and the backfill produced
-a 64-location queue. Widget v1 (card list, filters, receipts) lives in
-`web/`; `npm run dev` there previews it against a marked dev sample.
+Fully live (2026-08-19). All three adapters run (wiring decisions in each
+docstring — licenses.py reads Wausau's CivicClerk API directly and ingests
+posted agendas up to 14 days ahead; transfers accrue into a committed
+ledger because the sibling feed is a rolling 30-day window). The nightly
+cron tests, builds, commits data, and deploys the widget + editor queue
+page to Pages in WPR house branding, with a deploy-time geo join for the
+map view. The batched license-PDF idea was investigated and is a documented
+dead end (docs/SIGNALS.md) — the report's Address column is the licensee's
+mailing address, not the premises.
 
-1. Editor pass over `public/queue.json` — first curated `locations:` entries
-2. Wire widget deployment: copy `public/locations.json` into the built
-   `web/dist/` and publish (Pages, same pattern as wpr-permit-tracker)
-3. Sponsor slots are placeholders — real sponsor config when sold
+1. Editor pass: work /queue.html (copy-ready YAML per entry) — first
+   curated `locations:` entries make the public page non-empty
+2. Sponsor slots are placeholders — real sponsor config when sold
+3. Watch queue growth; signal aging stays out of v1 unless the editor pass
+   starts hurting
