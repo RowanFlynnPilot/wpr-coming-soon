@@ -1,0 +1,17 @@
+# Editorial overrides for the Coming Soon tracker.
+# This file is the ONLY way a location reaches the public page.
+# See data/overrides/README.md for how to use it.
+
+address_aliases: {}
+  # Map a bad/variant normalized key to the canonical one:
+  # "1300 N THIRD ST|WAUSAU": "1300 N 3RD ST|WAUSAU"
+
+locations: {}
+  # "301 WASHINGTON ST|WAUSAU":
+  #   status: coming_soon
+  #   name: "Example Coffee Co."
+  #   category: restaurant
+  #   note: "Confirmed by owner 8/12; targeting an October opening."
+  #
+  # "123 GRAND AVE|SCHOFIELD":
+  #   suppress: true   # existing business remodel, not a new opening
