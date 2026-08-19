@@ -116,7 +116,8 @@ def merge(signals: Iterable[Signal], overrides: Overrides) -> list[Location]:
         location = Location(
             key=key,
             address=number_street.title(),
-            municipality=municipality.title(),
+            # Title-case, but "TOWN OF X" displays as "Town of X".
+            municipality=municipality.title().replace(" Of ", " of "),
             signals=sorted(by_key[key], key=lambda s: (s.observed, s.id)),
             status=Status(entry["status"]) if "status" in entry else Status.SIGNAL,
             name=entry.get("name"),

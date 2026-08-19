@@ -65,6 +65,11 @@ def test_signals_accrue_to_one_location_sorted_by_date():
     assert loc.municipality == "Wausau"
 
 
+def test_town_municipality_displays_lowercase_of():
+    (loc,) = merge([sig("100794 KINGTON RD|TOWN OF BRIGHTON")], NO_OVERRIDES)
+    assert loc.municipality == "Town of Brighton"
+
+
 def test_alias_redirects_signal_to_canonical_key():
     overrides = Overrides(
         aliases={"1300 N THIRD ST|WAUSAU": "1300 N 3RD ST|WAUSAU"}, locations={})

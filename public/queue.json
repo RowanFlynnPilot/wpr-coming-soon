@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T16:33:36+00:00",
+  "generated": "2026-08-19T16:37:55+00:00",
   "locations": [
     {
       "key": "303 N 3RD ST|WAUSAU",
@@ -112,7 +112,7 @@
       "name": null,
       "category": null,
       "address": "100794 Kington Rd",
-      "municipality": "Town Of Brighton",
+      "municipality": "Town of Brighton",
       "note": null,
       "opened": null,
       "signals": [
