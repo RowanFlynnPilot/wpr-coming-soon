@@ -340,6 +340,44 @@ a.banner__sponsor:hover {
   color: var(--ink);
 }
 
+/* ------------------------------------------------------- editor queue page */
+.qentry__key {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.qentry__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.copybtn {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 10px;
+  border: 1px solid var(--teal);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--teal-dark);
+  cursor: pointer;
+}
+
+.copybtn:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.qsearch {
+  font-family: var(--mono);
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 5px 8px;
+  min-width: 220px;
+}
+
 /* ------------------------------------------------------------ empty/error */
 .notice {
   margin-top: 18px;

@@ -1,0 +1,97 @@
+{
+  "generated": "2026-08-19T16:40:30+00:00",
+  "locations": [
+    {
+      "key": "303 N 3RD ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "303 N 3Rd St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2468-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-08-17",
+          "summary": "License transfer to new location: Venado Wine Bar (Onora Hotels LLC)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-08-17",
+            "agenda_item": "3.b: Consider approval or denial of Alcohol Beverage License Transfer of the \"Class B\" Beer & Liquor for Venado Wine Bar currently located at 209 Grant Street to new location at 303 N. 3rd Street, Onora Hotels LLC owners, Juan Antonio Casarrubias and Lesli Iverson.",
+            "applicant": "Onora Hotels LLC",
+            "trade_name": "Venado Wine Bar"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2468/overview"
+        }
+      ]
+    },
+    {
+      "key": "5512 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "5512 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2467-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-07-20",
+          "summary": "Extension to open for business: The Copper Kettle Steakhouse (The Copper Kettle Steakhouse)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-07-20",
+            "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for The Copper Kettle Steakhouse located at 5512 Stewart Avenue, The Copper Kettle Steakhouse, LLC., agent Robert A. Lamovec.",
+            "applicant": "The Copper Kettle Steakhouse",
+            "trade_name": "The Copper Kettle Steakhouse"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2467/overview"
+        },
+        {
+          "id": "permit:WAU-202608261",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-28",
+          "summary": "Refacing Signs for new business",
+          "receipt": {
+            "permit_number": "202608261",
+            "municipality": "Wausau",
+            "issued": "2026-07-28"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "2510 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2510 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607376",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-08",
+          "summary": "Restaurant Alteration from 2510 to Parker Johns BBQ and Bakery/Deli upgrade",
+          "receipt": {
+            "permit_number": "202607376",
+            "municipality": "Wausau",
+            "issued": "2026-07-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    }
+  ]
+}
