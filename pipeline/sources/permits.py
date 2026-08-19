@@ -21,5 +21,5 @@ Address: normalize.normalize_address(site_address, municipality) — let
 from ..models import Signal
 
 
-def fetch() -> list[Signal]:
+def fetch(aliases: dict[str, str]) -> list[Signal]:
     raise NotImplementedError("wire to wpr-permit-tracker output; see docstring")

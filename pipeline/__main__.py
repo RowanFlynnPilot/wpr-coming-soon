@@ -11,8 +11,10 @@ from .sources import licenses, permits, transfers
 
 
 def main() -> None:
-    signals = [*permits.fetch(), *transfers.fetch(), *licenses.fetch()]
     overrides = load_overrides(Path("data/overrides/locations.yaml"))
+    aliases = overrides.aliases
+    signals = [*permits.fetch(aliases), *transfers.fetch(aliases),
+               *licenses.fetch(aliases)]
     locations = merge(signals, overrides)
     counts = build(locations, Path("public"))
     print(f"published={counts['published']} queue={counts['queue']}")

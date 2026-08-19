@@ -29,8 +29,11 @@ Uppercase, punctuation stripped, unit dropped, USPS suffix/direction
 abbreviations, spelled-out ordinals numbered. Deterministic only — no fuzzy
 matching, no geocoding. An address the rules can't handle raises
 `AddressError` and stops the build; the fix is an `address_aliases` entry, not
-looser code. Two sources writing the same building two ways is also an alias
-entry. One mechanism for both problems.
+looser code — keyed on the verbatim raw variant
+(`"R156 COUNTY RD NN|MARATHON"`), which adapters check via
+`sources.resolve_key()` before normalizing. Two sources writing the same
+building two ways is also an alias entry, keyed on the normalized variant.
+One mechanism for both problems.
 
 ## Signal
 

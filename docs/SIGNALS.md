@@ -2,13 +2,18 @@
 
 Three sources for v1. Two are pipelines that already run in sibling repos —
 the adapters here consume their output rather than re-scraping anything. Each
-adapter is one function, `fetch() -> list[Signal]`, and each is currently a
-stub with this contract in its docstring.
+adapter is one function, `fetch(aliases) -> list[Signal]`, where `aliases` is
+the `address_aliases` table from the overrides file.
 
 The shared rule for all three: build `location_key` with
-`normalize_address()` and let `AddressError` propagate. A crashed build with
-the offending record in the traceback beats a silently dropped signal. The fix
-is always an `address_aliases` entry.
+`sources.resolve_key()`, which checks `aliases` for the verbatim raw variant
+(`"RAW UPPERCASED|MUNICIPALITY UPPERCASED"`, whitespace collapsed) and
+otherwise calls `normalize_address()`, letting `AddressError` propagate. A
+crashed build with the offending record in the traceback beats a silently
+dropped signal. The fix is always an `address_aliases` entry — keyed on the
+normalized variant when two sources write one building two ways, or on the
+raw variant when the address can't be normalized at all (fire numbers,
+"Vacant Land on ...").
 
 ---
 

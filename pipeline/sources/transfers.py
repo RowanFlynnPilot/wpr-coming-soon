@@ -18,7 +18,7 @@ Address: normalize.normalize_address(property_address, municipality).
 from ..models import Signal
 
 
-def fetch() -> list[Signal]:
+def fetch(aliases: dict[str, str]) -> list[Signal]:
     raise NotImplementedError(
         "wire to wpr-property-transactions output; see docstring"
     )

@@ -20,7 +20,7 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
   gate enforcement)
 - `pipeline/build.py` — writes `public/locations.json` (published) and
   `public/queue.json` (editor review)
-- `pipeline/sources/` — one adapter per source, `fetch() -> list[Signal]`,
+- `pipeline/sources/` — one adapter per source, `fetch(aliases) -> list[Signal]`,
   contracts in docstrings and docs/SIGNALS.md
 - `data/overrides/locations.yaml` — the ONLY publication mechanism
 

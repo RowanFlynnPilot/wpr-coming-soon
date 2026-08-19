@@ -21,5 +21,5 @@ Address: the premises address from the agenda item text via
 from ..models import Signal
 
 
-def fetch() -> list[Signal]:
+def fetch(aliases: dict[str, str]) -> list[Signal]:
     raise NotImplementedError("wire to marathon-meetings items; see docstring")
