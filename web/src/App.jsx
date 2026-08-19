@@ -6,31 +6,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { CONFIG } from './config.js'
-
-const KIND_LABELS = {
-  sign_permit: 'Sign permit',
-  new_commercial_construction: 'Construction permit',
-  commercial_alteration: 'Building permit',
-  commercial_sale: 'Property sale',
-  alcohol_license_application: 'License application',
-}
-
-function fmtDate(iso) {
-  const [y, m, d] = iso.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-  })
-}
-
-// The receipt reference shown after the kind + date, per source.
-function receiptRef(signal) {
-  const r = signal.receipt
-  if (signal.source === 'permit') return `#${r.permit_number}`
-  if (signal.source === 'transfer') return `doc #${r.document_number}`
-  if (signal.source === 'license') return r.body
-  return null
-}
+import { KIND_LABELS, fmtDate, receiptRef } from './format.js'
 
 function Masthead() {
   return (
