@@ -132,9 +132,12 @@ locations:
     assert overrides.locations["301 WASHINGTON ST|WAUSAU"]["opened"] == date(2026, 10, 1)
 
 
-def test_load_overrides_accepts_empty_scaffold():
+def test_checked_in_overrides_file_is_valid():
+    # The live file must always pass strict validation; every key on both
+    # sides of an alias is a location key ("STREET|MUNICIPALITY" form).
     overrides = load_overrides(Path("data/overrides/locations.yaml"))
-    assert overrides == NO_OVERRIDES
+    assert all("|" in v and "|" in c for v, c in overrides.aliases.items())
+    assert all("|" in key for key in overrides.locations)
 
 
 @pytest.mark.parametrize("text", [
