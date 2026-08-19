@@ -1,0 +1,71 @@
+{
+  "generated": "2026-08-19T00:00:00+00:00",
+  "locations": [
+    {
+      "key": "5512 STEWART AVE|WAUSAU",
+      "status": "coming_soon",
+      "name": "SAMPLE — Example Steakhouse",
+      "category": "restaurant",
+      "address": "5512 Stewart Ave",
+      "municipality": "Wausau",
+      "note": "Dev sample entry: this file is replaced by the pipeline's real locations.json at deploy time. Shapes and receipts mirror real queue records.",
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2467-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-07-20",
+          "summary": "Extension to open for business: The Copper Kettle Steakhouse (The Copper Kettle Steakhouse)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-07-20",
+            "agenda_item": "3.b: Consider request granting a 90 day extension to open for business...",
+            "applicant": "The Copper Kettle Steakhouse",
+            "trade_name": "The Copper Kettle Steakhouse"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2467/overview"
+        },
+        {
+          "id": "permit:WAU-202608261",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-28",
+          "summary": "Refacing Signs for new business",
+          "receipt": {
+            "permit_number": "202608261",
+            "municipality": "Wausau",
+            "issued": "2026-07-28"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "301 WASHINGTON ST|WAUSAU",
+      "status": "open",
+      "name": "SAMPLE — Example Coffee Co.",
+      "category": "cafe",
+      "address": "301 Washington St",
+      "municipality": "Wausau",
+      "note": "Dev sample of the Now Open spotlight card.",
+      "opened": "2026-08-01",
+      "signals": [
+        {
+          "id": "transfer:1900001",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-06-30",
+          "summary": "Sold for $250,000 to EXAMPLE HOLDINGS LLC",
+          "receipt": {
+            "document_number": "1900001",
+            "grantor": "EXAMPLE GRANTOR LLC",
+            "grantee": "EXAMPLE HOLDINGS LLC",
+            "consideration": "250000"
+          },
+          "url": null
+        }
+      ]
+    }
+  ]
+}
