@@ -3,11 +3,18 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 10 * * *"   # ~05:17 America/Chicago
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,3 +30,16 @@ jobs:
           git add public/ data/transfers_ledger.json
           git diff --staged --quiet || git commit -m "data: nightly build"
           git push
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - name: Ship the data next to the widget
+        run: cp public/locations.json public/queue.json web/dist/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+      - uses: actions/deploy-pages@v4
