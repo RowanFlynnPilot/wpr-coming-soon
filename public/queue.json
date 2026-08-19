@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T16:15:04+00:00",
+  "generated": "2026-08-19T16:33:36+00:00",
   "locations": [
     {
       "key": "303 N 3RD ST|WAUSAU",
@@ -1606,11 +1606,11 @@
       ]
     },
     {
-      "key": "3402 TER CT|WAUSAU",
+      "key": "3402 TERRACE CT|WAUSAU",
       "status": "signal",
       "name": null,
       "category": null,
-      "address": "3402 Ter Ct",
+      "address": "3402 Terrace Ct",
       "municipality": "Wausau",
       "note": null,
       "opened": null,

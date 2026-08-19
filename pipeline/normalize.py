@@ -73,7 +73,9 @@ def normalize_address(raw: str, municipality: str) -> str:
     for token in rest.split(" "):
         token = _DIRECTIONS.get(token, token)
         token = _ORDINALS.get(token, token)
-        token = _SUFFIXES.get(token, token)
         tokens.append(token)
+    # Street-type abbreviation is positional: only the final token is the
+    # suffix. "Terrace Court" -> "TERRACE CT", never "TER CT".
+    tokens[-1] = _SUFFIXES.get(tokens[-1], tokens[-1])
 
     return f"{number} {' '.join(tokens)}|{municipality.strip().upper()}"

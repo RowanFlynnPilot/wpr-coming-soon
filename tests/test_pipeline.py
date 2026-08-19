@@ -30,6 +30,9 @@ NO_OVERRIDES = Overrides(aliases={}, locations={})
     ("2200 Grand Avenue #4", "Schofield", "2200 GRAND AVE|SCHOFIELD"),
     ("4000 Rib Mountain Drive", "Rib Mountain", "4000 RIB MOUNTAIN DR|RIB MOUNTAIN"),
     ("500  West   Thomas   St", "Wausau", "500 W THOMAS ST|WAUSAU"),
+    # Suffix abbreviation is positional — street NAMES keep their words.
+    ("3402 Terrace Court", "Wausau", "3402 TERRACE CT|WAUSAU"),
+    ("3402 Terrace Ct", "Wausau", "3402 TERRACE CT|WAUSAU"),
 ])
 def test_normalize(raw, muni, expected):
     assert normalize_address(raw, muni) == expected
