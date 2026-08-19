@@ -9,7 +9,7 @@ import pytest
 
 from pipeline.models import SignalKind, Source
 from pipeline.normalize import AddressError
-from pipeline.sources import licenses, permits, resolve_key
+from pipeline.sources import licenses, permits, resolve_key, transfers
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -153,3 +153,53 @@ def test_permits_address_city_mismatch_raises():
     record = dict(ledger["202604904"], address="2620 STEWART AVE, SCHOFIELD")
     with pytest.raises(ValueError, match="expected municipality"):
         permits.signals_from_ledger({"202604904": record}, {})
+
+
+# --- transfers ---------------------------------------------------------------
+# Fixture: all six real Marathon commercial transfers in the current feed,
+# plus real dropped records (residential, out-of-county, Manufacturing).
+
+SPENCER_ALIAS = {
+    "VACANT LAND ON SOUTH MADISON STREET|SPENCER": "S MADISON ST VACANT LAND|SPENCER"
+}
+
+
+def transactions_payload():
+    return json.loads(
+        (FIXTURES / "transactions_sample.json").read_text(encoding="utf-8"))
+
+
+def test_transfers_keeps_marathon_commercial_only():
+    signals = transfers.signals_from_feed(transactions_payload(), SPENCER_ALIAS)
+    assert [s.id for s in signals] == [
+        "transfer:1942292", "transfer:1942247", "transfer:1942692",
+        "transfer:1942104", "transfer:1941341", "transfer:1941123",
+    ]
+    assert all(s.source is Source.TRANSFER for s in signals)
+    assert all(s.kind is SignalKind.COMMERCIAL_SALE for s in signals)
+
+
+def test_transfers_mapping_fields():
+    schofield = [s for s in transfers.signals_from_feed(
+        transactions_payload(), SPENCER_ALIAS) if s.id == "transfer:1942692"][0]
+    assert schofield.location_key == "754 ALDERSON ST|SCHOFIELD"
+    assert schofield.observed == date(2026, 8, 17)
+    assert schofield.summary == "Sold for $737,546 to VISION COVE, LLC"
+    assert schofield.receipt["consideration"] == "737546"
+    assert schofield.receipt["grantor"].startswith("WYNN AND JOAN JONES")
+
+
+def test_transfers_town_municipality_cannot_collide_with_city():
+    brighton = [s for s in transfers.signals_from_feed(
+        transactions_payload(), SPENCER_ALIAS) if s.id == "transfer:1942104"][0]
+    assert brighton.location_key == "100794 KINGTON RD|TOWN OF BRIGHTON"
+
+
+def test_transfers_unaddressed_parcel_needs_raw_alias():
+    # "Vacant Land On South Madison Street" is a real record; without the
+    # raw-variant alias the build must stop.
+    with pytest.raises(AddressError):
+        transfers.signals_from_feed(transactions_payload(), {})
+    aliased = [s for s in transfers.signals_from_feed(
+        transactions_payload(), SPENCER_ALIAS) if s.id == "transfer:1941123"][0]
+    assert aliased.location_key == "S MADISON ST VACANT LAND|SPENCER"
