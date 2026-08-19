@@ -1,9 +1,8 @@
 name: build
 on:
   workflow_dispatch:
-  # Enable the nightly cron once pipeline/sources/*.py are implemented.
-  # schedule:
-  #   - cron: "17 10 * * *"   # ~05:17 America/Chicago
+  schedule:
+    - cron: "17 10 * * *"   # ~05:17 America/Chicago
 jobs:
   build:
     runs-on: ubuntu-latest
