@@ -44,9 +44,13 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
 
 ## Status / next steps
 
-1. Implement `sources/licenses.py` (marathon-meetings items) — highest
-   story-per-signal, smallest volume
-2. Implement `sources/permits.py` (wpr-permit-tracker output)
-3. Implement `sources/transfers.py` (wpr-property-transactions output)
-4. Enable the cron in `.github/workflows/build.yml`
-5. Widget (docs/WIDGET.md)
+All three adapters are live (2026-08-19; wiring decisions in each adapter's
+docstring — note licenses.py reads Wausau's CivicClerk API directly, not
+marathon-meetings output), the nightly cron runs, and the backfill produced
+a 64-location queue. Widget v1 (card list, filters, receipts) lives in
+`web/`; `npm run dev` there previews it against a marked dev sample.
+
+1. Editor pass over `public/queue.json` — first curated `locations:` entries
+2. Wire widget deployment: copy `public/locations.json` into the built
+   `web/dist/` and publish (Pages, same pattern as wpr-permit-tracker)
+3. Sponsor slots are placeholders — real sponsor config when sold
