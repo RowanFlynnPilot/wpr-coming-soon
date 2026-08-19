@@ -81,31 +81,44 @@ license that follows will surface the location anyway.
 
 ## 3. Alcohol license applications — `pipeline/sources/licenses.py`
 
-**Feed:** agenda items already ingested by `marathon-meetings` — Wausau's
-Public Health & Safety Committee plus the equivalent licensing bodies in the
-other municipalities.
+**Feed (as wired 2026-08-19):** Wausau Public Health & Safety Committee
+agenda items, read from the public CivicClerk OData API — the same endpoints
+marathon-meetings uses. (The original plan to consume marathon-meetings
+output didn't survive contact: its summaries are AI-condensed and its PHS
+coverage was 1 meeting in 5. See the adapter docstring.)
 
-**Keep:** *new* Class A and Class B beer/liquor license applications. These
-name the applicant, the trade name (dba), and the premises address — the
-single best restaurant/bar signal that exists.
+**Keep:** the item types that name a business and a premises address in the
+item text — license *transfers to a new location* and *90-day extensions to
+open for business*. Both are strong coming-soon signals.
 
 **Drop:** renewals (the annual June wall of them), operator/bartender
 licenses, agent changes, and temporary Class B "picnic" licenses.
 
-**Extraction:** match on the agenda item title/text. New applications read
-like *"Application for a Class 'B' Combination License — [applicant] d/b/a
-[trade name], [address]"*. Renewals batch under a renewal heading and drop on
-that keyword. When an item can't be confidently parsed for a premises address,
-raise — don't guess an address into the merge.
+**Extraction:** match on the agenda item title/text. A matched item that
+then fails the full parse raises — don't guess an address into the merge.
+
+**The batched-PDF dead end (checked 2026-08-19, do not re-attempt naively):**
+genuinely *new* Class A/B applications never appear as their own agenda
+items — they batch under one "Approval or denial of various license
+applications" item whose detail is an attached "Licenses List" PDF. That
+report names the class, applicant, and business (d/b/a), but its Address
+column is the **licensee's mailing address, not the premises** — the
+2026-06-01 list shows "2510 Deli & Bakery" against the applicant's home
+address in Edgar. Auto-keying those rows would merge wrong addresses (and
+PO-box rows can't normalize at all), so they stay a manual editor step: the
+signal's `url` lands on the portal event page with the PDF one click away.
+A future source for premises-accurate applications would be the full agenda
+packet's AT-106/AT-115 application forms, not this summary report.
 
 **Mapping:**
 
-- `id`: `license:{meeting_id}-{item_index}`
+- `id`: `license:wausau-{event_id}-{outline}` (e.g. `license:wausau-2069-6.c`)
 - `observed`: meeting date
-- `summary`: `"Class B application: {trade_name} ({applicant})"`
+- `summary`: `"License transfer to new location: {trade_name} ({applicant})"`
+  / `"Extension to open for business: {trade_name} ({applicant})"`
 - `receipt`: `{"body": ..., "meeting_date": ..., "agenda_item": ...,
   "applicant": ..., "trade_name": ...}`
-- `url`: the agenda/minutes link marathon-meetings already has
+- `url`: the CivicClerk portal event page (attachments one click away)
 
 ---
 
