@@ -104,6 +104,19 @@ def test_licenses_triggered_item_that_fails_to_parse_raises():
         licenses.extract_signals(2069, date(2026, 5, 18), "u", truncated, {})
 
 
+def test_licenses_ingests_posted_agendas_up_to_two_weeks_ahead():
+    # Real event: the 2026-09-21 PHS meeting already has agenda 2668 posted.
+    september = {"id": 2469, "eventName": "Public Health & Safety Committee Meeting",
+                 "startDateTime": "2026-09-21T17:15:00Z", "agendaId": 2668}
+    assert not licenses.wanted(september, date(2026, 8, 19))   # >14 days out
+    assert licenses.wanted(september, date(2026, 9, 10))       # inside window
+    assert licenses.wanted(september, date(2026, 10, 1))       # past meetings stay
+    no_agenda = dict(september, agendaId=0)                    # nothing posted yet
+    assert not licenses.wanted(no_agenda, date(2026, 9, 10))
+    other_body = dict(september, eventName="Finance Committee Meeting")
+    assert not licenses.wanted(other_body, date(2026, 9, 10))
+
+
 # --- permits -----------------------------------------------------------------
 # Fixture: seven real wpr-permit-tracker ledger records — one per kept
 # template across all three jurisdictions, plus dropped residential /

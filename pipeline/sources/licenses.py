@@ -44,7 +44,7 @@ Map:     kind      -> SignalKind.ALCOHOL_LICENSE_APPLICATION
 from __future__ import annotations
 
 import re
-from datetime import date
+from datetime import date, timedelta
 from urllib.parse import quote
 
 from ..models import Signal, SignalKind, Source
@@ -56,6 +56,10 @@ API = "https://wausauwi.api.civicclerk.com/v1"
 BODY = "Public Health & Safety Committee"
 MUNICIPALITY = "Wausau"
 BACKFILL_START = date(2026, 5, 18)  # first tracked PHS meeting (~90-day backfill)
+# Agendas post ~a week before the meeting, and that lead time IS the story:
+# a posted agenda is already a public record, so upcoming meetings within
+# this window are ingested too. ``observed`` stays the meeting date.
+LOOKAHEAD_DAYS = 14
 
 _TAGS = re.compile(r"<[^>]+>")
 _JUNK = re.compile("[\u200b\u200c\ufeff]")  # zero-width chars in CivicClerk text
@@ -143,18 +147,23 @@ def _events():
         url = page.get("@odata.nextLink")
 
 
+def wanted(event: dict, today: date) -> bool:
+    """PHS meetings with a published agenda, up to LOOKAHEAD_DAYS ahead."""
+    if not event["eventName"].startswith(BODY) or not event.get("agendaId"):
+        return False
+    meeting_date = date.fromisoformat(event["startDateTime"][:10])
+    return meeting_date <= today + timedelta(days=LOOKAHEAD_DAYS)
+
+
 def fetch(aliases: dict[str, str]) -> list[Signal]:
     signals = []
     for event in _events():
-        if not event["eventName"].startswith(BODY):
-            continue
-        meeting_date = date.fromisoformat(event["startDateTime"][:10])
-        if meeting_date > date.today() or not event.get("agendaId"):
+        if not wanted(event, date.today()):
             continue
         meeting = get_json(f"{API}/Meetings/{event['agendaId']}")
         signals.extend(extract_signals(
             event_id=event["id"],
-            meeting_date=meeting_date,
+            meeting_date=date.fromisoformat(event["startDateTime"][:10]),
             url=f"https://wausauwi.portal.civicclerk.com/event/{event['id']}/overview",
             items=meeting.get("items", []),
             aliases=aliases,
