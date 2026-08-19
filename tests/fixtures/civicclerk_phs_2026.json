@@ -1,0 +1,471 @@
+[
+ {
+  "event": {
+   "id": 2069,
+   "eventName": "Public Health & Safety Committee Meeting",
+   "startDateTime": "2026-05-18T17:15:00Z",
+   "agendaId": 1549
+  },
+  "items": [
+   {
+    "agendaObjectItemOutlineNumber": "1",
+    "agendaObjectItemName": "Call to Order by the Clerk.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "2",
+    "agendaObjectItemName": "Elect Chairperson and Vice Chairperson for the 2026-2028 term of the Public Health & Safety Committee.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "3",
+    "agendaObjectItemName": "Establish regular meeting date and time for the 2026-2028 term of the Public Health & Safety Committee.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "4",
+    "agendaObjectItemName": "Public comment on agenda items and reading of the City of Wausau Public Comment Statement.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "5",
+    "agendaObjectItemName": "Consideration of the minutes of the preceding meeting(s).",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Regular Public Health & Safety Committee Minutes",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "6",
+    "agendaObjectItemName": "Discussion and possible action.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Amending Section 17.16.020 Inspections of buildings and premises",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Approval or denial of various license applications.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Consider approval or denial of Alcohol Beverage License Transfer of the \"Class C\" Wine License for The Story Cellar currently located at 205 Callon Street, Suite 2 to new location at 416 N. 3rd Street, The Story Cellar LLC, owners Laura Spaeth.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "d",
+      "agendaObjectItemName": "Consider request granting temporary extension of premise of the \"Class B\" Beer & Liquor License for Cop Shoppe Pub located at 701 Washington Street, Cop Shoppe Ltd., agent Tami Ness.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "7",
+    "agendaObjectItemName": "Discussion.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Wausau Fire Department Quarter 1 2026 Report ",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Tavern Activities Report from April 2026.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Community Outreach Specialist Report",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "8",
+    "agendaObjectItemName": "Hearing.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Rent Abatement Request for 816 Brown Street (Elisia Doonan, Tenant; Wausau Area Property Management, Landlord)",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "9",
+    "agendaObjectItemName": "Closed Session.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "<strong>Adjourn to Closed Session </strong>pursuant to Wisconsin State Statute § 19.85(1)(a) for deliberating a case which was the subject of any judicial or quasi-judicial trial or hearing before the governmental body, for the purpose of deliberating a rent abatement request for 816 Brown Street.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "10",
+    "agendaObjectItemName": "Reconvene into Open Session, if necessary, to take action on Closed Session items. ",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "11",
+    "agendaObjectItemName": "Adjournment.",
+    "childItems": []
+   }
+  ]
+ },
+ {
+  "event": {
+   "id": 2368,
+   "eventName": "Public Health & Safety Committee",
+   "startDateTime": "2026-06-01T17:00:00Z",
+   "agendaId": 1585
+  },
+  "items": [
+   {
+    "agendaObjectItemOutlineNumber": "1",
+    "agendaObjectItemName": "Discussion and possible action.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Approval or denial of various license applications.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "2",
+    "agendaObjectItemName": "Adjournment.",
+    "childItems": []
+   }
+  ]
+ },
+ {
+  "event": {
+   "id": 2070,
+   "eventName": "Public Health & Safety Committee Meeting",
+   "startDateTime": "2026-06-15T17:15:00Z",
+   "agendaId": 1571
+  },
+  "items": [
+   {
+    "agendaObjectItemOutlineNumber": "1",
+    "agendaObjectItemName": "Public comment on agenda items and reading of the City of Wausau Public Comment Statement.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "2",
+    "agendaObjectItemName": "Consideration of the minutes of the preceding meeting(s).",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Regular Public Health & Safety Committee Minutes",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Special Public Health & Safety Committee Minutes",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "3",
+    "agendaObjectItemName": "Discussion and possible action.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Approval or denial of various license applications.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Consider request granting a 90 day extension to open for business for good cause for True North #855 located at 4611 Stewart Avenue, True North Energy LLC, agent Michelle Knox.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Reviewing Wausau Municipal Code Chapter 10.40 Bicycles, E-Bikes, and Similar Devices Regulated.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "d",
+      "agendaObjectItemName": "Amending Section 17.16.020 Inspections of buildings and premises.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "e",
+      "agendaObjectItemName": "Approving City of Wausau Emergency Operations Plan.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "f",
+      "agendaObjectItemName": "Approving Addendum to Memorandum of Understanding Fox Valley Regional Fire Departments Mobile Food Preparation Vehicle Inspection Program.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "g",
+      "agendaObjectItemName": "Approving Agreement for Urban Search and Rescue Emergency Response Services 2026-2028.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "h",
+      "agendaObjectItemName": "Reviewing Wausau Police Department staffing for the downtown area. ",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "4",
+    "agendaObjectItemName": "Discussion.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Wausau Police Department use of Flock Safety ALPR (Automated License Plate Recognition), including program updates and safety, security, and privacy considerations.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Tavern Activities Report from May 2025. ",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Community Outreach Speacialist Update.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "d",
+      "agendaObjectItemName": "Community Outreach Update from Bridge Street Mission.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "5",
+    "agendaObjectItemName": "Hearing.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Rent Abatement Request for 1418 N. 1st Street, Apartment 105 (Viviane De Azevedo Dias-Gomes and Vagner Luis Costa-Gomes, Tenant; Paramark Real Estate Service, Landlord).",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "6",
+    "agendaObjectItemName": "Closed Session.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "<strong>Adjourn to Closed Session </strong>pursuant to Wisconsin State Statute § 19.85(1)(a) for deliberating a case which was the subject of any judicial or quasi-judicial trial or hearing before the governmental body, for the purpose of deliberating a rent abatement request for 1418 N. 1st Street, Apartment 105.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "7",
+    "agendaObjectItemName": "Reconvene into Open Session, if necessary, to take action on Closed Session items. ",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "8",
+    "agendaObjectItemName": "Adjournment.",
+    "childItems": []
+   }
+  ]
+ },
+ {
+  "event": {
+   "id": 2467,
+   "eventName": "Public Health & Safety Committee Meeting",
+   "startDateTime": "2026-07-20T17:15:00Z",
+   "agendaId": 1597
+  },
+  "items": [
+   {
+    "agendaObjectItemOutlineNumber": "1",
+    "agendaObjectItemName": "Public comment on agenda items and reading of the City of Wausau Public Comment Statement.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "2",
+    "agendaObjectItemName": "Consideration of the minutes of the preceding meeting(s).",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Regular Public Health & Safety Committee Minutes",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "3",
+    "agendaObjectItemName": "Discussion and possible action.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Approval or denial of various license applications.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Consider request granting a 90 day extension to open for business for good cause for The Copper Kettle Steakhouse located at 5512 Stewart Avenue, The Copper Kettle Steakhouse, LLC., agent Robert A. Lamovec.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Amending Section.10.40.040 Rules of the Road and Areas of Operations.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "d",
+      "agendaObjectItemName": "<span style=\"font-size: 14px;\">Review of large-item drop off event and consideration of changes to future events.</span>",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "e",
+      "agendaObjectItemName": "Interval of the Community Outreach report and other communications from organizations supporting the unhoused population. ",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "4",
+    "agendaObjectItemName": "Discussion.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Wausau Police Department Quarter 2 2026 Report",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Tavern Activities Report from June 2026.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Community Outreach Report",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "5",
+    "agendaObjectItemName": "Adjournment.",
+    "childItems": []
+   }
+  ]
+ },
+ {
+  "event": {
+   "id": 2468,
+   "eventName": "Public Health & Safety Committee Meeting",
+   "startDateTime": "2026-08-17T17:15:00Z",
+   "agendaId": 2650
+  },
+  "items": [
+   {
+    "agendaObjectItemOutlineNumber": "1",
+    "agendaObjectItemName": "Public comment on agenda items and reading of the City of Wausau Public Comment Statement.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "2",
+    "agendaObjectItemName": "Consideration of the minutes of the preceding meeting(s).",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Regular Public Health & Safety Committee Minutes",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "3",
+    "agendaObjectItemName": "Discussion and possible action.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Approval or denial of various license applications.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Consider approval or denial of Alcohol Beverage License Transfer of the \"Class B\" Beer & Liquor for Venado Wine ​Bar currently located at 209 Grant Street to new location at 303 N. 3rd Street, Onora Hotels LLC owners, Juan Antonio Casarrubias and Lesli Iverson.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Repealing and recreating Chapter 9.28 Abatement of Nuisances.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "4",
+    "agendaObjectItemName": "Discussion.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Wausau Police Department Quarter 2 2026 Report.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "b",
+      "agendaObjectItemName": "Wausau Fire Department Quarter 2 2026 Report.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "c",
+      "agendaObjectItemName": "Tavern Activities Report from June and July 2026.",
+      "childItems": []
+     },
+     {
+      "agendaObjectItemOutlineNumber": "d",
+      "agendaObjectItemName": "Community Outreach Report.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "5",
+    "agendaObjectItemName": "Hearing.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "Rent Abatement Request for 615 Elm Street (Heather Fletcher, Tenant; Better Tomorrow Investments/ABC Rental, Landlord).",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "6",
+    "agendaObjectItemName": "Closed Session.",
+    "childItems": [
+     {
+      "agendaObjectItemOutlineNumber": "a",
+      "agendaObjectItemName": "<strong data-pasted=\"true\">Adjourn to Closed Session </strong>pursuant to Wisconsin State Statute § 19.85(1)(a) for deliberating a case which was the subject of any judicial or quasi-judicial trial or hearing before the governmental body, for the purpose of deliberating a rent abatement request for 615 Elm Street.",
+      "childItems": []
+     }
+    ]
+   },
+   {
+    "agendaObjectItemOutlineNumber": "7",
+    "agendaObjectItemName": "Reconvene into Open Session, if necessary, to take action on Closed Session items.",
+    "childItems": []
+   },
+   {
+    "agendaObjectItemOutlineNumber": "8",
+    "agendaObjectItemName": "Adjournment.",
+    "childItems": []
+   }
+  ]
+ }
+]
