@@ -9,7 +9,7 @@ import pytest
 
 from pipeline.models import SignalKind, Source
 from pipeline.normalize import AddressError
-from pipeline.sources import licenses, resolve_key
+from pipeline.sources import licenses, permits, resolve_key
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -102,3 +102,54 @@ def test_licenses_triggered_item_that_fails_to_parse_raises():
     }]
     with pytest.raises(ValueError, match="didn't parse"):
         licenses.extract_signals(2069, date(2026, 5, 18), "u", truncated, {})
+
+
+# --- permits -----------------------------------------------------------------
+# Fixture: seven real wpr-permit-tracker ledger records — one per kept
+# template across all three jurisdictions, plus dropped residential /
+# maintenance / unassigned-jurisdiction classes.
+
+def permit_ledger():
+    return json.loads(
+        (FIXTURES / "permit_ledger_sample.json").read_text(encoding="utf-8"))
+
+
+def test_permits_keeps_sign_and_commercial_drops_the_rest():
+    signals = permits.signals_from_ledger(permit_ledger(), {})
+    assert [s.id for s in signals] == [
+        "permit:WAU-202604904",   # Sign
+        "permit:RIB-202604958",   # Com Building, Rib Mountain
+        "permit:SCH-202606400",   # Com Early Start, Schofield
+        "permit:WAU-202607376",   # Com Building (Parker Johns BBQ)
+    ]
+    kinds = {s.id: s.kind for s in signals}
+    assert kinds["permit:WAU-202604904"] is SignalKind.SIGN_PERMIT
+    assert kinds["permit:SCH-202606400"] is SignalKind.NEW_COMMERCIAL_CONSTRUCTION
+    assert kinds["permit:WAU-202607376"] is SignalKind.COMMERCIAL_ALTERATION
+
+
+def test_permits_mapping_fields():
+    parker = [s for s in permits.signals_from_ledger(permit_ledger(), {})
+              if s.id == "permit:WAU-202607376"][0]
+    assert parker.location_key == "2510 STEWART AVE|WAUSAU"
+    assert parker.observed == date(2026, 7, 8)
+    assert parker.source is Source.PERMIT
+    assert "Parker Johns BBQ" in parker.summary
+    assert parker.receipt == {"permit_number": "202607376",
+                              "municipality": "Wausau",
+                              "issued": "2026-07-08"}
+    assert parker.url.startswith("https://www.wausauwi.gov/")
+
+
+def test_permits_unmapped_jurisdiction_on_kept_template_raises():
+    ledger = permit_ledger()
+    record = dict(ledger["202604904"], jurisdiction="unassigned")
+    with pytest.raises(ValueError, match="unmapped jurisdiction"):
+        permits.signals_from_ledger({"202604904": record}, {})
+
+
+def test_permits_address_city_mismatch_raises():
+    ledger = permit_ledger()
+    record = dict(ledger["202604904"], address="2620 STEWART AVE, SCHOFIELD")
+    with pytest.raises(ValueError, match="expected municipality"):
+        permits.signals_from_ledger({"202604904": record}, {})
