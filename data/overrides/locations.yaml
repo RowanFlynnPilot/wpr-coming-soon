@@ -2,9 +2,15 @@
 # This file is the ONLY way a location reaches the public page.
 # See data/overrides/README.md for how to use it.
 
-address_aliases: {}
+address_aliases:
   # Map a bad/variant normalized key to the canonical one:
   # "1300 N THIRD ST|WAUSAU": "1300 N 3RD ST|WAUSAU"
+  # Raw variant (unparseable address in transfer 1941123): a Village of
+  # Spencer vacant-land parcel with no street number.
+  "VACANT LAND ON SOUTH MADISON STREET|SPENCER": "S MADISON ST VACANT LAND|SPENCER"
+  # Transfer 1942292 lists three parcels in one address field; key the
+  # location to the first.
+  "514 S 17TH AVE / 516 S 17TH AVE 1704 GARFIELD AVE|WAUSAU": "514 S 17TH AVE|WAUSAU"
 
 locations: {}
   # "301 WASHINGTON ST|WAUSAU":

@@ -1,0 +1,1684 @@
+{
+  "generated": "2026-08-19T16:13:14+00:00",
+  "locations": [
+    {
+      "key": "303 N 3RD ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "303 N 3Rd St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2468-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-08-17",
+          "summary": "License transfer to new location: Venado Wine Bar (Onora Hotels LLC)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-08-17",
+            "agenda_item": "3.b: Consider approval or denial of Alcohol Beverage License Transfer of the \"Class B\" Beer & Liquor for Venado Wine Bar currently located at 209 Grant Street to new location at 303 N. 3rd Street, Onora Hotels LLC owners, Juan Antonio Casarrubias and Lesli Iverson.",
+            "applicant": "Onora Hotels LLC",
+            "trade_name": "Venado Wine Bar"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2468/overview"
+        }
+      ]
+    },
+    {
+      "key": "754 ALDERSON ST|SCHOFIELD",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "754 Alderson St",
+      "municipality": "Schofield",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1942692",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-17",
+          "summary": "Sold for $737,546 to VISION COVE, LLC",
+          "receipt": {
+            "document_number": "1942692",
+            "grantor": "WYNN AND JOAN JONES REVOCABLE TRUST DATED JANUARY 24, 1992",
+            "grantee": "VISION COVE, LLC",
+            "consideration": "737546"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "514 S 17TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "514 S 17Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1942292",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-07",
+          "summary": "Sold for $650,000 to ELEVATED HOLDINGS LLC",
+          "receipt": {
+            "document_number": "1942292",
+            "grantor": "V&K INVESTMENT PROPERTIES LLC",
+            "grantee": "ELEVATED HOLDINGS LLC",
+            "consideration": "650000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "555 S 72ND AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "555 S 72Nd Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1942247",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-06",
+          "summary": "Sold for $1,165,000 to DMW ACRES LLC",
+          "receipt": {
+            "document_number": "1942247",
+            "grantor": "YOUNG BROS. PROPERTIES, LLC",
+            "grantee": "DMW ACRES LLC",
+            "consideration": "1165000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "100794 KINGTON RD|TOWN OF BRIGHTON",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "100794 Kington Rd",
+      "municipality": "Town Of Brighton",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1942104",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-04",
+          "summary": "Sold for $1,015,200 to OBERHOLTZER, MATTHEW",
+          "receipt": {
+            "document_number": "1942104",
+            "grantor": "MARTIN, DANIEL E.",
+            "grantee": "OBERHOLTZER, MATTHEW",
+            "consideration": "1015200"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "1110 GREENHECK DR|SCHOFIELD",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1110 Greenheck Dr",
+      "municipality": "Schofield",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:SCH-202608121",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-28",
+          "summary": "Renovating existing training space into open office space.",
+          "receipt": {
+            "permit_number": "202608121",
+            "municipality": "Schofield",
+            "issued": "2026-07-28"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "5512 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "5512 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2467-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-07-20",
+          "summary": "Extension to open for business: The Copper Kettle Steakhouse (The Copper Kettle Steakhouse)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-07-20",
+            "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for The Copper Kettle Steakhouse located at 5512 Stewart Avenue, The Copper Kettle Steakhouse, LLC., agent Robert A. Lamovec.",
+            "applicant": "The Copper Kettle Steakhouse",
+            "trade_name": "The Copper Kettle Steakhouse"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2467/overview"
+        },
+        {
+          "id": "permit:WAU-202608261",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-28",
+          "summary": "Refacing Signs for new business",
+          "receipt": {
+            "permit_number": "202608261",
+            "municipality": "Wausau",
+            "issued": "2026-07-28"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "1468 SCHOFIELD AVE|SCHOFIELD",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1468 Schofield Ave",
+      "municipality": "Schofield",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:SCH-202606400",
+          "source": "permit",
+          "kind": "new_commercial_construction",
+          "observed": "2026-06-12",
+          "summary": "Interior Remodel",
+          "receipt": {
+            "permit_number": "202606400",
+            "municipality": "Schofield",
+            "issued": "2026-06-12"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        },
+        {
+          "id": "permit:SCH-202608075",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-24",
+          "summary": "Interior Remodel",
+          "receipt": {
+            "permit_number": "202608075",
+            "municipality": "Schofield",
+            "issued": "2026-07-24"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "330 MCCLELLAN ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "330 Mcclellan St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202608077",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-24",
+          "summary": "rebuild steps on east entrance to match steps redone 3 years ago for main entrance",
+          "receipt": {
+            "permit_number": "202608077",
+            "municipality": "Wausau",
+            "issued": "2026-07-24"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "931 WOODS PL|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "931 Woods Pl",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1941341",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-07-24",
+          "summary": "Sold for $284,999 to A75N1 LLC",
+          "receipt": {
+            "document_number": "1941341",
+            "grantor": "BEACHWIND LIMITED PARTNERSHIP",
+            "grantee": "A75N1 LLC",
+            "consideration": "284999"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "1702 W THOMAS ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1702 W Thomas St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607823",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-20",
+          "summary": "Adding 10 x 16 storage shed to property",
+          "receipt": {
+            "permit_number": "202607823",
+            "municipality": "Wausau",
+            "issued": "2026-07-20"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        },
+        {
+          "id": "permit:WAU-202607859",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-21",
+          "summary": "aluminum non lighted sign on east side of building",
+          "receipt": {
+            "permit_number": "202607859",
+            "municipality": "Wausau",
+            "issued": "2026-07-21"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "226126 HUMMINGBIRD RD|RIB MOUNTAIN",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "226126 Hummingbird Rd",
+      "municipality": "Rib Mountain",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:RIB-202607861",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-21",
+          "summary": "#1 Replace existing rear exit treated deck with same but using composite decking and aluminum railing** We want to confirm that the existing stairs meets code. The building has ADA access and exit from front door only. ** #2 Add a 12x12 concrete patio off rear exit deck with sidewalk to attach to existing sidewalk #3 replace existing front steps railing with aluminum railing system",
+          "receipt": {
+            "permit_number": "202607861",
+            "municipality": "Rib Mountain",
+            "issued": "2026-07-21"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "605 S 24TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "605 S 24Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607860",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-21",
+          "summary": "Sign #1 Face-lit Channel Letters on Raceway, 28\" tall face lit channel letters with white faces and black returns and trim cap with vinyl to read \"AURA\", minimum letter stroke width of 1 1/2\", mounted on raceway, white LED illumination, NO external mounting tabs, mounted flush to wall power out back of raceway, customer to run power to sign, manufactured and installed. Sign #2 Vinyl Graphics on Existing Lexan Face, (2) 12\" x 60\" imaged vinyl graphics on existing face, remove and dispose of existing vinyl and install new",
+          "receipt": {
+            "permit_number": "202607860",
+            "municipality": "Wausau",
+            "issued": "2026-07-21"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "S MADISON ST VACANT LAND|SPENCER",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "S Madison St Vacant Land",
+      "municipality": "Spencer",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1941123",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-07-21",
+          "summary": "Sold for $2,304 to LAF INVESTMENTS, LLC",
+          "receipt": {
+            "document_number": "1941123",
+            "grantor": "VILLAGE OF SPENCER",
+            "grantee": "LAF INVESTMENTS, LLC",
+            "consideration": "2304"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "131 RIVER DR|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "131 River Dr",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607600",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-16",
+          "summary": "Remodel For Vitality Bar. Bathroom Remodel",
+          "receipt": {
+            "permit_number": "202607600",
+            "municipality": "Wausau",
+            "issued": "2026-07-16"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "180 E WAUSAU AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "180 E Wausau Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607575",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-15",
+          "summary": "New building signage",
+          "receipt": {
+            "permit_number": "202607575",
+            "municipality": "Wausau",
+            "issued": "2026-07-15"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "2105 N 6TH ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2105 N 6Th St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607511",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-07-13",
+          "summary": "install 1 double sided lit monument sign",
+          "receipt": {
+            "permit_number": "202607511",
+            "municipality": "Wausau",
+            "issued": "2026-07-13"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "2125 FRANKLIN ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2125 Franklin St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607457",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-11",
+          "summary": "Construction of new garage behind the church for storage of vehicles and miscellaneous storage",
+          "receipt": {
+            "permit_number": "202607457",
+            "municipality": "Wausau",
+            "issued": "2026-07-11"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "630 S 3RD AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "630 S 3Rd Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607448",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-10",
+          "summary": "24/7 MEDICATION DISPENSING MACHINE WILL BE PUT THROUGH THE FRONT WINDOW, WINDOW WILL BE MINIMIZED",
+          "receipt": {
+            "permit_number": "202607448",
+            "municipality": "Wausau",
+            "issued": "2026-07-10"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "1000 W CAMPUS DR|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1000 W Campus Dr",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605935",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-02",
+          "summary": "Interior Remodel",
+          "receipt": {
+            "permit_number": "202605935",
+            "municipality": "Wausau",
+            "issued": "2026-06-02"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        },
+        {
+          "id": "permit:WAU-202607357",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-08",
+          "summary": "Building CHS Stair Expansion & Interior Remodel",
+          "receipt": {
+            "permit_number": "202607357",
+            "municipality": "Wausau",
+            "issued": "2026-07-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "2510 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2510 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607376",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-07-08",
+          "summary": "Restaurant Alteration from 2510 to Parker Johns BBQ and Bakery/Deli upgrade",
+          "receipt": {
+            "permit_number": "202607376",
+            "municipality": "Wausau",
+            "issued": "2026-07-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16476/639214597389600000"
+        }
+      ]
+    },
+    {
+      "key": "333 PINE RIDGE BLVD|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "333 Pine Ridge Blvd",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607137",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-30",
+          "summary": "Roughly 100,000 square foot bed tower addition to the west side of the existing hospital. 4 floors above ground and a basement",
+          "receipt": {
+            "permit_number": "202607137",
+            "municipality": "Wausau",
+            "issued": "2026-06-30"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "1400 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1400 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607094",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-29",
+          "summary": "Addition to storage building",
+          "receipt": {
+            "permit_number": "202607094",
+            "municipality": "Wausau",
+            "issued": "2026-06-29"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "2609 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2609 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202607051",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-26",
+          "summary": "Install ACM band w/ CHARBROILED BURGERS and MADE FROM SCRATCH BISCUITS on side elevations. Reface existing pylon and install dt canopy.",
+          "receipt": {
+            "permit_number": "202607051",
+            "municipality": "Wausau",
+            "issued": "2026-06-26"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "327 N 17TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "327 N 17Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606859",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-24",
+          "summary": "New monument head and 2 additional tenant panels",
+          "receipt": {
+            "permit_number": "202606859",
+            "municipality": "Wausau",
+            "issued": "2026-06-24"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "550 N 17TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "550 N 17Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606745",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-23",
+          "summary": "Replacing the lexan faces on two monument signs and one directional sign.",
+          "receipt": {
+            "permit_number": "202606745",
+            "municipality": "Wausau",
+            "issued": "2026-06-23"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "308 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "308 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606717",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-22",
+          "summary": "Rebranding of the fuel price sign and canopy to include Fuel On and Amoco.",
+          "receipt": {
+            "permit_number": "202606717",
+            "municipality": "Wausau",
+            "issued": "2026-06-22"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "3500 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "3500 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606623",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-17",
+          "summary": "Replace front (facing Stewart Ave) unlimit sign with a Lit cabinet wall sign. SIze to remain the same: 146.75\" x 37.875\". Replace unlit 36 sq. foot sign above entry door with lit round logo sign that is 24 sq. ft. Replace window graphics with the window graphics. Area of graphic not to exceed 50% of glass opening.",
+          "receipt": {
+            "permit_number": "202606623",
+            "municipality": "Wausau",
+            "issued": "2026-06-17"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "4611 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "4611 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2070-3.b",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-06-15",
+          "summary": "Extension to open for business: True North #855 (True North Energy LLC)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-06-15",
+            "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for True North #855 located at 4611 Stewart Avenue, True North Energy LLC, agent Michelle Knox.",
+            "applicant": "True North Energy LLC",
+            "trade_name": "True North #855"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2070/overview"
+        }
+      ]
+    },
+    {
+      "key": "940 S 5TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "940 S 5Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606542",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-15",
+          "summary": "Remodeling of interior rental unit. this will include new flooring cabinets countertops doors fixtures and other basic facelift items. floor leveling will be done before laying lvp. wall be framed up to add another room in this unit.",
+          "receipt": {
+            "permit_number": "202606542",
+            "municipality": "Wausau",
+            "issued": "2026-06-15"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "1509 N 5TH ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1509 N 5Th St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606301",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-11",
+          "summary": "Demo of classroom ceilings, minor casework demo, storefront demo, stage demo, remodel of stage area to create classroom/ storage, remodel of bathroom to create ADA Accessibility & chiller enclosure addition.",
+          "receipt": {
+            "permit_number": "202606301",
+            "municipality": "Wausau",
+            "issued": "2026-06-11"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "1201 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1201 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606204",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-09",
+          "summary": "Replacing face sign at corner of Stewart Avenue and 17th Avenue",
+          "receipt": {
+            "permit_number": "202606204",
+            "municipality": "Wausau",
+            "issued": "2026-06-09"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "3200 N 6TH ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "3200 N 6Th St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606205",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-09",
+          "summary": "Replacing face sign at north end of Gilbert Park",
+          "receipt": {
+            "permit_number": "202606205",
+            "municipality": "Wausau",
+            "issued": "2026-06-09"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "5511 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "5511 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606194",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-09",
+          "summary": "building addition for showroom 36' x 54'",
+          "receipt": {
+            "permit_number": "202606194",
+            "municipality": "Wausau",
+            "issued": "2026-06-09"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "505 S 24TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "505 S 24Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606179",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-08",
+          "summary": "Additional offices and new break room",
+          "receipt": {
+            "permit_number": "202606179",
+            "municipality": "Wausau",
+            "issued": "2026-06-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "606 JACKSON ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "606 Jackson St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202606191",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-08",
+          "summary": "Remove existing interior doors and replace with same size doors. Replace unit entrance door with a 90-minute steel door. Remove existing kitchen cabinets and replace with new cabinets. No changes to the walls. Install new doors and trim. Install new kitchen cabinets and countertop. Replace the vanity and countertop with the same size vanity. Replace the unit entrance door with the same size 90-minute fire door.",
+          "receipt": {
+            "permit_number": "202606191",
+            "municipality": "Wausau",
+            "issued": "2026-06-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "150801 ROBIN LN|RIB MOUNTAIN",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "150801 Robin Ln",
+      "municipality": "Rib Mountain",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:RIB-202606009",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-04",
+          "summary": "Remodeling entrance to add secure entrance",
+          "receipt": {
+            "permit_number": "202606009",
+            "municipality": "Rib Mountain",
+            "issued": "2026-06-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "1506 N RIVER DR|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1506 N River Dr",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605977",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-06-03",
+          "summary": "New signage package.",
+          "receipt": {
+            "permit_number": "202605977",
+            "municipality": "Wausau",
+            "issued": "2026-06-03"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "1440 W CAMPUS DR|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1440 W Campus Dr",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605962",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-02",
+          "summary": "Cooler/Freezer Addition, Kitchen Remodel, Parking lot Remodel",
+          "receipt": {
+            "permit_number": "202605962",
+            "municipality": "Wausau",
+            "issued": "2026-06-02"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "400 GRAND AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "400 Grand Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605930",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-02",
+          "summary": "Removal and replacement of east wall.",
+          "receipt": {
+            "permit_number": "202605930",
+            "municipality": "Wausau",
+            "issued": "2026-06-02"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "616 WOODS PL|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "616 Woods Pl",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605905",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-06-01",
+          "summary": "Airport Hanger",
+          "receipt": {
+            "permit_number": "202605905",
+            "municipality": "Wausau",
+            "issued": "2026-06-01"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16424/639192049650825233"
+        }
+      ]
+    },
+    {
+      "key": "310 ROSS AVE|SCHOFIELD",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "310 Ross Ave",
+      "municipality": "Schofield",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:SCH-202605893",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-29",
+          "summary": "50'-10\" x 100'-0\" type F-2 expansion off of eastern side of existing fabrication building. Type IIB construction consisting of PEMB structure with metal panel roof and walls. Nonsprinklered.",
+          "receipt": {
+            "permit_number": "202605893",
+            "municipality": "Schofield",
+            "issued": "2026-05-29"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "404 FRANKLIN ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "404 Franklin St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605770",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-28",
+          "summary": "Post and panel sign",
+          "receipt": {
+            "permit_number": "202605770",
+            "municipality": "Wausau",
+            "issued": "2026-05-28"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "102 JEFFERSON ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "102 Jefferson St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604815",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-06",
+          "summary": "Handicap Ramp",
+          "receipt": {
+            "permit_number": "202604815",
+            "municipality": "Wausau",
+            "issued": "2026-05-06"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        },
+        {
+          "id": "permit:WAU-202605723",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-26",
+          "summary": "We will hang a banner very similar to our neighbor's banner, Studio E. The poles already exist and hang off the side of the building, so no new construction will happen.",
+          "receipt": {
+            "permit_number": "202605723",
+            "municipality": "Wausau",
+            "issued": "2026-05-26"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "1918 LAMONT ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1918 Lamont St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605708",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-26",
+          "summary": "Interior Remodel",
+          "receipt": {
+            "permit_number": "202605708",
+            "municipality": "Wausau",
+            "issued": "2026-05-26"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "500 N 4TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "500 N 4Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605516",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-22",
+          "summary": "Replacing the face on the existing Grant Elementary School. Face is changing from Grant Elementary School to Grant School.",
+          "receipt": {
+            "permit_number": "202605516",
+            "municipality": "Wausau",
+            "issued": "2026-05-22"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "215 LAVINA DR|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "215 Lavina Dr",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605482",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-21",
+          "summary": "moving staircase to left side of hallway to accommodate the new 9-meter electric service entrance which was originally below staircase.",
+          "receipt": {
+            "permit_number": "202605482",
+            "municipality": "Wausau",
+            "issued": "2026-05-21"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "3901 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "3901 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605360",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-18",
+          "summary": "Replace the faces on the existing monument sign. PRO Physical Therapy & Hand Center and OAW adding Walk In Clinic and OPEN / CLOSE LED display. Replace existing window vinyl to reflect logo change.",
+          "receipt": {
+            "permit_number": "202605360",
+            "municipality": "Wausau",
+            "issued": "2026-05-18"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "416 N 3RD ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "416 N 3Rd St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "license:wausau-2069-6.c",
+          "source": "license",
+          "kind": "alcohol_license_application",
+          "observed": "2026-05-18",
+          "summary": "License transfer to new location: The Story Cellar (The Story Cellar LLC)",
+          "receipt": {
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-05-18",
+            "agenda_item": "6.c: Consider approval or denial of Alcohol Beverage License Transfer of the \"Class C\" Wine License for The Story Cellar currently located at 205 Callon Street, Suite 2 to new location at 416 N. 3rd Street, The Story Cellar LLC, owners Laura Spaeth.",
+            "applicant": "The Story Cellar LLC",
+            "trade_name": "The Story Cellar"
+          },
+          "url": "https://wausauwi.portal.civicclerk.com/event/2069/overview"
+        }
+      ]
+    },
+    {
+      "key": "7333 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "7333 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605363",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-18",
+          "summary": "non-illuminated 10mm alumalite panels attached to each side of 4x4 pressure treated, painted wood posts mounted in ground below the frost line in the ground",
+          "receipt": {
+            "permit_number": "202605363",
+            "municipality": "Wausau",
+            "issued": "2026-05-18"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "217 SCOTT ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "217 Scott St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605098",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-14",
+          "summary": "Building Sign",
+          "receipt": {
+            "permit_number": "202605098",
+            "municipality": "Wausau",
+            "issued": "2026-05-14"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "620 N 3RD ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "620 N 3Rd St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605099",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-14",
+          "summary": "Blade sign",
+          "receipt": {
+            "permit_number": "202605099",
+            "municipality": "Wausau",
+            "issued": "2026-05-14"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "1811 BADGER AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1811 Badger Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604999",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-12",
+          "summary": "replacing face on existing D/F pylon with channel letters on backer panels and LED upgrade.",
+          "receipt": {
+            "permit_number": "202604999",
+            "municipality": "Wausau",
+            "issued": "2026-05-12"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "500 N 17TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "500 N 17Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605023",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-12",
+          "summary": "Vinyl lettering on existing signs",
+          "receipt": {
+            "permit_number": "202605023",
+            "municipality": "Wausau",
+            "issued": "2026-05-12"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "516 MCCLELLAN ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "516 Mcclellan St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202605004",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-12",
+          "summary": "demo wall in closet to create office",
+          "receipt": {
+            "permit_number": "202605004",
+            "municipality": "Wausau",
+            "issued": "2026-05-12"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "223978 LAKESHORE DR|RIB MOUNTAIN",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "223978 Lakeshore Dr",
+      "municipality": "Rib Mountain",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:RIB-202604958",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-11",
+          "summary": "New park shelter / pavilion with bathrooms, non-prep kitchenet, and pavilion area",
+          "receipt": {
+            "permit_number": "202604958",
+            "municipality": "Rib Mountain",
+            "issued": "2026-05-11"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "2620 STEWART AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "2620 Stewart Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604904",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-08",
+          "summary": "Lit channel letters",
+          "receipt": {
+            "permit_number": "202604904",
+            "municipality": "Wausau",
+            "issued": "2026-05-08"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "903 S 60TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "903 S 60Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604819",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-06",
+          "summary": "Directory Sign near Entrance",
+          "receipt": {
+            "permit_number": "202604819",
+            "municipality": "Wausau",
+            "issued": "2026-05-06"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "109 S 17TH AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "109 S 17Th Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604786",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-04",
+          "summary": "Face Replacement- Tenant panels in pylon sign",
+          "receipt": {
+            "permit_number": "202604786",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "1611 CHELLIS ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1611 Chellis St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604776",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-04",
+          "summary": "Wausau Sign on right of way (Dan is building only the base)",
+          "receipt": {
+            "permit_number": "202604776",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "201 W WASHINGTON ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "201 W Washington St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604752",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-04",
+          "summary": "Egress Exit and deck",
+          "receipt": {
+            "permit_number": "202604752",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "3402 TER CT|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "3402 Ter Ct",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604777",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-04",
+          "summary": "8x12 storage shed on the slab where dumpster used to be",
+          "receipt": {
+            "permit_number": "202604777",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "407 GRANT ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "407 Grant St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604774",
+          "source": "permit",
+          "kind": "sign_permit",
+          "observed": "2026-05-04",
+          "summary": "building base of the Wausau sign.",
+          "receipt": {
+            "permit_number": "202604774",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    },
+    {
+      "key": "500 FOREST ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "500 Forest St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "permit:WAU-202604778",
+          "source": "permit",
+          "kind": "commercial_alteration",
+          "observed": "2026-05-04",
+          "summary": "Office Buildout on 3rd Floor of Jail.",
+          "receipt": {
+            "permit_number": "202604778",
+            "municipality": "Wausau",
+            "issued": "2026-05-04"
+          },
+          "url": "https://www.wausauwi.gov/home/showpublisheddocument/16374/639172052039130000"
+        }
+      ]
+    }
+  ]
+}
