@@ -233,6 +233,32 @@ def test_transfers_town_municipality_cannot_collide_with_city():
     assert brighton.location_key == "100794 KINGTON RD|TOWN OF BRIGHTON"
 
 
+# --- deploy-time geo enrichment ----------------------------------------------
+
+def load_enrich_geo():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "enrich_geo", Path(__file__).parents[1] / "scripts" / "enrich_geo.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_enrich_geo_joins_geocoded_permits_only():
+    enrich_geo = load_enrich_geo()
+    payload = {"locations": [
+        {"key": "2620 STEWART AVE|WAUSAU", "signals": [
+            {"source": "permit", "receipt": {"permit_number": "202604904"}}]},
+        {"key": "754 ALDERSON ST|SCHOFIELD", "signals": [
+            {"source": "transfer", "receipt": {"document_number": "1942692"}}]},
+    ]}
+    assert enrich_geo.enrich(payload, permit_ledger()) == 1
+    mapped, unmapped = payload["locations"]
+    assert mapped["lat"] == pytest.approx(44.958, abs=0.01)
+    assert mapped["lon"] == pytest.approx(-89.68, abs=0.05)
+    assert unmapped["lat"] is None and unmapped["lon"] is None
+
+
 def test_transfers_unaddressed_parcel_needs_raw_alias():
     # "Vacant Land On South Madison Street" is a real record; without the
     # raw-variant alias the build must stop.

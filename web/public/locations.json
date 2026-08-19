@@ -10,6 +10,8 @@
       "municipality": "Wausau",
       "note": "Dev sample entry: this file is replaced by the pipeline's real locations.json at deploy time. Shapes and receipts mirror real queue records.",
       "opened": null,
+      "lat": 44.95538919399,
+      "lon": -89.706062990497,
       "signals": [
         {
           "id": "license:wausau-2467-3.b",

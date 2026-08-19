@@ -38,7 +38,9 @@ jobs:
       - run: npm run build
         working-directory: web
       - name: Ship the data next to the widget
-        run: cp public/locations.json public/queue.json web/dist/
+        run: |
+          cp public/locations.json public/queue.json web/dist/
+          python scripts/enrich_geo.py web/dist/locations.json web/dist/queue.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web/dist

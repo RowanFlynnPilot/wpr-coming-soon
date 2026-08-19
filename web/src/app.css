@@ -178,6 +178,44 @@ a.banner__sponsor:hover {
   padding: 5px 8px;
 }
 
+.viewtoggle {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.viewtoggle button {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 5px 14px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.viewtoggle button[aria-selected='true'] {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+}
+
+/* -------------------------------------------------------------------- map */
+.map {
+  height: 420px;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+}
+
+.map__note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin: 8px 0 0;
+}
+
 /* ----------------------------------------------------------------- cards */
 .card {
   background: var(--white);

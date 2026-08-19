@@ -2,7 +2,9 @@
 // Consumes exactly one file: locations.json (deployed next to the build).
 // Branding follows the paper's widget design system (see app.css).
 
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 import { CONFIG } from './config.js'
 
 const KIND_LABELS = {
@@ -121,11 +123,61 @@ function Card({ loc }) {
   )
 }
 
+// Locations gain lat/lon at deploy time (scripts/enrich_geo.py) from the
+// permit tracker's geocodes — the pipeline itself never geocodes.
+function MapView({ locations }) {
+  const ref = useRef(null)
+  const pts = locations.filter((l) => l.lat != null && l.lon != null)
+
+  useEffect(() => {
+    if (!ref.current || pts.length === 0) return undefined
+    const map = L.map(ref.current, { scrollWheelZoom: false })
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 19,
+    }).addTo(map)
+    pts.forEach((l) => {
+      const open = l.status === 'open'
+      L.circleMarker([l.lat, l.lon], {
+        radius: 9,
+        color: open ? '#2e7d46' : '#3a867c',
+        fillColor: open ? '#2e7d46' : '#3a867c',
+        fillOpacity: 0.85,
+        weight: 2,
+      })
+        .addTo(map)
+        .bindPopup(
+          `<strong>${l.name}</strong><br>${l.address}, ${l.municipality}<br>` +
+            (open ? 'Now open' : 'Coming soon')
+        )
+    })
+    map.fitBounds(L.latLngBounds(pts.map((l) => [l.lat, l.lon])).pad(0.25), {
+      maxZoom: 15,
+    })
+    return () => map.remove()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(pts.map((l) => l.key))])
+
+  if (pts.length === 0) {
+    return <p className="notice">None of the current entries carry map coordinates yet.</p>
+  }
+  return (
+    <>
+      <div ref={ref} className="map" />
+      <p className="map__note">
+        {pts.length} of {locations.length} shown — entries pin only once a geocoded permit
+        backs them.
+      </p>
+    </>
+  )
+}
+
 export default function App() {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [muni, setMuni] = useState('')
   const [category, setCategory] = useState('')
+  const [view, setView] = useState('list')
 
   useEffect(() => {
     fetch('./locations.json')
@@ -162,6 +214,18 @@ export default function App() {
 
       {locations.length > 0 && (
         <div className="filters">
+          <div className="viewtoggle" role="tablist">
+            {['list', 'map'].map((v) => (
+              <button
+                key={v}
+                role="tab"
+                aria-selected={view === v}
+                onClick={() => setView(v)}
+              >
+                {v === 'list' ? 'List' : 'Map'}
+              </button>
+            ))}
+          </div>
           <label>
             Town
             <select value={muni} onChange={(e) => setMuni(e.target.value)}>
@@ -198,9 +262,11 @@ export default function App() {
           accruing, and entries appear here once our editors verify what&rsquo;s moving in.
         </p>
       )}
-      {shown.map((loc) => (
-        <Card key={loc.key} loc={loc} />
-      ))}
+      {view === 'map' && locations.length > 0 && <MapView locations={shown} />}
+      {view === 'list' &&
+        shown.map((loc) => (
+          <Card key={loc.key} loc={loc} />
+        ))}
 
       <footer className="footer">
         <img
