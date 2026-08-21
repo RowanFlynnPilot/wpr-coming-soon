@@ -113,7 +113,8 @@ function QueueApp() {
       <div className="topbar">
         <span>
           Verify what&rsquo;s moving in, then paste a block under{' '}
-          <code>locations:</code> in data/overrides/locations.yaml.
+          <code>locations:</code> in data/overrides/locations.yaml. See these in the
+          public design at <a href="./preview.html">preview.html</a>.
         </span>
         {data && <span className="updated">built {fmtDate(data.generated.slice(0, 10))}</span>}
       </div>

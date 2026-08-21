@@ -12,6 +12,7 @@ Two responsibilities, two functions:
 
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date
@@ -94,6 +95,16 @@ def load_overrides(path: Path) -> Overrides:
     return Overrides(aliases=aliases, locations=locations)
 
 
+_ORDINAL_SUFFIX = re.compile(r"(\d)(St|Nd|Rd|Th)\b")
+
+
+def _display_address(number_street: str) -> str:
+    # Title-case, but ordinals stay "3rd St", not "3Rd St".
+    return _ORDINAL_SUFFIX.sub(
+        lambda m: m[1] + m[2].lower(), number_street.title()
+    )
+
+
 def merge(signals: Iterable[Signal], overrides: Overrides) -> list[Location]:
     by_key: dict[str, list[Signal]] = defaultdict(list)
     for signal in signals:
@@ -115,7 +126,7 @@ def merge(signals: Iterable[Signal], overrides: Overrides) -> list[Location]:
         number_street, _, municipality = key.partition("|")
         location = Location(
             key=key,
-            address=number_street.title(),
+            address=_display_address(number_street),
             # Title-case, but "TOWN OF X" displays as "Town of X".
             municipality=municipality.title().replace(" Of ", " of "),
             signals=sorted(by_key[key], key=lambda s: (s.observed, s.id)),

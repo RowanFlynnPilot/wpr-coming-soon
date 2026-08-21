@@ -70,6 +70,13 @@ def test_town_municipality_displays_lowercase_of():
     assert loc.municipality == "Town of Brighton"
 
 
+def test_display_address_keeps_ordinals_lowercase():
+    (loc,) = merge([sig("303 N 3RD ST|WAUSAU")], NO_OVERRIDES)
+    assert loc.address == "303 N 3rd St"
+    (loc,) = merge([sig("514 S 17TH AVE|WAUSAU")], NO_OVERRIDES)
+    assert loc.address == "514 S 17th Ave"
+
+
 def test_alias_redirects_signal_to_canonical_key():
     overrides = Overrides(
         aliases={"1300 N THIRD ST|WAUSAU": "1300 N 3RD ST|WAUSAU"}, locations={})

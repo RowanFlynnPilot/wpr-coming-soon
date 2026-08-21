@@ -66,20 +66,24 @@ function Receipt({ signal }) {
   )
 }
 
+const STATUS_LABELS = { open: 'Now open', coming_soon: 'Coming soon', signal: 'Unverified' }
+
 function Card({ loc }) {
   const open = loc.status === 'open'
+  const unverified = loc.status === 'signal'
+  const card = open ? 'card card--open' : unverified ? 'card card--signal' : 'card'
+  const status = open ? 'status status--open' : unverified ? 'status status--signal' : 'status'
   return (
-    <article className={open ? 'card card--open' : 'card'}>
+    <article className={card}>
       <div className="card__head">
-        <h2 className="card__name">{loc.name}</h2>
-        <span className={open ? 'status status--open' : 'status'}>
-          {open ? 'Now open' : 'Coming soon'}
-        </span>
+        {/* Unverified entries have no curated name yet — the address leads. */}
+        <h2 className="card__name">{loc.name || loc.address}</h2>
+        <span className={status}>{STATUS_LABELS[loc.status]}</span>
       </div>
       <div className="card__meta">
         {loc.category && <span className="chip">{loc.category}</span>}
         <span className="card__addr">
-          {loc.address}, {loc.municipality}
+          {loc.name ? `${loc.address}, ${loc.municipality}` : loc.municipality}
         </span>
         {open && loc.opened && <span className="card__opened">opened {fmtDate(loc.opened)}</span>}
       </div>
@@ -113,18 +117,19 @@ function MapView({ locations }) {
       maxZoom: 19,
     }).addTo(map)
     pts.forEach((l) => {
-      const open = l.status === 'open'
+      const color =
+        l.status === 'open' ? '#2e7d46' : l.status === 'signal' ? '#8a7c66' : '#3a867c'
       L.circleMarker([l.lat, l.lon], {
         radius: 9,
-        color: open ? '#2e7d46' : '#3a867c',
-        fillColor: open ? '#2e7d46' : '#3a867c',
+        color,
+        fillColor: color,
         fillOpacity: 0.85,
         weight: 2,
       })
         .addTo(map)
         .bindPopup(
-          `<strong>${l.name}</strong><br>${l.address}, ${l.municipality}<br>` +
-            (open ? 'Now open' : 'Coming soon')
+          `<strong>${l.name || l.address}</strong><br>${l.address}, ${l.municipality}<br>` +
+            STATUS_LABELS[l.status]
         )
     })
     map.fitBounds(L.latLngBounds(pts.map((l) => [l.lat, l.lon])).pad(0.25), {
@@ -148,7 +153,10 @@ function MapView({ locations }) {
   )
 }
 
-export default function App() {
+// preview=true renders the same design over ./queue.json — every unverified
+// signal, visually marked as such. A design surface, not a publication path:
+// the editorial gate still decides what reaches locations.json.
+export default function App({ src = './locations.json', preview = false }) {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [muni, setMuni] = useState('')
@@ -156,10 +164,10 @@ export default function App() {
   const [view, setView] = useState('list')
 
   useEffect(() => {
-    fetch('./locations.json')
+    fetch(src)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then(setData, setError)
-  }, [])
+  }, [src])
 
   const locations = data ? data.locations : []
   const munis = useMemo(() => [...new Set(locations.map((l) => l.municipality))].sort(), [locations])
@@ -175,16 +183,24 @@ export default function App() {
     <div className="wrap">
       <Masthead />
 
-      <div className="banner">
+      <div className={preview ? 'banner banner--preview' : 'banner'}>
         <div>
-          <div className="banner__kicker">Wausau area · new business tracker</div>
+          <div className="banner__kicker">
+            {preview
+              ? 'Design preview · every unverified signal'
+              : 'Wausau area · new business tracker'}
+          </div>
           <h1 className="banner__title">Coming Soon</h1>
         </div>
-        <Sponsor slot={CONFIG.TITLE_SPONSOR} className="banner__sponsor" />
+        {!preview && <Sponsor slot={CONFIG.TITLE_SPONSOR} className="banner__sponsor" />}
       </div>
 
       <div className="topbar">
-        <span>What&rsquo;s going in that building? Every entry backed by public records.</span>
+        <span>
+          {preview
+            ? 'Nothing here is confirmed — raw signals rendered in the public design.'
+            : 'What’s going in that building? Every entry backed by public records.'}
+        </span>
         {data && <span className="updated">updated {fmtDate(data.generated.slice(0, 10))}</span>}
       </div>
 
@@ -213,17 +229,19 @@ export default function App() {
               ))}
             </select>
           </label>
-          <label>
-            Category
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-              <option value="">All</option>
-              {categories.map((o) => (
-                <option key={o} value={o}>
-                  {o}
-                </option>
-              ))}
-            </select>
-          </label>
+          {categories.length > 0 && (
+            <label>
+              Category
+              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="">All</option>
+                {categories.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
         </div>
       )}
 

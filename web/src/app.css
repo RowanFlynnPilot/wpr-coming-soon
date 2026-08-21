@@ -113,6 +113,12 @@ select:focus-visible {
   margin: 2px 0 0;
 }
 
+/* Design-preview variant: ink banner so a screenshot can never pass for
+   the published page. */
+.banner--preview {
+  background: var(--ink);
+}
+
 .banner__sponsor {
   margin-left: auto;
   display: flex;
@@ -260,6 +266,22 @@ a.banner__sponsor:hover {
 
 .status--open {
   background: var(--open);
+}
+
+.status--signal {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--ink-soft);
+}
+
+/* Unverified entries render in pencil: soft top rule, address as headline. */
+.card--signal {
+  border-top-color: var(--line);
+}
+
+.card--signal .card__name {
+  font-weight: 600;
+  font-size: 19px;
 }
 
 .card__meta {

@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL("index.html", import.meta.url)),
         queue: fileURLToPath(new URL("queue.html", import.meta.url)),
+        preview: fileURLToPath(new URL("preview.html", import.meta.url)),
       },
     },
   },
