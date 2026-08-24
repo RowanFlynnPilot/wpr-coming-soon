@@ -1,6 +1,58 @@
 {
-  "generated": "2026-08-23T10:39:58+00:00",
+  "generated": "2026-08-24T10:53:24+00:00",
   "locations": [
+    {
+      "key": "6215 VOLKMAN ST|WESTON",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "6215 Volkman St",
+      "municipality": "Weston",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1943081",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-21",
+          "summary": "Sold for $350,000 to C&C PROPERTY HOLDING, LLC",
+          "receipt": {
+            "document_number": "1943081",
+            "grantor": "SIMONSON, JANELL",
+            "grantee": "C&C PROPERTY HOLDING, LLC",
+            "consideration": "350000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "1750 & 1800 WESTWOOD CENTER BLVD|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1750 & 1800 Westwood Center Blvd",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "signals": [
+        {
+          "id": "transfer:1942905",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-18",
+          "summary": "Sold for $1,600,000 to R O TRUST, OF JANUARY 13, 2023",
+          "receipt": {
+            "document_number": "1942905",
+            "grantor": "THE WESTWOOD CENTER, LLC",
+            "grantee": "R O TRUST, OF JANUARY 13, 2023",
+            "consideration": "1600000"
+          },
+          "url": null
+        }
+      ]
+    },
     {
       "key": "303 N 3RD ST|WAUSAU",
       "status": "signal",

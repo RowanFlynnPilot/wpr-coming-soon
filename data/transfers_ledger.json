@@ -88,5 +88,35 @@
   "property_use": "Commercial",
   "recorded_date": "2026-08-17",
   "sale_price": 737546
+ },
+ "1942905": {
+  "acres": 32.96,
+  "address": "1750 & 1800 Westwood Center Blvd",
+  "conveyance_type": "Sale",
+  "county": "Marathon",
+  "document_number": "1942905",
+  "document_type": "Warranty deed",
+  "grantee": "R O TRUST, OF JANUARY 13, 2023",
+  "grantor": "THE WESTWOOD CENTER, LLC",
+  "municipality": "Wausau, City of",
+  "property_type": "Land and buildings/improvements",
+  "property_use": "Commercial",
+  "recorded_date": "2026-08-18",
+  "sale_price": 1600000
+ },
+ "1943081": {
+  "acres": 0.4,
+  "address": "6215 Volkman Street",
+  "conveyance_type": "Sale",
+  "county": "Marathon",
+  "document_number": "1943081",
+  "document_type": "Land contract",
+  "grantee": "C&C PROPERTY HOLDING, LLC",
+  "grantor": "SIMONSON, JANELL",
+  "municipality": "Weston, Village of",
+  "property_type": "Land and buildings/improvements",
+  "property_use": "Commercial",
+  "recorded_date": "2026-08-21",
+  "sale_price": 350000
  }
 }
