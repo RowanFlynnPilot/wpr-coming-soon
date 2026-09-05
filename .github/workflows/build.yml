@@ -5,7 +5,7 @@ on:
     - cron: "17 10 * * *"   # ~05:17 America/Chicago
   push:
     paths:
-      - "data/overrides/**"   # an editor's commit publishes within minutes
+      - "data/overrides/locations.yaml"   # an editor's commit publishes within minutes
 permissions:
   contents: write
   pages: write
@@ -36,8 +36,19 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/ data/signals_ledger.json
           git diff --staged --quiet || git commit -m "data: nightly build"
-          for attempt in 1 2 3; do   # an editor may push meanwhile
-            git pull --rebase origin main && git push && break
+          # Someone may push meanwhile (an editor, or a queued twin of this
+          # run). On a conflict in the regenerated files this run's output
+          # wins (-X theirs favors the replayed commit); a failed rebase is
+          # aborted before retrying, and three failures fail the job loudly —
+          # never ship a working tree with conflict markers in it.
+          for attempt in 1 2 3; do
+            if git pull --rebase -X theirs origin main && git push; then
+              break
+            fi
+            git rebase --abort 2>/dev/null || true
+            if [ "$attempt" = 3 ]; then
+              echo "::error::could not push data after 3 attempts"; exit 1
+            fi
             sleep 15
           done
       - uses: actions/setup-node@v7
