@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T06:42:14+00:00",
+  "generated": "2026-09-05T06:54:41+00:00",
   "locations": [
     {
       "key": "6215 VOLKMAN ST|WESTON",
@@ -341,10 +341,10 @@
           "observed": "2026-07-24",
           "summary": "Sold for $284,999 to A75N1 LLC",
           "receipt": {
+            "consideration": "284999",
             "document_number": "1941341",
-            "grantor": "BEACHWIND LIMITED PARTNERSHIP",
             "grantee": "A75N1 LLC",
-            "consideration": "284999"
+            "grantor": "BEACHWIND LIMITED PARTNERSHIP"
           },
           "url": null
         }
@@ -459,10 +459,10 @@
           "observed": "2026-07-21",
           "summary": "Sold for $2,304 to LAF INVESTMENTS, LLC",
           "receipt": {
+            "consideration": "2304",
             "document_number": "1941123",
-            "grantor": "VILLAGE OF SPENCER",
             "grantee": "LAF INVESTMENTS, LLC",
-            "consideration": "2304"
+            "grantor": "VILLAGE OF SPENCER"
           },
           "url": null
         }

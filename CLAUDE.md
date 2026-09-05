@@ -8,9 +8,9 @@ editor confirms before anything publishes.
 ## Architecture
 
 ```
-sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.json  →  widget
-   (live)              address-keyed accrual         static        committed       Pages
-                       + editorial gate              JSON          by Actions
+sources/*.fetch()  →  ledger  →  merge(signals, overrides)  →  build()  →  public/*.json  →  widget
+   (live)          accrue-only   address-keyed accrual         static        committed       Pages
+                    memory       + editorial gate              JSON          by Actions
 ```
 
 - `pipeline/models.py` — Signal / Location / lifecycle enums
@@ -23,8 +23,10 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
 - `pipeline/sources/` — one adapter per source, `fetch(aliases) -> list[Signal]`,
   contracts in docstrings and docs/SIGNALS.md
 - `data/overrides/locations.yaml` — the ONLY publication mechanism
-- `data/transfers_ledger.json` — accrue-only; transfer signals must outlive
-  the sibling's rolling 30-day feed (committed back by the nightly run)
+- `pipeline/ledger.py` + `data/signals_ledger.json` — accrue-only memory of
+  every signal ever fetched, storing raw addresses so keys are re-derived
+  each build (aliases stay retroactive) and stamping `first_seen`; the
+  build reads the ledger, never the raw fetch (committed back nightly)
 - `scripts/enrich_geo.py` — deploy-time lat/lon join against the permit
   ledger's geocodes; committed public/ files are never touched
 - `web/` — the widget (index) + internal editor queue page (queue.html),
@@ -70,10 +72,6 @@ keep in mind: permits land in monthly batches (a July 31 permit surfaces
 
 1. Editor pass: work /queue.html (copy-ready YAML per entry) — first
    curated `locations:` entries make the public page non-empty
-2. Structural next step to decide: one accrue-only signals ledger for ALL
-   sources (transfers already have one) — makes the orphan check safe for
-   published locations backed only by a live-fetched license item, and
-   makes `first_seen` a property of the signal rather than the artifact
-3. Sponsor slots are placeholders — real sponsor config when sold
-4. Watch queue growth; signal aging stays out of v1 unless the editor pass
-   starts hurting
+2. Sponsor slots are placeholders — real sponsor config when sold
+3. Watch queue growth; signal aging stays out of v1 unless the editor pass
+   starts hurting (the ledger makes an age filter trivial if it comes to it)

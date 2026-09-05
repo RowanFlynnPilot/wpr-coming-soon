@@ -56,11 +56,10 @@ doesn't guess.
 already scrapes for Marathon County.
 
 **Feed caveat:** the sibling's `transactions.json` is a rolling 30-day
-window, overwritten weekly. Kept records therefore accrue into a committed,
-accrue-only ledger (`data/transfers_ledger.json`) and signals are emitted
-from the ledger, never the raw feed — otherwise signals would vanish ~30
-days after recording and a published location could orphan its override. A
-changed record for a known document number stops the build.
+window, overwritten weekly. The adapter is stateless; the pipeline-wide
+signals ledger (`pipeline/ledger.py`) is what remembers, for every source
+alike — otherwise signals would vanish ~30 days after recording and a
+published location could orphan its override.
 
 **Keep:** commercial property classes only.
 

@@ -3,19 +3,6 @@
 Wiring decision (2026-08-19): reads the data/transactions.json the sibling
 repo commits, via the raw GitHub URL — same mechanism as permits.
 
-The ledger (data/transfers_ledger.json)
----------------------------------------
-The sibling feed is a ROLLING 30-day window, overwritten weekly — upstream
-forgets. Signals must not: a location could vanish from the queue before the
-editor sees it, and a published location whose only signal aged out would
-orphan its override and stop the build. So every fetch folds the feed's kept
-records into a committed, accrue-only ledger and emits signals from the
-LEDGER, never the raw feed. Permit-tracker semantics: re-ingesting an
-identical record is a no-op; a CHANGED record for a known document number
-raises (transfer returns are point-in-time filings — silent mutation means
-something upstream is wrong). The nightly Actions run commits the ledger
-back, same as public/.
-
 Feed reality (real records in tests/fixtures/transactions_sample.json): the
 scrape covers six counties, so this adapter filters to Marathon; the class
 field is ``property_use`` and only "Commercial" is kept (Manufacturing /
@@ -26,11 +13,15 @@ Utility / Other are not retail-facing stories); the feed carries
 the permit and license feeds), towns keep a "Town of" prefix so the Town of
 Wausau can never collide with the City of Wausau.
 
+The feed is a ROLLING 30-day window, overwritten weekly — upstream forgets.
+This adapter is stateless on purpose; the pipeline-wide signals ledger
+(pipeline/ledger.py) is what remembers, for every source alike.
+
 Keep:    county == "Marathon", property_use == "Commercial",
          sale_price >= $1,000.
 Drop:    other counties and property classes; nominal-consideration
-         transfers (< $1,000 — quitclaims, intra-family, LLC reshuffles).
-         Drops are filtered BEFORE the ledger, so it holds kept records only.
+         transfers (< $1,000 — quitclaims, intra-family, LLC reshuffles; a
+         blank consideration counts as nominal).
 Map:     id        -> f"transfer:{document_number}"
          observed  -> recorded date
          summary   -> "Sold for ${sale_price:,} to {grantee}"
@@ -43,19 +34,16 @@ Address: via resolve_key() — AddressError propagates; fixes are alias
 
 from __future__ import annotations
 
-import json
 import re
 from datetime import date
-from pathlib import Path
 
 from ..models import Signal, SignalKind, Source
 from . import get_json, resolve_key
 
-__all__ = ["fetch", "merge_feed", "signals_from_records", "FEED_URL", "LEDGER_PATH"]
+__all__ = ["fetch", "signals_from_feed", "FEED_URL"]
 
 FEED_URL = ("https://raw.githubusercontent.com/RowanFlynnPilot/"
             "wpr-property-transactions/main/data/transactions.json")
-LEDGER_PATH = Path("data/transfers_ledger.json")
 
 _MUNICIPALITY = re.compile(r"^(?P<name>.+), (?P<kind>City|Village|Town) of$")
 
@@ -70,65 +58,30 @@ def _municipality(raw: str) -> str:
 
 
 def _kept(record: dict) -> bool:
-    # A blank consideration is an exempt / no-money filing: nominal, dropped.
     return (record["county"] == "Marathon"
             and record["property_use"] == "Commercial"
             and (record.get("sale_price") or 0) >= 1000)
 
 
-# The fields a signal is built from. Only these participate in the conflict
-# check, so the sibling adding or reformatting an unrelated field (acres,
-# document_type) can't halt the nightly for every known document.
-_IDENTITY = ("document_number", "recorded_date", "municipality", "address",
-             "grantor", "grantee", "sale_price", "property_use", "county")
-
-
-def _identity(record: dict) -> tuple:
-    return tuple(record.get(field) for field in _IDENTITY)
-
-
-def merge_feed(ledger: dict, payload: dict) -> int:
-    """Fold the feed's kept records into the ledger; return how many are new.
-
-    Accrue-only: identical re-ingest is a no-op; a known document whose
-    signal-bearing fields changed raises. Recovery from a genuine upstream
-    correction is deliberate and by hand: edit the record in
-    data/transfers_ledger.json in the same commit that explains why.
-    """
-    new = 0
+def signals_from_feed(payload: dict, aliases: dict[str, str]) -> list[Signal]:
+    if not payload["transactions"]:
+        raise ValueError("transactions feed is empty — upstream scrape broke")
+    signals = []
     for record in payload["transactions"]:
         if not _kept(record):
             continue
-        doc = record["document_number"]
-        if doc in ledger:
-            if _identity(ledger[doc]) != _identity(record):
-                raise ValueError(
-                    f"transfers ledger conflict: document {doc} changed "
-                    f"between runs"
-                )
-        else:
-            ledger[doc] = dict(record)
-            new += 1
-    return new
-
-
-def signals_from_records(ledger: dict, aliases: dict[str, str]) -> list[Signal]:
-    signals = []
-    for doc in sorted(ledger):
-        record = ledger[doc]
+        municipality = _municipality(record["municipality"])
         signals.append(Signal(
-            id=f"transfer:{doc}",
-            location_key=resolve_key(
-                record["address"], _municipality(record["municipality"]), aliases
-            ),
+            id=f"transfer:{record['document_number']}",
+            location_key=resolve_key(record["address"], municipality, aliases),
             address=record["address"].strip(),
-            municipality=_municipality(record["municipality"]),
+            municipality=municipality,
             source=Source.TRANSFER,
             kind=SignalKind.COMMERCIAL_SALE,
             observed=date.fromisoformat(record["recorded_date"]),
             summary=f"Sold for ${record['sale_price']:,} to {record['grantee']}",
             receipt={
-                "document_number": doc,
+                "document_number": record["document_number"],
                 "grantor": record["grantor"],
                 "grantee": record["grantee"],
                 "consideration": str(record["sale_price"]),
@@ -138,10 +91,4 @@ def signals_from_records(ledger: dict, aliases: dict[str, str]) -> list[Signal]:
 
 
 def fetch(aliases: dict[str, str]) -> list[Signal]:
-    ledger = (json.loads(LEDGER_PATH.read_text(encoding="utf-8"))
-              if LEDGER_PATH.exists() else {})
-    merge_feed(ledger, get_json(FEED_URL))
-    LEDGER_PATH.write_text(
-        json.dumps(ledger, indent=1, sort_keys=True) + "\n", encoding="utf-8"
-    )
-    return signals_from_records(ledger, aliases)
+    return signals_from_feed(get_json(FEED_URL), aliases)

@@ -210,23 +210,16 @@ def test_build_splits_published_and_queue(tmp_path):
     assert queue["locations"][0]["name"] is None
 
 
-def test_build_carries_first_seen_forward(tmp_path):
-    first = "301 WASHINGTON ST|WAUSAU"
-    later = "2200 GRAND AVE|SCHOFIELD"
-    build(merge([sig(first)], NO_OVERRIDES), tmp_path, today=date(2026, 8, 1))
-    build(merge([sig(first), sig(later, id="permit:SCH-1")], NO_OVERRIDES),
-          tmp_path, today=date(2026, 8, 10))
+def test_build_first_seen_is_the_earliest_ledgered_signal(tmp_path):
+    from dataclasses import replace
+    key = "301 WASHINGTON ST|WAUSAU"
+    early = replace(sig(key, id="permit:WAU-1", observed=date(2026, 5, 1)),
+                    first_seen=date(2026, 8, 3))
+    late = replace(sig(key, id="transfer:9", observed=date(2026, 8, 20)),
+                   first_seen=date(2026, 8, 21))
+    unstamped = sig("2200 GRAND AVE|SCHOFIELD", id="permit:SCH-1", observed=date(2026, 7, 7))
+    build(merge([early, late, unstamped], NO_OVERRIDES), tmp_path)
     seen = {l["key"]: l["first_seen"]
             for l in json.loads((tmp_path / "queue.json").read_text())["locations"]}
-    assert seen == {first: "2026-08-01", later: "2026-08-10"}
-
-
-def test_build_seeds_first_seen_from_pre_field_artifacts(tmp_path):
-    # An artifact from before first_seen existed: use the newest signal date,
-    # not today, so nothing masquerades as new on migration day.
-    key = "301 WASHINGTON ST|WAUSAU"
-    (tmp_path / "queue.json").write_text(json.dumps({"generated": "x", "locations": [
-        {"key": key, "signals": [{"observed": "2026-07-04"}, {"observed": "2026-07-20"}]}]}))
-    build(merge([sig(key)], NO_OVERRIDES), tmp_path, today=date(2026, 9, 5))
-    (entry,) = json.loads((tmp_path / "queue.json").read_text())["locations"]
-    assert entry["first_seen"] == "2026-07-20"
+    # Earliest ledger stamp wins; a signal never ledgered falls back to its date.
+    assert seen == {key: "2026-08-03", "2200 GRAND AVE|SCHOFIELD": "2026-07-07"}

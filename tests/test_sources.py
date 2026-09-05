@@ -213,6 +213,16 @@ def test_permits_keeps_sign_and_commercial_drops_the_rest():
     assert kinds["permit:WAU-202607376"] is SignalKind.COMMERCIAL_ALTERATION
 
 
+def test_adapters_carry_the_raw_address_for_the_ledger():
+    parker = [s for s in permits.signals_from_ledger(permit_ledger(), {})
+              if s.id == "permit:WAU-202607376"][0]
+    assert (parker.address, parker.municipality) == ("2510 STEWART AVE", "Wausau")
+    story = phs_signals()[0]
+    assert (story.address, story.municipality) == ("416 N. 3rd Street", "Wausau")
+    brighton = [s for s in transfer_signals() if s.id == "transfer:1942104"][0]
+    assert (brighton.address, brighton.municipality) == ("100794 Kington Rd.", "Town of Brighton")
+
+
 def test_permits_mapping_fields():
     parker = [s for s in permits.signals_from_ledger(permit_ledger(), {})
               if s.id == "permit:WAU-202607376"][0]
@@ -262,58 +272,29 @@ def transactions_payload():
 
 
 def transfer_signals(aliases=SPENCER_ALIAS):
-    ledger = {}
-    transfers.merge_feed(ledger, transactions_payload())
-    return transfers.signals_from_records(ledger, aliases)
+    return transfers.signals_from_feed(transactions_payload(), aliases)
 
 
-def test_transfers_ledger_keeps_marathon_commercial_only():
+def test_transfers_keeps_marathon_commercial_only():
     signals = transfer_signals()
     assert [s.id for s in signals] == [
-        "transfer:1941123", "transfer:1941341", "transfer:1942104",
-        "transfer:1942247", "transfer:1942292", "transfer:1942692",
+        "transfer:1942292", "transfer:1942247", "transfer:1942692",
+        "transfer:1942104", "transfer:1941341", "transfer:1941123",
     ]
     assert all(s.source is Source.TRANSFER for s in signals)
     assert all(s.kind is SignalKind.COMMERCIAL_SALE for s in signals)
 
 
-def test_transfers_ledger_survives_the_rolling_feed_window():
-    # The upstream feed only holds ~30 days; a record that drops out of the
-    # feed must keep producing its signal from the ledger.
-    ledger = {}
-    assert transfers.merge_feed(ledger, transactions_payload()) == 6
-    # Identical re-ingest: no-op.
-    assert transfers.merge_feed(ledger, transactions_payload()) == 0
-    # Feed rolled forward and forgot everything: signals persist.
-    assert transfers.merge_feed(ledger, {"transactions": []}) == 0
-    assert len(transfers.signals_from_records(ledger, SPENCER_ALIAS)) == 6
-
-
-def test_transfers_changed_record_for_known_document_raises():
-    ledger = {}
-    transfers.merge_feed(ledger, transactions_payload())
-    kept = [t for t in transactions_payload()["transactions"]
-            if t["document_number"] == "1942692"][0]
-    with pytest.raises(ValueError, match="ledger conflict"):
-        transfers.merge_feed(ledger, {"transactions": [dict(kept, sale_price=999999)]})
-
-
 def test_transfers_blank_consideration_is_nominal_not_a_crash():
     kept = [t for t in transactions_payload()["transactions"]
             if t["document_number"] == "1942692"][0]
-    ledger = {}
-    assert transfers.merge_feed(ledger, {"transactions": [dict(kept, sale_price=None)]}) == 0
-    assert ledger == {}
+    assert transfers.signals_from_feed(
+        {"transactions": [dict(kept, sale_price=None)]}, {}) == []
 
 
-def test_transfers_conflict_check_ignores_non_signal_fields():
-    ledger = {}
-    transfers.merge_feed(ledger, transactions_payload())
-    kept = [t for t in transactions_payload()["transactions"]
-            if t["document_number"] == "1942692"][0]
-    # Upstream adds a field / reformats acres: not a conflict.
-    evolved = dict(kept, acres="0.50", parcel_id="NEW")
-    assert transfers.merge_feed(ledger, {"transactions": [evolved]}) == 0
+def test_transfers_empty_feed_is_an_upstream_failure():
+    with pytest.raises(ValueError, match="feed is empty"):
+        transfers.signals_from_feed({"transactions": []}, {})
 
 
 def test_transfers_mapping_fields():

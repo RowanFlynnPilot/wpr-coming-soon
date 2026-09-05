@@ -90,11 +90,17 @@ with no signals (catches stale entries and key typos).
 - **`queue.json`** — same shape, `signal`-status locations awaiting editorial
   review. Internal by convention, not secrecy (it's all public record).
 
-`first_seen` is the date a location first entered a build, carried forward
-from the previous artifacts (the committed `public/` files are the memory).
-Permits surface in monthly batches weeks after their issue dates, so signal
-dates alone can't tell "new to us" from "old news"; the editor queue uses
-this for its "new" markers.
+`first_seen` is the date the location's earliest signal entered the signals
+ledger (`data/signals_ledger.json`, see `pipeline/ledger.py`). Permits
+surface in monthly batches weeks after their issue dates, so signal dates
+alone can't tell "new to us" from "old news"; the editor queue uses this
+for its "new" markers.
+
+The ledger is the pipeline's memory: every signal any source has ever
+emitted, accrue-only, keyed by signal id and storing the address as the
+source wrote it. Sources forget (a rolling transfer feed, an edited agenda);
+the build reads the ledger, so a location never vanishes from the queue and
+a published location can never orphan its override.
 
 ```json
 {
