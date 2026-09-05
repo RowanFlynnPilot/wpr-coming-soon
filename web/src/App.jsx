@@ -68,6 +68,10 @@ function Receipt({ signal }) {
 
 const STATUS_LABELS = { open: 'Now open', coming_soon: 'Coming soon', signal: 'Unverified' }
 
+// Leaflet popups take an HTML string; data goes through this, always.
+const esc = (s) =>
+  String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+
 function Card({ loc }) {
   const open = loc.status === 'open'
   const unverified = loc.status === 'signal'
@@ -128,8 +132,8 @@ function MapView({ locations }) {
       })
         .addTo(map)
         .bindPopup(
-          `<strong>${l.name || l.address}</strong><br>${l.address}, ${l.municipality}<br>` +
-            STATUS_LABELS[l.status]
+          `<strong>${esc(l.name || l.address)}</strong><br>` +
+            `${esc(l.address)}, ${esc(l.municipality)}<br>${STATUS_LABELS[l.status]}`
         )
     })
     map.fitBounds(L.latLngBounds(pts.map((l) => [l.lat, l.lon])).pad(0.25), {
@@ -178,6 +182,9 @@ export default function App({ src = './locations.json', preview = false }) {
   const shown = locations.filter(
     (l) => (!muni || l.municipality === muni) && (!category || l.category === category)
   )
+  // The nightly build rewrites `generated` every run; silence past 3 days
+  // means the cron is broken, and readers deserve to know.
+  const stale = data && Date.now() - new Date(data.generated).getTime() > 3 * 86400000
 
   return (
     <div className="wrap">
@@ -206,14 +213,9 @@ export default function App({ src = './locations.json', preview = false }) {
 
       {locations.length > 0 && (
         <div className="filters">
-          <div className="viewtoggle" role="tablist">
+          <div className="viewtoggle">
             {['list', 'map'].map((v) => (
-              <button
-                key={v}
-                role="tab"
-                aria-selected={view === v}
-                onClick={() => setView(v)}
-              >
+              <button key={v} aria-pressed={view === v} onClick={() => setView(v)}>
                 {v === 'list' ? 'List' : 'Map'}
               </button>
             ))}
@@ -256,11 +258,20 @@ export default function App({ src = './locations.json', preview = false }) {
           accruing, and entries appear here once our editors verify what&rsquo;s moving in.
         </p>
       )}
+      {stale && (
+        <p className="notice notice--error">
+          This page last refreshed {fmtDate(data.generated.slice(0, 10))} — the nightly build
+          may be failing.
+        </p>
+      )}
       {view === 'map' && locations.length > 0 && <MapView locations={shown} />}
       {view === 'list' &&
         shown.map((loc) => (
           <Card key={loc.key} loc={loc} />
         ))}
+      {view === 'list' && locations.length > 0 && shown.length === 0 && (
+        <p className="notice">No entries match those filters.</p>
+      )}
 
       <footer className="footer">
         <img

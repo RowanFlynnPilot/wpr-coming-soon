@@ -82,7 +82,13 @@ select:focus-visible {
 .masthead__tag {
   font-size: 12px;
   color: var(--ink-soft);
-  white-space: nowrap;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .masthead__tag {
+    display: none; /* the wordmark keeps its room on phones */
+  }
 }
 
 /* --------------------------------------------------------------- banner */
@@ -101,8 +107,7 @@ select:focus-visible {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.85;
+  text-transform: uppercase; /* full white: 0.85 opacity failed AA at 11px */
 }
 
 .banner__title {
@@ -201,7 +206,7 @@ a.banner__sponsor:hover {
   cursor: pointer;
 }
 
-.viewtoggle button[aria-selected='true'] {
+.viewtoggle button[aria-pressed='true'] {
   background: var(--teal);
   border-color: var(--teal);
   color: var(--white);

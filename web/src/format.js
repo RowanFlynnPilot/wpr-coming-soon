@@ -8,12 +8,13 @@ export const KIND_LABELS = {
   alcohol_license_application: 'License application',
 }
 
+// "Aug 1" this year, "Aug 1, 2026" once the year has turned — the ledgers
+// are accrue-only, so old receipts stay on screen for a long time.
 export function fmtDate(iso) {
   const [y, m, d] = iso.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-  })
+  const options = { month: 'short', day: 'numeric' }
+  if (y !== new Date().getFullYear()) options.year = 'numeric'
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', options)
 }
 
 // The receipt reference shown after the kind + date, per source.
