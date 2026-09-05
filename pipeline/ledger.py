@@ -23,12 +23,20 @@ can't tell "new to us" from "old news".
 
 Conflict rule
 -------------
-The location-defining facts (source, kind, observed, address, municipality)
-are immutable: a known id whose facts changed raises, because a filing that
-moves house is a sign something upstream is wrong. Summary, receipt, and
-url track the source's latest wording (agenda revisions, name corrections)
-without a halt. Recovery from a genuine upstream correction is by hand, in
-a commit that says why.
+The location-defining facts (source, kind, address, municipality) are
+immutable: a known id whose facts changed raises, because a filing that
+moves house is a sign something upstream is wrong. Observed date, summary,
+receipt, and url track the source's latest record (a rescheduled meeting,
+an agenda revision, a corrected name) without a halt. Recovery from a
+genuine upstream correction is by hand, in a commit that says why.
+
+The future is provisional, the past is permanent
+-----------------------------------------------
+Agenda items are ingested up to two weeks before their meeting, and until
+the gavel falls they can be withdrawn, renumbered (a new id) or reworded
+past our patterns. So a ledgered signal dated AFTER today that the source no
+longer reports is dropped again; once its date has passed it is history and
+stays forever, whatever the source does later.
 """
 
 from __future__ import annotations
@@ -45,7 +53,7 @@ from .sources import resolve_key
 __all__ = ["LEDGER_PATH", "load", "save", "merge", "to_signals"]
 
 LEDGER_PATH = Path("data/signals_ledger.json")
-_IDENTITY = ("source", "kind", "observed", "address", "municipality")
+_IDENTITY = ("source", "kind", "address", "municipality")
 
 
 def load(path: Path) -> dict:
@@ -74,9 +82,15 @@ def _record(signal: Signal) -> dict:
 
 
 def merge(ledger: dict, signals: Iterable[Signal], today: date) -> int:
-    """Fold freshly fetched signals into the ledger; return how many are new."""
+    """Fold freshly fetched signals into the ledger; return how many are new.
+
+    Also retracts provisional (future-dated) signals the fetch no longer
+    reports — see the module docstring.
+    """
     new = 0
+    fresh_ids = set()
     for signal in signals:
+        fresh_ids.add(signal.id)
         if not signal.address or not signal.municipality:
             raise ValueError(f"signal {signal.id}: no raw address to ledger")
         record = _record(signal)
@@ -93,6 +107,11 @@ def merge(ledger: dict, signals: Iterable[Signal], today: date) -> int:
                 f"now {[record[f] for f in changed]})"
             )
         known.update(record)   # latest wording wins; first_seen is kept
+
+    provisional = [i for i, r in ledger.items()
+                   if r["observed"] > today.isoformat() and i not in fresh_ids]
+    for signal_id in provisional:
+        del ledger[signal_id]
     return new
 
 

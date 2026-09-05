@@ -176,6 +176,11 @@ def test_licenses_decodes_html_entities_in_item_text():
     assert signal.receipt["trade_name"] == "Bull Falls & Co"
 
 
+def test_licenses_fetch_window_is_bounded_once_the_ledger_has_history():
+    assert licenses.query_start(date(2026, 6, 1)) == licenses.BACKFILL_START
+    assert licenses.query_start(date(2026, 9, 5)) == date(2026, 7, 7)
+
+
 def test_licenses_ingests_posted_agendas_up_to_two_weeks_ahead():
     # Real event: the 2026-09-21 PHS meeting already has agenda 2668 posted.
     september = {"id": 2469, "eventName": "Public Health & Safety Committee Meeting",

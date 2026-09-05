@@ -10,7 +10,8 @@ video — one PHS meeting out of five this summer. Too sparse and too lossy for
 deterministic extraction, so this adapter reads the same public CivicClerk
 OData API that marathon-meetings itself uses (see its fetch_civicclerk_data):
 
-    GET /v1/Events    — PHS committee meetings since BACKFILL_START
+    GET /v1/Events    — city events in the last LOOKBACK_DAYS (the signals
+                        ledger holds everything older) plus LOOKAHEAD_DAYS
     GET /v1/Meetings/{agendaId} — verbatim agenda item text
 
 What the real agendas contain (checked against all five May-Aug 2026 PHS
@@ -57,9 +58,14 @@ API = "https://wausauwi.api.civicclerk.com/v1"
 BODY = "Public Health & Safety Committee"
 MUNICIPALITY = "Wausau"
 BACKFILL_START = date(2026, 5, 18)  # first tracked PHS meeting (~90-day backfill)
+# The signals ledger holds every meeting already ingested, so the nightly
+# fetch only needs recent history (long enough to catch late edits to a
+# recent agenda) — not every city event since May, forever.
+LOOKBACK_DAYS = 60
 # Agendas post ~a week before the meeting, and that lead time IS the story:
 # a posted agenda is already a public record, so upcoming meetings within
-# this window are ingested too. ``observed`` stays the meeting date.
+# this window are ingested too. ``observed`` stays the meeting date; until
+# then the ledger treats the signal as provisional.
 LOOKAHEAD_DAYS = 14
 
 _TAGS = re.compile(r"<[^>]+>")
@@ -147,9 +153,13 @@ def extract_signals(event_id: int, meeting_date: date, url: str,
     return signals
 
 
-def _events():
-    """All PHS meetings from BACKFILL_START through today, paged."""
-    odata_filter = quote(f"startDateTime ge {BACKFILL_START.isoformat()}T00:00:00Z")
+def query_start(today: date) -> date:
+    return max(BACKFILL_START, today - timedelta(days=LOOKBACK_DAYS))
+
+
+def _events(today: date):
+    """City events from query_start(today) onward, paged."""
+    odata_filter = quote(f"startDateTime ge {query_start(today).isoformat()}T00:00:00Z")
     url = f"{API}/Events?$filter={odata_filter}&$orderby=startDateTime"
     while url:
         page = get_json(url)
@@ -166,10 +176,13 @@ def wanted(event: dict, today: date) -> bool:
 
 
 def fetch(aliases: dict[str, str]) -> list[Signal]:
+    today = date.today()
     signals = []
-    for event in _events():
-        if not wanted(event, date.today()):
+    meetings = 0
+    for event in _events(today):
+        if not wanted(event, today):
             continue
+        meetings += 1
         meeting = get_json(f"{API}/Meetings/{event['agendaId']}")
         signals.extend(extract_signals(
             event_id=event["id"],
@@ -178,4 +191,9 @@ def fetch(aliases: dict[str, str]) -> list[Signal]:
             items=meeting["items"],   # a renamed key must fail, not go quiet
             aliases=aliases,
         ))
+    if meetings == 0:
+        raise RuntimeError(
+            f"no {BODY} meetings with agendas since {query_start(today)} — "
+            f"CivicClerk feed or event naming changed"
+        )
     return signals

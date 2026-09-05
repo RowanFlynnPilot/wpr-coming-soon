@@ -39,17 +39,34 @@ def test_signals_outlive_the_source_forgetting_them():
     assert parker.location_key == "2510 STEWART AVE|WAUSAU"
 
 
-def test_wording_updates_without_a_halt_but_facts_may_not_change():
+def test_wording_and_dates_update_without_a_halt_but_the_place_may_not_change():
     led = {}
     ledger.merge(led, fresh_signals(), TODAY)
     (sign,) = [s for s in fresh_signals() if s.id == "permit:WAU-202604904"]
-    ledger.merge(led, [replace(sign, summary="Lit channel letters (revised)")], TODAY)
+    # Reworded, and (as a rescheduled meeting would) re-dated: updates in place.
+    ledger.merge(led, [replace(sign, summary="Lit channel letters (revised)",
+                               observed=date(2026, 5, 9))], TODAY)
     assert led["permit:WAU-202604904"]["summary"] == "Lit channel letters (revised)"
+    assert led["permit:WAU-202604904"]["observed"] == "2026-05-09"
     assert led["permit:WAU-202604904"]["first_seen"] == "2026-09-05"
     with pytest.raises(ValueError, match="conflict"):
-        ledger.merge(led, [replace(sign, observed=date(2026, 5, 9))], TODAY)
-    with pytest.raises(ValueError, match="conflict"):
         ledger.merge(led, [replace(sign, address="1 ELSEWHERE ST")], TODAY)
+
+
+def test_future_signals_are_provisional_past_ones_are_permanent():
+    led = {}
+    (sign,) = [s for s in fresh_signals() if s.id == "permit:WAU-202604904"]
+    upcoming = replace(sign, id="license:wausau-2469-3.b", observed=date(2026, 9, 21))
+    ledger.merge(led, [sign, upcoming], TODAY)
+    assert set(led) == {sign.id, upcoming.id}
+    # The source stops reporting both: the future one is withdrawn, the past
+    # one is history.
+    ledger.merge(led, [], date(2026, 9, 10))
+    assert set(led) == {sign.id}
+    # Once its date has passed, an item that vanishes upstream still stays.
+    ledger.merge(led, [upcoming], date(2026, 9, 10))
+    ledger.merge(led, [], date(2026, 9, 22))
+    assert set(led) == {sign.id, upcoming.id}
 
 
 def test_keys_are_rederived_so_aliases_stay_retroactive():

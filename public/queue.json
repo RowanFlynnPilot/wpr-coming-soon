@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T06:56:16+00:00",
+  "generated": "2026-09-05T07:11:56+00:00",
   "locations": [
     {
       "key": "6215 VOLKMAN ST|WESTON",
@@ -863,10 +863,10 @@
           "observed": "2026-06-15",
           "summary": "Extension to open for business: True North #855 (True North Energy LLC)",
           "receipt": {
-            "body": "Wausau Public Health & Safety Committee",
-            "meeting_date": "2026-06-15",
             "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for True North #855 located at 4611 Stewart Avenue, True North Energy LLC, agent Michelle Knox.",
             "applicant": "True North Energy LLC",
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-06-15",
             "trade_name": "True North #855"
           },
           "url": "https://wausauwi.portal.civicclerk.com/event/2070/overview"
@@ -1398,10 +1398,10 @@
           "observed": "2026-05-18",
           "summary": "License transfer to new location: The Story Cellar (The Story Cellar LLC)",
           "receipt": {
-            "body": "Wausau Public Health & Safety Committee",
-            "meeting_date": "2026-05-18",
             "agenda_item": "6.c: Consider approval or denial of Alcohol Beverage License Transfer of the \"Class C\" Wine License for The Story Cellar currently located at 205 Callon Street, Suite 2 to new location at 416 N. 3rd Street, The Story Cellar LLC, owners Laura Spaeth.",
             "applicant": "The Story Cellar LLC",
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-05-18",
             "trade_name": "The Story Cellar"
           },
           "url": "https://wausauwi.portal.civicclerk.com/event/2069/overview"
