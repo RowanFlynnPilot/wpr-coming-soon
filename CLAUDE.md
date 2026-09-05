@@ -45,8 +45,9 @@ sources/*.fetch()  →  merge(signals, overrides)  →  build()  →  public/*.j
 ## Commands
 
 - `pip install -e ".[dev]"` — setup
-- `pytest` — 28 tests; run before every commit
-- `python -m pipeline` — full build (fails until sources are implemented)
+- `pytest` — run before every commit (also gates the nightly build)
+- `python -m pipeline` — full build against the live feeds; writes
+  `public/*.json` and updates `data/transfers_ledger.json`
 
 ## Status / next steps
 
@@ -60,8 +61,19 @@ map view. The batched license-PDF idea was investigated and is a documented
 dead end (docs/SIGNALS.md) — the report's Address column is the licensee's
 mailing address, not the premises.
 
+Review pass 2026-09-05 (17 nightly runs in; 16 green, the one failure a
+Pages 502): hardened per the fresh-eyes review, `first_seen` stamped per
+location (the committed public/ files are the memory), editor queue sorts
+by newest arrivals / strongest signals with "New" markers. Feed cadence to
+keep in mind: permits land in monthly batches (a July 31 permit surfaces
+~Sept 12), transfers weekly, licenses monthly with ~a week of agenda lead.
+
 1. Editor pass: work /queue.html (copy-ready YAML per entry) — first
    curated `locations:` entries make the public page non-empty
-2. Sponsor slots are placeholders — real sponsor config when sold
-3. Watch queue growth; signal aging stays out of v1 unless the editor pass
+2. Structural next step to decide: one accrue-only signals ledger for ALL
+   sources (transfers already have one) — makes the orphan check safe for
+   published locations backed only by a live-fetched license item, and
+   makes `first_seen` a property of the signal rather than the artifact
+3. Sponsor slots are placeholders — real sponsor config when sold
+4. Watch queue growth; signal aging stays out of v1 unless the editor pass
    starts hurting
