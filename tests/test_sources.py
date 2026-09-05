@@ -1,6 +1,7 @@
 """Adapter tests. Extraction runs against real records committed as fixtures
 (see tests/fixtures/) — never against invented data."""
 
+import io
 import json
 from datetime import date
 from pathlib import Path
@@ -31,6 +32,48 @@ def test_resolve_key_prefers_raw_variant_alias():
 def test_resolve_key_unparseable_without_alias_raises():
     with pytest.raises(AddressError):
         resolve_key("Vacant Land On South Madison Street", "Spencer", {})
+
+
+# --- get_json ----------------------------------------------------------------
+
+class FakeResponse(io.BytesIO):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+
+
+def test_get_json_retries_transient_failures(monkeypatch):
+    import pipeline.sources as sources
+    calls = []
+
+    def fake_urlopen(request, timeout):
+        calls.append(request.full_url)
+        if len(calls) == 1:
+            raise TimeoutError("read timed out")
+        return FakeResponse(b'{"ok": true}')
+
+    monkeypatch.setattr(sources.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(sources.time, "sleep", lambda s: None)
+    assert sources.get_json("https://example.test/feed.json") == {"ok": True}
+    assert len(calls) == 2
+
+
+def test_get_json_does_not_retry_client_errors(monkeypatch):
+    import urllib.error
+    import pipeline.sources as sources
+    calls = []
+
+    def fake_urlopen(request, timeout):
+        calls.append(1)
+        raise urllib.error.HTTPError(request.full_url, 404, "Not Found", {}, None)
+
+    monkeypatch.setattr(sources.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(sources.time, "sleep", lambda s: None)
+    with pytest.raises(urllib.error.HTTPError):
+        sources.get_json("https://example.test/missing.json")
+    assert len(calls) == 1
 
 
 # --- licenses ----------------------------------------------------------------

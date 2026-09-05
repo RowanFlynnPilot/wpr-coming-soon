@@ -12,8 +12,11 @@ Exact string lookup only — no fuzzy matching.
 
 from __future__ import annotations
 
+import http.client
 import json
 import re
+import time
+import urllib.error
 import urllib.request
 
 from ..normalize import normalize_address
@@ -22,15 +25,32 @@ __all__ = ["get_json", "resolve_key"]
 
 _UA = "wpr-coming-soon (github.com/RowanFlynnPilot/wpr-coming-soon)"
 _WS = re.compile(r"\s+")
+_TRANSIENT = (urllib.error.URLError, TimeoutError, ConnectionError,
+              http.client.IncompleteRead)
 
 
-def get_json(url: str):
-    """GET a JSON document; any HTTP or parse failure stops the build."""
+def get_json(url: str, attempts: int = 3):
+    """GET a JSON document.
+
+    Transport blips (timeouts, resets, 5xx) are retried a couple of times
+    with a short backoff — those are the network's problem, not the data's.
+    Anything else (4xx, malformed JSON) and a still-failing third attempt
+    stop the build.
+    """
     request = urllib.request.Request(
         url, headers={"User-Agent": _UA, "Accept": "application/json"}
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            if error.code < 500 or attempt == attempts:
+                raise
+        except _TRANSIENT:
+            if attempt == attempts:
+                raise
+        time.sleep(2 * attempt)
 
 
 def resolve_key(raw: str, municipality: str, aliases: dict[str, str]) -> str:
