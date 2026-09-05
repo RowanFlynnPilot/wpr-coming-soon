@@ -1,6 +1,64 @@
 {
-  "generated": "2026-08-21T03:03:38+00:00",
+  "generated": "2026-09-05T06:32:11+00:00",
   "locations": [
+    {
+      "key": "6215 VOLKMAN ST|WESTON",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "6215 Volkman St",
+      "municipality": "Weston",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-08-21",
+      "signals": [
+        {
+          "id": "transfer:1943081",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-21",
+          "summary": "Sold for $350,000 to C&C PROPERTY HOLDING, LLC",
+          "receipt": {
+            "document_number": "1943081",
+            "grantor": "SIMONSON, JANELL",
+            "grantee": "C&C PROPERTY HOLDING, LLC",
+            "consideration": "350000"
+          },
+          "url": null
+        }
+      ],
+      "lat": null,
+      "lon": null
+    },
+    {
+      "key": "1750 WESTWOOD CENTER BLVD|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "1750 Westwood Center Blvd",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-08-18",
+      "signals": [
+        {
+          "id": "transfer:1942905",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-18",
+          "summary": "Sold for $1,600,000 to R O TRUST, OF JANUARY 13, 2023",
+          "receipt": {
+            "document_number": "1942905",
+            "grantor": "THE WESTWOOD CENTER, LLC",
+            "grantee": "R O TRUST, OF JANUARY 13, 2023",
+            "consideration": "1600000"
+          },
+          "url": null
+        }
+      ],
+      "lat": null,
+      "lon": null
+    },
     {
       "key": "303 N 3RD ST|WAUSAU",
       "status": "signal",
@@ -10,6 +68,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-08-17",
       "signals": [
         {
           "id": "license:wausau-2468-3.b",
@@ -39,6 +98,7 @@
       "municipality": "Schofield",
       "note": null,
       "opened": null,
+      "first_seen": "2026-08-17",
       "signals": [
         {
           "id": "transfer:1942692",
@@ -67,6 +127,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-08-07",
       "signals": [
         {
           "id": "transfer:1942292",
@@ -95,6 +156,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-08-06",
       "signals": [
         {
           "id": "transfer:1942247",
@@ -123,6 +185,7 @@
       "municipality": "Town of Brighton",
       "note": null,
       "opened": null,
+      "first_seen": "2026-08-04",
       "signals": [
         {
           "id": "transfer:1942104",
@@ -151,6 +214,7 @@
       "municipality": "Schofield",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-28",
       "signals": [
         {
           "id": "permit:SCH-202608121",
@@ -178,6 +242,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-28",
       "signals": [
         {
           "id": "license:wausau-2467-3.b",
@@ -220,6 +285,7 @@
       "municipality": "Schofield",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-24",
       "signals": [
         {
           "id": "permit:SCH-202606400",
@@ -260,6 +326,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-24",
       "signals": [
         {
           "id": "permit:WAU-202608077",
@@ -287,6 +354,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-24",
       "signals": [
         {
           "id": "transfer:1941341",
@@ -315,6 +383,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-21",
       "signals": [
         {
           "id": "permit:WAU-202607823",
@@ -355,6 +424,7 @@
       "municipality": "Rib Mountain",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-21",
       "signals": [
         {
           "id": "permit:RIB-202607861",
@@ -382,6 +452,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-21",
       "signals": [
         {
           "id": "permit:WAU-202607860",
@@ -409,6 +480,7 @@
       "municipality": "Spencer",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-21",
       "signals": [
         {
           "id": "transfer:1941123",
@@ -437,6 +509,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-16",
       "signals": [
         {
           "id": "permit:WAU-202607600",
@@ -464,6 +537,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-15",
       "signals": [
         {
           "id": "permit:WAU-202607575",
@@ -491,6 +565,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-13",
       "signals": [
         {
           "id": "permit:WAU-202607511",
@@ -518,6 +593,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-11",
       "signals": [
         {
           "id": "permit:WAU-202607457",
@@ -545,6 +621,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-10",
       "signals": [
         {
           "id": "permit:WAU-202607448",
@@ -572,6 +649,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-08",
       "signals": [
         {
           "id": "permit:WAU-202605935",
@@ -612,6 +690,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-07-08",
       "signals": [
         {
           "id": "permit:WAU-202607376",
@@ -639,6 +718,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-30",
       "signals": [
         {
           "id": "permit:WAU-202607137",
@@ -666,6 +746,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-29",
       "signals": [
         {
           "id": "permit:WAU-202607094",
@@ -693,6 +774,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-26",
       "signals": [
         {
           "id": "permit:WAU-202607051",
@@ -720,6 +802,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-24",
       "signals": [
         {
           "id": "permit:WAU-202606859",
@@ -747,6 +830,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-23",
       "signals": [
         {
           "id": "permit:WAU-202606745",
@@ -774,6 +858,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-22",
       "signals": [
         {
           "id": "permit:WAU-202606717",
@@ -801,6 +886,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-17",
       "signals": [
         {
           "id": "permit:WAU-202606623",
@@ -828,6 +914,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-15",
       "signals": [
         {
           "id": "license:wausau-2070-3.b",
@@ -857,6 +944,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-15",
       "signals": [
         {
           "id": "permit:WAU-202606542",
@@ -884,6 +972,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-11",
       "signals": [
         {
           "id": "permit:WAU-202606301",
@@ -911,6 +1000,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606204",
@@ -938,6 +1028,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606205",
@@ -965,6 +1056,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606194",
@@ -992,6 +1084,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-08",
       "signals": [
         {
           "id": "permit:WAU-202606179",
@@ -1019,6 +1112,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-08",
       "signals": [
         {
           "id": "permit:WAU-202606191",
@@ -1046,6 +1140,7 @@
       "municipality": "Rib Mountain",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-04",
       "signals": [
         {
           "id": "permit:RIB-202606009",
@@ -1073,6 +1168,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-03",
       "signals": [
         {
           "id": "permit:WAU-202605977",
@@ -1100,6 +1196,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-02",
       "signals": [
         {
           "id": "permit:WAU-202605962",
@@ -1127,6 +1224,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-02",
       "signals": [
         {
           "id": "permit:WAU-202605930",
@@ -1154,6 +1252,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-06-01",
       "signals": [
         {
           "id": "permit:WAU-202605905",
@@ -1181,6 +1280,7 @@
       "municipality": "Schofield",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-29",
       "signals": [
         {
           "id": "permit:SCH-202605893",
@@ -1208,6 +1308,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-28",
       "signals": [
         {
           "id": "permit:WAU-202605770",
@@ -1235,6 +1336,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-26",
       "signals": [
         {
           "id": "permit:WAU-202604815",
@@ -1275,6 +1377,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-26",
       "signals": [
         {
           "id": "permit:WAU-202605708",
@@ -1302,6 +1405,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-22",
       "signals": [
         {
           "id": "permit:WAU-202605516",
@@ -1329,6 +1433,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-21",
       "signals": [
         {
           "id": "permit:WAU-202605482",
@@ -1356,6 +1461,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-18",
       "signals": [
         {
           "id": "permit:WAU-202605360",
@@ -1383,6 +1489,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-18",
       "signals": [
         {
           "id": "license:wausau-2069-6.c",
@@ -1412,6 +1519,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-18",
       "signals": [
         {
           "id": "permit:WAU-202605363",
@@ -1439,6 +1547,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-14",
       "signals": [
         {
           "id": "permit:WAU-202605098",
@@ -1466,6 +1575,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-14",
       "signals": [
         {
           "id": "permit:WAU-202605099",
@@ -1493,6 +1603,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202604999",
@@ -1520,6 +1631,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202605023",
@@ -1547,6 +1659,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202605004",
@@ -1574,6 +1687,7 @@
       "municipality": "Rib Mountain",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-11",
       "signals": [
         {
           "id": "permit:RIB-202604958",
@@ -1601,6 +1715,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-08",
       "signals": [
         {
           "id": "permit:WAU-202604904",
@@ -1628,6 +1743,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-06",
       "signals": [
         {
           "id": "permit:WAU-202604819",
@@ -1655,6 +1771,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604786",
@@ -1682,6 +1799,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604776",
@@ -1709,6 +1827,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604752",
@@ -1736,6 +1855,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604777",
@@ -1763,6 +1883,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604774",
@@ -1790,6 +1911,7 @@
       "municipality": "Wausau",
       "note": null,
       "opened": null,
+      "first_seen": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604778",

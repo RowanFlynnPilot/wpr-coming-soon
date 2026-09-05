@@ -38,17 +38,38 @@ function CopyButton({ text, label }) {
   )
 }
 
-function Entry({ loc }) {
+const NEW_DAYS = 7
+
+function daysBetween(a, b) {
+  return Math.round((new Date(b) - new Date(a)) / 86400000)
+}
+
+// Deterministic story-strength score for the "Strongest" sort: sources
+// converging on one address matter most, a license item is the best single
+// signal, and more receipts beat fewer.
+function strength(loc) {
+  const sources = new Set(loc.signals.map((s) => s.source)).size
+  const license = loc.signals.some((s) => s.source === 'license') ? 5 : 0
+  return sources * 10 + license + loc.signals.length
+}
+
+function Entry({ loc, isNew }) {
   return (
-    <article className="card qentry">
+    <article className={isNew ? 'card qentry qentry--new' : 'card qentry'}>
       <div className="card__head">
         <h2 className="card__name qentry__key">{loc.key}</h2>
-        <span className="status">{loc.signals.length} signal{loc.signals.length === 1 ? '' : 's'}</span>
+        <span className="qentry__badges">
+          {isNew && <span className="status status--new">New</span>}
+          <span className="status">
+            {loc.signals.length} signal{loc.signals.length === 1 ? '' : 's'}
+          </span>
+        </span>
       </div>
       <div className="card__meta">
         <span className="card__addr">
           {loc.address}, {loc.municipality}
         </span>
+        <span className="card__addr">first seen {fmtDate(loc.first_seen)}</span>
       </div>
       <div className="receipts">
         <ul>
@@ -85,6 +106,7 @@ function QueueApp() {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [query, setQuery] = useState('')
+  const [sort, setSort] = useState('arrived')
 
   useEffect(() => {
     fetch('./queue.json')
@@ -93,15 +115,29 @@ function QueueApp() {
   }, [])
 
   const locations = data ? data.locations : []
+  const built = data ? data.generated.slice(0, 10) : null
+  const isNew = (l) => built && l.first_seen && daysBetween(l.first_seen, built) <= NEW_DAYS
+  const newCount = locations.filter(isNew).length
+
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return locations
-    return locations.filter(
-      (l) =>
-        l.key.toLowerCase().includes(q) ||
-        l.signals.some((s) => s.summary.toLowerCase().includes(q))
-    )
-  }, [locations, query])
+    const matched = !q
+      ? locations
+      : locations.filter(
+          (l) =>
+            l.key.toLowerCase().includes(q) ||
+            l.signals.some((s) => s.summary.toLowerCase().includes(q))
+        )
+    // queue.json arrives newest-activity-first; the other sorts are stable
+    // re-orderings of that.
+    const sorted = matched.slice()
+    if (sort === 'arrived') {
+      sorted.sort((a, b) => (b.first_seen || '').localeCompare(a.first_seen || ''))
+    } else if (sort === 'strength') {
+      sorted.sort((a, b) => strength(b) - strength(a))
+    }
+    return sorted
+  }, [locations, query, sort])
 
   return (
     <div className="wrap">
@@ -129,8 +165,17 @@ function QueueApp() {
             placeholder="key or summary…"
           />
         </label>
+        <label>
+          Sort{' '}
+          <select value={sort} onChange={(e) => setSort(e.target.value)}>
+            <option value="arrived">Newest arrivals</option>
+            <option value="strength">Strongest signals</option>
+            <option value="activity">Latest activity</option>
+          </select>
+        </label>
         <span className="updated">
           {shown.length} of {locations.length} awaiting review
+          {newCount > 0 && ` · ${newCount} new in the last ${NEW_DAYS} days`}
         </span>
       </div>
 
@@ -141,7 +186,7 @@ function QueueApp() {
       )}
       {data && locations.length === 0 && <p className="notice">Queue is empty — all caught up.</p>}
       {shown.map((loc) => (
-        <Entry key={loc.key} loc={loc} />
+        <Entry key={loc.key} loc={loc} isNew={isNew(loc)} />
       ))}
     </div>
   )

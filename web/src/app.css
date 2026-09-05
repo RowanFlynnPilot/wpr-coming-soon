@@ -369,6 +369,20 @@ a.banner__sponsor:hover {
   font-weight: 700;
 }
 
+.qentry--new {
+  border-left: 4px solid var(--teal);
+}
+
+.qentry__badges {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.status--new {
+  background: var(--teal);
+}
+
 .qentry__actions {
   display: flex;
   gap: 8px;
