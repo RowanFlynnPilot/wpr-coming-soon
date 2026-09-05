@@ -54,6 +54,12 @@ class Signal:
     summary: str             # one human-readable line
     receipt: dict[str, str]
     url: str | None = None
+    # The address as the source wrote it, and the municipality it was
+    # resolved under. The signals ledger keeps these so location_key can be
+    # re-derived every build — aliases and normalize rules stay retroactive.
+    address: str = ""
+    municipality: str = ""
+    first_seen: date | None = None   # set by the ledger, not by adapters
 
     def __post_init__(self) -> None:
         if not self.receipt:

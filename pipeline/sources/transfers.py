@@ -121,6 +121,8 @@ def signals_from_records(ledger: dict, aliases: dict[str, str]) -> list[Signal]:
             location_key=resolve_key(
                 record["address"], _municipality(record["municipality"]), aliases
             ),
+            address=record["address"].strip(),
+            municipality=_municipality(record["municipality"]),
             source=Source.TRANSFER,
             kind=SignalKind.COMMERCIAL_SALE,
             observed=date.fromisoformat(record["recorded_date"]),

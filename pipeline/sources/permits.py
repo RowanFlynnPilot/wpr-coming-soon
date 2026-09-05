@@ -87,6 +87,8 @@ def signals_from_ledger(ledger: dict, aliases: dict[str, str]) -> list[Signal]:
         signals.append(Signal(
             id=f"permit:{code}-{permit_id}",
             location_key=resolve_key(street, municipality, aliases),
+            address=street.strip(),
+            municipality=municipality,
             source=Source.PERMIT,
             kind=kind,
             observed=date.fromisoformat(record["issue_date"]),

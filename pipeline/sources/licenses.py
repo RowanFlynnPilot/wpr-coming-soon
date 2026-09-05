@@ -129,6 +129,8 @@ def extract_signals(event_id: int, meeting_date: date, url: str,
         signals.append(Signal(
             id=f"license:wausau-{event_id}-{outline}",
             location_key=resolve_key(match["addr"].strip(), MUNICIPALITY, aliases),
+            address=match["addr"].strip(),
+            municipality=MUNICIPALITY,
             source=Source.LICENSE,
             kind=SignalKind.ALCOHOL_LICENSE_APPLICATION,
             observed=meeting_date,
