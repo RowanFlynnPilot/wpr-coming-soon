@@ -90,6 +90,12 @@ with no signals (catches stale entries and key typos).
 - **`queue.json`** — same shape, `signal`-status locations awaiting editorial
   review. Internal by convention, not secrecy (it's all public record).
 
+`first_seen` is the date a location first entered a build, carried forward
+from the previous artifacts (the committed `public/` files are the memory).
+Permits surface in monthly batches weeks after their issue dates, so signal
+dates alone can't tell "new to us" from "old news"; the editor queue uses
+this for its "new" markers.
+
 ```json
 {
   "generated": "2026-08-19T15:30:00+00:00",
@@ -103,6 +109,7 @@ with no signals (catches stale entries and key typos).
       "municipality": "Wausau",
       "note": "Confirmed by owner 8/12; targeting October.",
       "opened": null,
+      "first_seen": "2026-08-02",
       "signals": [
         {
           "id": "permit:WAU-2026-001",

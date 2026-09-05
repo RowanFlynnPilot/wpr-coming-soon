@@ -198,3 +198,25 @@ def test_build_splits_published_and_queue(tmp_path):
     queue = json.loads((tmp_path / "queue.json").read_text())
     assert queue["locations"][0]["key"] == pending_key
     assert queue["locations"][0]["name"] is None
+
+
+def test_build_carries_first_seen_forward(tmp_path):
+    first = "301 WASHINGTON ST|WAUSAU"
+    later = "2200 GRAND AVE|SCHOFIELD"
+    build(merge([sig(first)], NO_OVERRIDES), tmp_path, today=date(2026, 8, 1))
+    build(merge([sig(first), sig(later, id="permit:SCH-1")], NO_OVERRIDES),
+          tmp_path, today=date(2026, 8, 10))
+    seen = {l["key"]: l["first_seen"]
+            for l in json.loads((tmp_path / "queue.json").read_text())["locations"]}
+    assert seen == {first: "2026-08-01", later: "2026-08-10"}
+
+
+def test_build_seeds_first_seen_from_pre_field_artifacts(tmp_path):
+    # An artifact from before first_seen existed: use the newest signal date,
+    # not today, so nothing masquerades as new on migration day.
+    key = "301 WASHINGTON ST|WAUSAU"
+    (tmp_path / "queue.json").write_text(json.dumps({"generated": "x", "locations": [
+        {"key": key, "signals": [{"observed": "2026-07-04"}, {"observed": "2026-07-20"}]}]}))
+    build(merge([sig(key)], NO_OVERRIDES), tmp_path, today=date(2026, 9, 5))
+    (entry,) = json.loads((tmp_path / "queue.json").read_text())["locations"]
+    assert entry["first_seen"] == "2026-07-20"
