@@ -16,8 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install -e ".[dev]"
@@ -30,9 +30,9 @@ jobs:
           git add public/ data/transfers_ledger.json
           git diff --staged --quiet || git commit -m "data: nightly build"
           git push
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       - run: npm ci
         working-directory: web
       - run: npm run build
@@ -41,7 +41,7 @@ jobs:
         run: |
           cp public/locations.json public/queue.json web/dist/
           python scripts/enrich_geo.py web/dist/locations.json web/dist/queue.json
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: web/dist
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
