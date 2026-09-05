@@ -38,6 +38,8 @@ NO_OVERRIDES = Overrides(aliases={}, locations={})
     ("514 S 17Th Ave / 516 S 17Th Ave, 1704 Garfield Ave", "Wausau", "514 S 17TH AVE|WAUSAU"),
     ("1750 & 1800 Westwood Center Blvd", "Wausau", "1750 WESTWOOD CENTER BLVD|WAUSAU"),
     ("514/516 S 17th Ave", "Wausau", "514 S 17TH AVE|WAUSAU"),
+    # A half-address is not a parcel list.
+    ("316 1/2 N 3rd St", "Wausau", "316 1/2 N 3RD ST|WAUSAU"),
 ])
 def test_normalize(raw, muni, expected):
     assert normalize_address(raw, muni) == expected
@@ -109,6 +111,13 @@ def test_gate_status_without_name_raises():
         merge([sig(key)], overrides)
 
 
+def test_gate_rejects_whitespace_name():
+    key = "301 WASHINGTON ST|WAUSAU"
+    overrides = Overrides(aliases={}, locations={key: {"status": "coming_soon", "name": "  "}})
+    with pytest.raises(GateError):
+        merge([sig(key)], overrides)
+
+
 def test_suppress_drops_location():
     key = "123 GRAND AVE|SCHOFIELD"
     overrides = Overrides(aliases={}, locations={key: {"suppress": True}})
@@ -169,6 +178,7 @@ def test_checked_in_overrides_file_is_valid():
     'locations:\n  "K|W":\n    status: coming_soon\n    name: "x"\n    opened: 2026-10-01',  # opened needs open
     'locations:\n  "K|W":\n    status: open\n    name: "x"\n    opened: "soon"',  # opened not a date
     'address_aliases:\n  "A|W": "B|W"\n  "B|W": "C|W"',         # alias chain
+    'locations:\n  "K|W":',                                     # empty entry, not a mapping
 ])
 def test_load_overrides_rejects(tmp_path, text):
     with pytest.raises(OverrideError):

@@ -71,6 +71,11 @@ def signals_from_ledger(ledger: dict, aliases: dict[str, str]) -> list[Signal]:
             )
         municipality, code = _MUNICIPALITIES[jurisdiction]
 
+        if not record.get("address") or not record.get("issue_date"):
+            raise ValueError(
+                f"permit {permit_id}: kept template {record['template']!r} "
+                f"with no address or issue date"
+            )
         street, _, city = record["address"].rpartition(",")
         if not street or city.strip().upper() != municipality.upper():
             raise ValueError(

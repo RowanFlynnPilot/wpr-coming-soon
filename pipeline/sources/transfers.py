@@ -70,16 +70,30 @@ def _municipality(raw: str) -> str:
 
 
 def _kept(record: dict) -> bool:
+    # A blank consideration is an exempt / no-money filing: nominal, dropped.
     return (record["county"] == "Marathon"
             and record["property_use"] == "Commercial"
-            and record["sale_price"] >= 1000)
+            and (record.get("sale_price") or 0) >= 1000)
+
+
+# The fields a signal is built from. Only these participate in the conflict
+# check, so the sibling adding or reformatting an unrelated field (acres,
+# document_type) can't halt the nightly for every known document.
+_IDENTITY = ("document_number", "recorded_date", "municipality", "address",
+             "grantor", "grantee", "sale_price", "property_use", "county")
+
+
+def _identity(record: dict) -> tuple:
+    return tuple(record.get(field) for field in _IDENTITY)
 
 
 def merge_feed(ledger: dict, payload: dict) -> int:
     """Fold the feed's kept records into the ledger; return how many are new.
 
-    Accrue-only: identical re-ingest is a no-op, a changed record for a
-    known document number raises.
+    Accrue-only: identical re-ingest is a no-op; a known document whose
+    signal-bearing fields changed raises. Recovery from a genuine upstream
+    correction is deliberate and by hand: edit the record in
+    data/transfers_ledger.json in the same commit that explains why.
     """
     new = 0
     for record in payload["transactions"]:
@@ -87,7 +101,7 @@ def merge_feed(ledger: dict, payload: dict) -> int:
             continue
         doc = record["document_number"]
         if doc in ledger:
-            if ledger[doc] != record:
+            if _identity(ledger[doc]) != _identity(record):
                 raise ValueError(
                     f"transfers ledger conflict: document {doc} changed "
                     f"between runs"

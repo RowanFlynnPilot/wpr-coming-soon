@@ -72,7 +72,7 @@ license that follows will surface the location anyway.
 **Mapping:**
 
 - `id`: `transfer:{document_number}`
-- `observed`: conveyance date
+- `observed`: recorded date (the feed carries no conveyance date)
 - `summary`: `"Sold for ${consideration:,} to {grantee}"`
 - `receipt`: `{"document_number": ..., "grantor": ..., "grantee": ...,
   "consideration": ...}`

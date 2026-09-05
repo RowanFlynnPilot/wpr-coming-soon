@@ -43,6 +43,7 @@ Map:     kind      -> SignalKind.ALCOHOL_LICENSE_APPLICATION
 
 from __future__ import annotations
 
+import html
 import re
 from datetime import date, timedelta
 from urllib.parse import quote
@@ -65,26 +66,33 @@ _TAGS = re.compile(r"<[^>]+>")
 _JUNK = re.compile("[\u200b\u200c\ufeff]")  # zero-width chars in CivicClerk text
 _WS = re.compile(r"\s+")
 
+# A unit after the premises address ("300 N 3rd Street, Suite 100, Foo LLC")
+# is skipped so the applicant group never captures "Suite 100".
+_UNIT = r"(?:(?:Suite|Ste|Unit|#)\s*[\w-]+,\s*)?"
 _TRANSFER = re.compile(
     r"Alcohol Beverage License Transfer of the (?P<klass>.+?) for "
     r"(?P<trade>.+?) currently located at .+? to new location at "
-    r"(?P<addr>[^,]+),\s*(?P<applicant>[^,]+)",
+    r"(?P<addr>[^,]+),\s*" + _UNIT + r"(?P<applicant>[^,]+)",
     re.IGNORECASE,
 )
 _EXTENSION = re.compile(
     r"extension to open for business for good cause for "
-    r"(?P<trade>.+?) located at (?P<addr>[^,]+),\s*(?P<applicant>[^,]+)",
+    r"(?P<trade>.+?) located at (?P<addr>[^,]+),\s*" + _UNIT + r"(?P<applicant>[^,]+)",
     re.IGNORECASE,
 )
 # Cheap triggers: an item matching one of these MUST parse, or we raise.
-_TRANSFER_TRIGGER = re.compile(r"to new location at", re.IGNORECASE)
+# Both name the license action, so unrelated relocations ("Fire Station 2
+# to new location at ...") don't trip them.
+_TRANSFER_TRIGGER = re.compile(
+    r"License Transfer.*to new location at", re.IGNORECASE)
 _EXTENSION_TRIGGER = re.compile(r"extension to open for business", re.IGNORECASE)
 
 _ROLE_SUFFIX = re.compile(r"\s+(owners?|agents?)$", re.IGNORECASE)
 
 
 def _clean(name: str) -> str:
-    return _WS.sub(" ", _JUNK.sub("", _TAGS.sub("", name.replace("\xa0", " ")))).strip()
+    text = html.unescape(_TAGS.sub("", name)).replace("\xa0", " ")
+    return _WS.sub(" ", _JUNK.sub("", text)).strip()
 
 
 def _walk(items: list[dict], prefix: str = ""):
@@ -165,7 +173,7 @@ def fetch(aliases: dict[str, str]) -> list[Signal]:
             event_id=event["id"],
             meeting_date=date.fromisoformat(event["startDateTime"][:10]),
             url=f"https://wausauwi.portal.civicclerk.com/event/{event['id']}/overview",
-            items=meeting.get("items", []),
+            items=meeting["items"],   # a renamed key must fail, not go quiet
             aliases=aliases,
         ))
     return signals

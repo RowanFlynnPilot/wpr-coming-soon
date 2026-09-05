@@ -13,8 +13,14 @@ from .sources import licenses, permits, transfers
 def main() -> None:
     overrides = load_overrides(Path("data/overrides/locations.yaml"))
     aliases = overrides.aliases
-    signals = [*permits.fetch(aliases), *transfers.fetch(aliases),
-               *licenses.fetch(aliases)]
+    signals = []
+    for source in (permits, transfers, licenses):
+        fetched = source.fetch(aliases)
+        # Every source has history now (append-only ledgers, a fixed
+        # backfill start), so zero signals means the feed broke quietly.
+        if not fetched:
+            raise RuntimeError(f"{source.__name__} returned no signals")
+        signals.extend(fetched)
     locations = merge(signals, overrides)
     counts = build(locations, Path("public"))
     print(f"published={counts['published']} queue={counts['queue']}")

@@ -20,7 +20,7 @@ from enum import Enum
 class Source(str, Enum):
     PERMIT = "permit"      # wpr-permit-tracker
     TRANSFER = "transfer"  # wpr-property-transactions
-    LICENSE = "license"    # marathon-meetings agenda items
+    LICENSE = "license"    # Wausau PHS agenda items (CivicClerk)
 
 
 class SignalKind(str, Enum):

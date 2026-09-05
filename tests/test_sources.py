@@ -147,6 +147,35 @@ def test_licenses_triggered_item_that_fails_to_parse_raises():
         licenses.extract_signals(2069, date(2026, 5, 18), "u", truncated, {})
 
 
+def item(text, outline="3"):
+    return [{"agendaObjectItemOutlineNumber": outline,
+             "agendaObjectItemName": text, "childItems": []}]
+
+
+def test_licenses_skips_a_unit_after_the_new_premises_address():
+    # Real Story Cellar wording with a suite added after the new address.
+    text = ('Consider approval or denial of Alcohol Beverage License Transfer '
+            'of the "Class C" Wine License for The Story Cellar currently '
+            'located at 205 Callon Street, Suite 2 to new location at '
+            '416 N. 3rd Street, Suite 100, The Story Cellar LLC, owners Laura Spaeth.')
+    (signal,) = licenses.extract_signals(2069, date(2026, 5, 18), "u", item(text), {})
+    assert signal.location_key == "416 N 3RD ST|WAUSAU"
+    assert signal.receipt["applicant"] == "The Story Cellar LLC"
+
+
+def test_licenses_relocation_of_something_else_is_not_a_trigger():
+    text = "Discussion of relocating Fire Station 2 to new location at 1000 Grand Avenue."
+    assert licenses.extract_signals(2069, date(2026, 5, 18), "u", item(text), {}) == []
+
+
+def test_licenses_decodes_html_entities_in_item_text():
+    text = ('Consider request granting a 90 day extension to open for business '
+            'for good cause for Bull Falls &amp; Co located at 901 E Thomas Street, '
+            'Bull Falls Brewery LLC, agent Don Zamzow.')
+    (signal,) = licenses.extract_signals(2467, date(2026, 7, 20), "u", item(text), {})
+    assert signal.receipt["trade_name"] == "Bull Falls & Co"
+
+
 def test_licenses_ingests_posted_agendas_up_to_two_weeks_ahead():
     # Real event: the 2026-09-21 PHS meeting already has agenda 2668 posted.
     september = {"id": 2469, "eventName": "Public Health & Safety Committee Meeting",
@@ -201,6 +230,13 @@ def test_permits_unmapped_jurisdiction_on_kept_template_raises():
     ledger = permit_ledger()
     record = dict(ledger["202604904"], jurisdiction="unassigned")
     with pytest.raises(ValueError, match="unmapped jurisdiction"):
+        permits.signals_from_ledger({"202604904": record}, {})
+
+
+def test_permits_kept_record_missing_address_names_the_permit():
+    ledger = permit_ledger()
+    record = dict(ledger["202604904"], address=None)
+    with pytest.raises(ValueError, match="permit 202604904"):
         permits.signals_from_ledger({"202604904": record}, {})
 
 
@@ -260,6 +296,24 @@ def test_transfers_changed_record_for_known_document_raises():
             if t["document_number"] == "1942692"][0]
     with pytest.raises(ValueError, match="ledger conflict"):
         transfers.merge_feed(ledger, {"transactions": [dict(kept, sale_price=999999)]})
+
+
+def test_transfers_blank_consideration_is_nominal_not_a_crash():
+    kept = [t for t in transactions_payload()["transactions"]
+            if t["document_number"] == "1942692"][0]
+    ledger = {}
+    assert transfers.merge_feed(ledger, {"transactions": [dict(kept, sale_price=None)]}) == 0
+    assert ledger == {}
+
+
+def test_transfers_conflict_check_ignores_non_signal_fields():
+    ledger = {}
+    transfers.merge_feed(ledger, transactions_payload())
+    kept = [t for t in transactions_payload()["transactions"]
+            if t["document_number"] == "1942692"][0]
+    # Upstream adds a field / reformats acres: not a conflict.
+    evolved = dict(kept, acres="0.50", parcel_id="NEW")
+    assert transfers.merge_feed(ledger, {"transactions": [evolved]}) == 0
 
 
 def test_transfers_mapping_fields():

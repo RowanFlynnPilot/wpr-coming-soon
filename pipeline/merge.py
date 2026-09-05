@@ -45,7 +45,7 @@ class Overrides:
 
 
 def load_overrides(path: Path) -> Overrides:
-    data = yaml.safe_load(path.read_text()) or {}
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
 
     unknown_top = set(data) - _TOP_LEVEL_KEYS
     if unknown_top:
@@ -62,6 +62,8 @@ def load_overrides(path: Path) -> Overrides:
             )
 
     for key, entry in locations.items():
+        if not isinstance(entry, dict) or not entry:
+            raise OverrideError(f"{key}: entry must be a mapping of fields")
         unknown = set(entry) - _LOCATION_KEYS
         if unknown:
             raise OverrideError(f"{key}: unknown fields {sorted(unknown)}")
@@ -137,7 +139,7 @@ def merge(signals: Iterable[Signal], overrides: Overrides) -> list[Location]:
             opened=entry.get("opened"),
         )
 
-        if location.status is not Status.SIGNAL and not location.name:
+        if location.status is not Status.SIGNAL and not (location.name or "").strip():
             raise GateError(
                 f"{key}: status {location.status.value} requires a curated name"
             )

@@ -55,7 +55,7 @@ _LEADING_NUMBER_RE = re.compile(r"^(\d+)\s+(.+)$")
 # Multi-parcel filings (DOR transfer returns list every parcel in one field):
 # "514 S 17TH AVE / 516 S 17TH AVE, 1704 GARFIELD AVE" or "1750 & 1800
 # WESTWOOD CENTER BLVD". The location is the first parcel, deterministically.
-_PARCEL_LIST_RE = re.compile(r"\s*(?:,|/).*$")
+_PARCEL_LIST_RE = re.compile(r"(?:\s*,| / ).*$")  # not "316 1/2 N 3RD ST"
 _NUMBER_RANGE_RE = re.compile(r"^(\d+)\s*(?:&|/|-)\s*\d+\s+")
 
 
