@@ -30,7 +30,14 @@ def _signal_dict(signal: Signal) -> dict:
     }
 
 
-def _location_dict(location: Location, first_seen: str) -> dict:
+def _location_dict(location: Location) -> dict:
+    # Every built signal comes from the ledger and carries its stamp. Permits
+    # surface in monthly batches weeks after their issue dates, so signal
+    # dates alone can't tell "new to us" from "old news": first_seen is when
+    # the location entered our view, last_arrival when its newest signal did.
+    stamps = [s.first_seen for s in location.signals]
+    if any(stamp is None for stamp in stamps):
+        raise ValueError(f"{location.key}: unledgered signal reached the build")
     return {
         "key": location.key,
         "status": location.status.value,
@@ -40,25 +47,20 @@ def _location_dict(location: Location, first_seen: str) -> dict:
         "municipality": location.municipality,
         "note": location.note,
         "opened": location.opened.isoformat() if location.opened else None,
-        "first_seen": first_seen,
+        "first_seen": min(stamps).isoformat(),
+        "last_arrival": max(stamps).isoformat(),
         "signals": [_signal_dict(s) for s in location.signals],
     }
-
-
-def _first_seen(location: Location) -> str:
-    # The day the location's earliest-ledgered signal entered the ledger.
-    # Permits surface in monthly batches weeks after their issue dates, so
-    # signal dates alone can't tell "new to us" from "old news".
-    return min(s.first_seen or s.observed for s in location.signals).isoformat()
 
 
 def _write(path: Path, locations: list[Location]) -> None:
     ordered = sorted(locations, key=lambda l: l.latest, reverse=True)
     payload = {
         "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "locations": [_location_dict(l, _first_seen(l)) for l in ordered],
+        "locations": [_location_dict(l) for l in ordered],
     }
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8",
+                    newline="\n")
 
 
 def build(locations: list[Location], out_dir: Path) -> dict[str, int]:

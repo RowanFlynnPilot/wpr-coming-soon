@@ -1,4 +1,5 @@
 import json
+from dataclasses import replace
 from datetime import date
 from pathlib import Path
 
@@ -192,8 +193,9 @@ def test_build_splits_published_and_queue(tmp_path):
     pending_key = "2200 GRAND AVE|SCHOFIELD"
     overrides = Overrides(aliases={}, locations={
         confirmed_key: {"status": "coming_soon", "name": "Example Coffee Co."}})
-    locations = merge([sig(confirmed_key), sig(pending_key, id="permit:SCH-1")],
-                      overrides)
+    stamped = [replace(sig(confirmed_key), first_seen=date(2026, 8, 2)),
+               replace(sig(pending_key, id="permit:SCH-1"), first_seen=date(2026, 8, 2))]
+    locations = merge(stamped, overrides)
 
     counts = build(locations, tmp_path)
     assert counts == {"published": 1, "queue": 1}
@@ -210,16 +212,31 @@ def test_build_splits_published_and_queue(tmp_path):
     assert queue["locations"][0]["name"] is None
 
 
-def test_build_first_seen_is_the_earliest_ledgered_signal(tmp_path):
-    from dataclasses import replace
+def test_build_first_seen_and_last_arrival_come_from_ledger_stamps(tmp_path):
     key = "301 WASHINGTON ST|WAUSAU"
     early = replace(sig(key, id="permit:WAU-1", observed=date(2026, 5, 1)),
                     first_seen=date(2026, 8, 3))
     late = replace(sig(key, id="transfer:9", observed=date(2026, 8, 20)),
                    first_seen=date(2026, 8, 21))
-    unstamped = sig("2200 GRAND AVE|SCHOFIELD", id="permit:SCH-1", observed=date(2026, 7, 7))
-    build(merge([early, late, unstamped], NO_OVERRIDES), tmp_path)
-    seen = {l["key"]: l["first_seen"]
-            for l in json.loads((tmp_path / "queue.json").read_text())["locations"]}
-    # Earliest ledger stamp wins; a signal never ledgered falls back to its date.
-    assert seen == {key: "2026-08-03", "2200 GRAND AVE|SCHOFIELD": "2026-07-07"}
+    build(merge([early, late], NO_OVERRIDES), tmp_path)
+    (entry,) = json.loads((tmp_path / "queue.json").read_text())["locations"]
+    # A new signal at a known location moves last_arrival, not first_seen —
+    # that is what the queue's "New" marker keys on.
+    assert (entry["first_seen"], entry["last_arrival"]) == ("2026-08-03", "2026-08-21")
+
+
+def test_build_refuses_unledgered_signals(tmp_path):
+    with pytest.raises(ValueError, match="unledgered"):
+        build(merge([sig("2200 GRAND AVE|SCHOFIELD")], NO_OVERRIDES), tmp_path)
+
+
+def test_alias_variant_may_not_also_be_an_override_key(tmp_path):
+    with pytest.raises(OverrideError, match="both an alias variant"):
+        load_overrides(write_yaml(tmp_path, """
+address_aliases:
+  "A|W": "B|W"
+locations:
+  "A|W":
+    status: coming_soon
+    name: "Moved"
+"""))

@@ -1,0 +1,4 @@
+# The nightly run on Linux rewrites the JSON artifacts; a CRLF commit from
+# Windows would turn every line into a diff (and a rebase conflict).
+* text=auto eol=lf
+*.png binary

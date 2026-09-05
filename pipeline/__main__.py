@@ -24,7 +24,7 @@ def main() -> None:
         fresh.extend(source.fetch(aliases))
 
     led = ledger.load(ledger.LEDGER_PATH)
-    new = ledger.merge(led, fresh, date.today())
+    new = ledger.merge(led, fresh, date.today(), aliases)
     ledger.save(led, ledger.LEDGER_PATH)
 
     locations = merge(ledger.to_signals(led, aliases), overrides)

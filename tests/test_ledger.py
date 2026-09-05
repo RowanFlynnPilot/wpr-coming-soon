@@ -81,6 +81,41 @@ def test_keys_are_rederived_so_aliases_stay_retroactive():
     assert after["permit:WAU-202604904"] == "2600 STEWART AVE|WAUSAU"
 
 
+def test_provisional_record_is_replaced_when_the_agenda_is_renumbered():
+    led = {}
+    (sign,) = [s for s in fresh_signals() if s.id == "permit:WAU-202604904"]
+    (other,) = [s for s in fresh_signals() if s.id == "permit:WAU-202607376"]
+    slot = "license:wausau-2469-3.b"
+    ledger.merge(led, [replace(sign, id=slot, observed=date(2026, 9, 21))], TODAY)
+    # A different item now sits at 3.b before the meeting: no conflict, the
+    # provisional record is simply what the agenda says today.
+    ledger.merge(led, [replace(other, id=slot, observed=date(2026, 9, 21))],
+                 date(2026, 9, 10))
+    assert led[slot]["address"] == "2510 STEWART AVE"
+    assert led[slot]["first_seen"] == "2026-09-05"
+    assert led[slot]["last_seen"] == "2026-09-10"
+
+
+def test_cosmetic_address_edit_is_not_a_move():
+    led = {}
+    (sign,) = [s for s in fresh_signals() if s.id == "permit:WAU-202604904"]
+    ledger.merge(led, [sign], TODAY)
+    # Upstream re-parses "2620 STEWART AVE" as "2620 Stewart Avenue": same key.
+    ledger.merge(led, [replace(sign, address="2620 Stewart Avenue")], TODAY, {})
+    assert led[sign.id]["address"] == "2620 Stewart Avenue"
+    with pytest.raises(ValueError, match="conflict"):
+        ledger.merge(led, [replace(sign, address="2621 Stewart Avenue")], TODAY, {})
+
+
+def test_last_seen_tracks_the_fetch_not_the_record():
+    led = {}
+    ledger.merge(led, fresh_signals(), TODAY)
+    (sign,) = [s for s in fresh_signals() if s.id == "permit:WAU-202604904"]
+    ledger.merge(led, [sign], date(2026, 9, 20))
+    assert led[sign.id]["last_seen"] == "2026-09-20"
+    assert led["permit:WAU-202607376"]["last_seen"] == "2026-09-05"   # rolled off
+
+
 def test_roundtrip_through_disk(tmp_path):
     led = {}
     ledger.merge(led, fresh_signals(), TODAY)

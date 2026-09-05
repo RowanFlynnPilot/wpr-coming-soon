@@ -65,7 +65,7 @@ def load(path: Path) -> dict:
 def save(ledger: dict, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(ledger, indent=1, sort_keys=True) + "\n",
-                    encoding="utf-8")
+                    encoding="utf-8", newline="\n")
 
 
 def _record(signal: Signal) -> dict:
@@ -81,12 +81,29 @@ def _record(signal: Signal) -> dict:
     }
 
 
-def merge(ledger: dict, signals: Iterable[Signal], today: date) -> int:
+def _same_place(known: dict, record: dict, aliases: dict[str, str]) -> bool:
+    """Same source/kind/municipality, and the raw addresses key to the same
+    location under current rules — so "416 N. 3rd Street" edited upstream to
+    "416 N 3rd Street" is a rewording, not a move."""
+    if any(known[f] != record[f] for f in ("source", "kind", "municipality")):
+        return False
+    if known["address"] == record["address"]:
+        return True
+    return (resolve_key(known["address"], known["municipality"], aliases)
+            == resolve_key(record["address"], record["municipality"], aliases))
+
+
+def merge(ledger: dict, signals: Iterable[Signal], today: date,
+          aliases: dict[str, str] | None = None) -> int:
     """Fold freshly fetched signals into the ledger; return how many are new.
 
-    Also retracts provisional (future-dated) signals the fetch no longer
-    reports — see the module docstring.
+    A record dated after today is provisional and is simply replaced by
+    whatever the fetch now reports under that id (agendas get renumbered);
+    provisional records the fetch no longer reports are retracted. Every
+    record the fetch did report gets ``last_seen`` = today.
     """
+    aliases = aliases or {}
+    stamp = today.isoformat()
     new = 0
     fresh_ids = set()
     for signal in signals:
@@ -96,17 +113,22 @@ def merge(ledger: dict, signals: Iterable[Signal], today: date) -> int:
         record = _record(signal)
         known = ledger.get(signal.id)
         if known is None:
-            ledger[signal.id] = {**record, "first_seen": today.isoformat()}
+            ledger[signal.id] = {**record, "first_seen": stamp, "last_seen": stamp}
             new += 1
             continue
-        changed = [f for f in _IDENTITY if known[f] != record[f]]
-        if changed:
+        if known["observed"] > stamp:
+            ledger[signal.id] = {**record, "first_seen": known["first_seen"],
+                                 "last_seen": stamp}
+            continue
+        if not _same_place(known, record, aliases):
+            changed = [f for f in _IDENTITY if known[f] != record[f]]
             raise ValueError(
                 f"signals ledger conflict: {signal.id} changed {changed} "
                 f"between runs (was {[known[f] for f in changed]}, "
                 f"now {[record[f] for f in changed]})"
             )
         known.update(record)   # latest wording wins; first_seen is kept
+        known["last_seen"] = stamp
 
     provisional = [i for i, r in ledger.items()
                    if r["observed"] > today.isoformat() and i not in fresh_ids]

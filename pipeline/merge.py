@@ -60,6 +60,11 @@ def load_overrides(path: Path) -> Overrides:
                 f"alias chain: {variant!r} -> {canonical!r} -> "
                 f"{aliases[canonical]!r}; point both at the canonical key"
             )
+        if variant in locations:
+            raise OverrideError(
+                f"{variant!r} is both an alias variant and an override key; "
+                f"move the override to {canonical!r}"
+            )
 
     for key, entry in locations.items():
         if not isinstance(entry, dict) or not entry:
