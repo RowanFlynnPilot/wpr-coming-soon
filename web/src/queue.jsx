@@ -12,13 +12,19 @@ function confirmYaml(loc) {
     `  "${loc.key}":`,
     '    status: coming_soon',
     '    name: ""',
-    '    category: restaurant',
+    '    category: ""   # freeform, keep it consistent: restaurant, bar, retail, service…',
     '    note: ""',
   ].join('\n')
 }
 
 function suppressYaml(loc) {
   return `  "${loc.key}":\n    suppress: true`
+}
+
+// One block per selected entry — the sign-permit refacing wall shouldn't
+// take one copy-paste per address.
+function bulkSuppressYaml(locs) {
+  return locs.map(suppressYaml).join('\n')
 }
 
 function CopyButton({ text, label }) {
@@ -53,11 +59,14 @@ function strength(loc) {
   return sources * 10 + license + loc.signals.length
 }
 
-function Entry({ loc, isNew }) {
+function Entry({ loc, isNew, selected, onToggle }) {
   return (
     <article className={isNew ? 'card qentry qentry--new' : 'card qentry'}>
       <div className="card__head">
-        <h2 className="card__name qentry__key">{loc.key}</h2>
+        <label className="qentry__select">
+          <input type="checkbox" checked={selected} onChange={onToggle} />
+          <h2 className="card__name qentry__key">{loc.key}</h2>
+        </label>
         <span className="qentry__badges">
           {isNew && <span className="status status--new">New</span>}
           <span className="status">
@@ -107,6 +116,14 @@ function QueueApp() {
   const [error, setError] = useState(null)
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState('arrived')
+  const [selected, setSelected] = useState(() => new Set())
+  const toggle = (key) =>
+    setSelected((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
 
   useEffect(() => {
     fetch('./queue.json')
@@ -185,11 +202,30 @@ function QueueApp() {
         </p>
       )}
       {data && locations.length === 0 && <p className="notice">Queue is empty — all caught up.</p>}
+      {selected.size > 0 && (
+        <div className="bulkbar">
+          <span>{selected.size} selected</span>
+          <CopyButton
+            text={bulkSuppressYaml(locations.filter((l) => selected.has(l.key)))}
+            label={`Copy suppress YAML for ${selected.size}`}
+          />
+          <button className="copybtn" onClick={() => setSelected(new Set())}>
+            Clear
+          </button>
+        </div>
+      )}
       {shown.map((loc) => (
-        <Entry key={loc.key} loc={loc} isNew={isNew(loc)} />
+        <Entry
+          key={loc.key}
+          loc={loc}
+          isNew={isNew(loc)}
+          selected={selected.has(loc.key)}
+          onToggle={() => toggle(loc.key)}
+        />
       ))}
     </div>
   )
 }
 
-createRoot(document.getElementById('root')).render(<QueueApp />)
+const el = document.getElementById('root')
+;(el._root ||= createRoot(el)).render(<QueueApp />)

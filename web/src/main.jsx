@@ -3,4 +3,6 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./app.css";
 
-createRoot(document.getElementById("root")).render(<App />);
+// Reuse the root across Vite HMR re-executions of this module.
+const el = document.getElementById("root");
+(el._root ||= createRoot(el)).render(<App />);
