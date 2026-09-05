@@ -86,6 +86,12 @@ marathon-meetings uses. (The original plan to consume marathon-meetings
 output didn't survive contact: its summaries are AI-condensed and its PHS
 coverage was 1 meeting in 5. See the adapter docstring.)
 
+**Window:** meetings from 60 days back (the signals ledger holds older
+history) to 14 days ahead — a posted agenda is already public record, and
+that lead time is the story. Until a meeting has happened its signals are
+*provisional*: the ledger drops one the fetch stops reporting (item
+withdrawn, renumbered, reworded); after the meeting date it is permanent.
+
 **Keep:** the item types that name a business and a premises address in the
 item text — license *transfers to a new location* and *90-day extensions to
 open for business*. Both are strong coming-soon signals.

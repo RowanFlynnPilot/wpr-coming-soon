@@ -100,7 +100,11 @@ The ledger is the pipeline's memory: every signal any source has ever
 emitted, accrue-only, keyed by signal id and storing the address as the
 source wrote it. Sources forget (a rolling transfer feed, an edited agenda);
 the build reads the ledger, so a location never vanishes from the queue and
-a published location can never orphan its override.
+a published location can never orphan its override. Two rules: the *place*
+(source, kind, address, municipality) of a known id is immutable and a
+change stops the build, while its date and wording follow the source's
+latest record; and a signal dated in the future is provisional — dropped if
+the source stops reporting it before the date passes, permanent after.
 
 ```json
 {
