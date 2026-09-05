@@ -78,7 +78,11 @@ function Entry({ loc, isNew, selected, onToggle }) {
         <span className="card__addr">
           {loc.address}, {loc.municipality}
         </span>
-        <span className="card__addr">first seen {fmtDate(loc.first_seen)}</span>
+        <span className="card__addr">
+          first seen {fmtDate(loc.first_seen)}
+          {loc.last_arrival && loc.last_arrival !== loc.first_seen &&
+            ` · newest signal ${fmtDate(loc.last_arrival)}`}
+        </span>
       </div>
       <div className="receipts">
         <ul>
@@ -133,7 +137,10 @@ function QueueApp() {
 
   const locations = data ? data.locations : []
   const built = data ? data.generated.slice(0, 10) : null
-  const isNew = (l) => built && l.first_seen && daysBetween(l.first_seen, built) <= NEW_DAYS
+  // "New" means a signal arrived recently — including a new signal at a
+  // location we already knew, which is where the stories converge.
+  const arrived = (l) => l.last_arrival || l.first_seen
+  const isNew = (l) => built && arrived(l) && daysBetween(arrived(l), built) <= NEW_DAYS
   const newCount = locations.filter(isNew).length
 
   const shown = useMemo(() => {
@@ -149,7 +156,7 @@ function QueueApp() {
     // re-orderings of that.
     const sorted = matched.slice()
     if (sort === 'arrived') {
-      sorted.sort((a, b) => (b.first_seen || '').localeCompare(a.first_seen || ''))
+      sorted.sort((a, b) => (arrived(b) || '').localeCompare(arrived(a) || ''))
     } else if (sort === 'strength') {
       sorted.sort((a, b) => strength(b) - strength(a))
     }
@@ -202,6 +209,9 @@ function QueueApp() {
         </p>
       )}
       {data && locations.length === 0 && <p className="notice">Queue is empty — all caught up.</p>}
+      {data && locations.length > 0 && shown.length === 0 && (
+        <p className="notice">No entries match that search.</p>
+      )}
       {selected.size > 0 && (
         <div className="bulkbar">
           <span>{selected.size} selected</span>

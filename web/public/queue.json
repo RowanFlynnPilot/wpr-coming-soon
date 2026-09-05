@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T06:32:11+00:00",
+  "generated": "2026-09-05T07:17:56+00:00",
   "locations": [
     {
       "key": "6215 VOLKMAN ST|WESTON",
@@ -11,6 +11,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-21",
+      "last_arrival": "2026-08-21",
       "signals": [
         {
           "id": "transfer:1943081",
@@ -40,6 +41,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-18",
+      "last_arrival": "2026-08-18",
       "signals": [
         {
           "id": "transfer:1942905",
@@ -69,6 +71,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-17",
+      "last_arrival": "2026-08-17",
       "signals": [
         {
           "id": "license:wausau-2468-3.b",
@@ -99,6 +102,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-17",
+      "last_arrival": "2026-08-17",
       "signals": [
         {
           "id": "transfer:1942692",
@@ -128,6 +132,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-07",
+      "last_arrival": "2026-08-07",
       "signals": [
         {
           "id": "transfer:1942292",
@@ -157,6 +162,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-06",
+      "last_arrival": "2026-08-06",
       "signals": [
         {
           "id": "transfer:1942247",
@@ -186,6 +192,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-08-04",
+      "last_arrival": "2026-08-04",
       "signals": [
         {
           "id": "transfer:1942104",
@@ -215,6 +222,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-28",
+      "last_arrival": "2026-07-28",
       "signals": [
         {
           "id": "permit:SCH-202608121",
@@ -243,6 +251,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-28",
+      "last_arrival": "2026-07-28",
       "signals": [
         {
           "id": "license:wausau-2467-3.b",
@@ -286,6 +295,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-24",
+      "last_arrival": "2026-07-24",
       "signals": [
         {
           "id": "permit:SCH-202606400",
@@ -327,6 +337,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-24",
+      "last_arrival": "2026-07-24",
       "signals": [
         {
           "id": "permit:WAU-202608077",
@@ -355,6 +366,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-24",
+      "last_arrival": "2026-07-24",
       "signals": [
         {
           "id": "transfer:1941341",
@@ -363,10 +375,10 @@
           "observed": "2026-07-24",
           "summary": "Sold for $284,999 to A75N1 LLC",
           "receipt": {
+            "consideration": "284999",
             "document_number": "1941341",
-            "grantor": "BEACHWIND LIMITED PARTNERSHIP",
             "grantee": "A75N1 LLC",
-            "consideration": "284999"
+            "grantor": "BEACHWIND LIMITED PARTNERSHIP"
           },
           "url": null
         }
@@ -384,6 +396,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-21",
+      "last_arrival": "2026-07-21",
       "signals": [
         {
           "id": "permit:WAU-202607823",
@@ -425,6 +438,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-21",
+      "last_arrival": "2026-07-21",
       "signals": [
         {
           "id": "permit:RIB-202607861",
@@ -453,6 +467,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-21",
+      "last_arrival": "2026-07-21",
       "signals": [
         {
           "id": "permit:WAU-202607860",
@@ -481,6 +496,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-21",
+      "last_arrival": "2026-07-21",
       "signals": [
         {
           "id": "transfer:1941123",
@@ -489,10 +505,10 @@
           "observed": "2026-07-21",
           "summary": "Sold for $2,304 to LAF INVESTMENTS, LLC",
           "receipt": {
+            "consideration": "2304",
             "document_number": "1941123",
-            "grantor": "VILLAGE OF SPENCER",
             "grantee": "LAF INVESTMENTS, LLC",
-            "consideration": "2304"
+            "grantor": "VILLAGE OF SPENCER"
           },
           "url": null
         }
@@ -510,6 +526,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-16",
+      "last_arrival": "2026-07-16",
       "signals": [
         {
           "id": "permit:WAU-202607600",
@@ -538,6 +555,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-15",
+      "last_arrival": "2026-07-15",
       "signals": [
         {
           "id": "permit:WAU-202607575",
@@ -566,6 +584,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-13",
+      "last_arrival": "2026-07-13",
       "signals": [
         {
           "id": "permit:WAU-202607511",
@@ -594,6 +613,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-11",
+      "last_arrival": "2026-07-11",
       "signals": [
         {
           "id": "permit:WAU-202607457",
@@ -622,6 +642,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-10",
+      "last_arrival": "2026-07-10",
       "signals": [
         {
           "id": "permit:WAU-202607448",
@@ -650,6 +671,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-08",
+      "last_arrival": "2026-07-08",
       "signals": [
         {
           "id": "permit:WAU-202605935",
@@ -691,6 +713,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-07-08",
+      "last_arrival": "2026-07-08",
       "signals": [
         {
           "id": "permit:WAU-202607376",
@@ -719,6 +742,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-30",
+      "last_arrival": "2026-06-30",
       "signals": [
         {
           "id": "permit:WAU-202607137",
@@ -747,6 +771,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-29",
+      "last_arrival": "2026-06-29",
       "signals": [
         {
           "id": "permit:WAU-202607094",
@@ -775,6 +800,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-26",
+      "last_arrival": "2026-06-26",
       "signals": [
         {
           "id": "permit:WAU-202607051",
@@ -803,6 +829,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-24",
+      "last_arrival": "2026-06-24",
       "signals": [
         {
           "id": "permit:WAU-202606859",
@@ -831,6 +858,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-23",
+      "last_arrival": "2026-06-23",
       "signals": [
         {
           "id": "permit:WAU-202606745",
@@ -859,6 +887,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-22",
+      "last_arrival": "2026-06-22",
       "signals": [
         {
           "id": "permit:WAU-202606717",
@@ -887,6 +916,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-17",
+      "last_arrival": "2026-06-17",
       "signals": [
         {
           "id": "permit:WAU-202606623",
@@ -915,6 +945,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-15",
+      "last_arrival": "2026-06-15",
       "signals": [
         {
           "id": "license:wausau-2070-3.b",
@@ -923,10 +954,10 @@
           "observed": "2026-06-15",
           "summary": "Extension to open for business: True North #855 (True North Energy LLC)",
           "receipt": {
-            "body": "Wausau Public Health & Safety Committee",
-            "meeting_date": "2026-06-15",
             "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for True North #855 located at 4611 Stewart Avenue, True North Energy LLC, agent Michelle Knox.",
             "applicant": "True North Energy LLC",
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-06-15",
             "trade_name": "True North #855"
           },
           "url": "https://wausauwi.portal.civicclerk.com/event/2070/overview"
@@ -945,6 +976,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-15",
+      "last_arrival": "2026-06-15",
       "signals": [
         {
           "id": "permit:WAU-202606542",
@@ -973,6 +1005,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-11",
+      "last_arrival": "2026-06-11",
       "signals": [
         {
           "id": "permit:WAU-202606301",
@@ -1001,6 +1034,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-09",
+      "last_arrival": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606204",
@@ -1029,6 +1063,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-09",
+      "last_arrival": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606205",
@@ -1057,6 +1092,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-09",
+      "last_arrival": "2026-06-09",
       "signals": [
         {
           "id": "permit:WAU-202606194",
@@ -1085,6 +1121,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-08",
+      "last_arrival": "2026-06-08",
       "signals": [
         {
           "id": "permit:WAU-202606179",
@@ -1113,6 +1150,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-08",
+      "last_arrival": "2026-06-08",
       "signals": [
         {
           "id": "permit:WAU-202606191",
@@ -1141,6 +1179,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-04",
+      "last_arrival": "2026-06-04",
       "signals": [
         {
           "id": "permit:RIB-202606009",
@@ -1169,6 +1208,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-03",
+      "last_arrival": "2026-06-03",
       "signals": [
         {
           "id": "permit:WAU-202605977",
@@ -1197,6 +1237,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-02",
+      "last_arrival": "2026-06-02",
       "signals": [
         {
           "id": "permit:WAU-202605962",
@@ -1225,6 +1266,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-02",
+      "last_arrival": "2026-06-02",
       "signals": [
         {
           "id": "permit:WAU-202605930",
@@ -1253,6 +1295,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-06-01",
+      "last_arrival": "2026-06-01",
       "signals": [
         {
           "id": "permit:WAU-202605905",
@@ -1281,6 +1324,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-29",
+      "last_arrival": "2026-05-29",
       "signals": [
         {
           "id": "permit:SCH-202605893",
@@ -1309,6 +1353,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-28",
+      "last_arrival": "2026-05-28",
       "signals": [
         {
           "id": "permit:WAU-202605770",
@@ -1337,6 +1382,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-26",
+      "last_arrival": "2026-05-26",
       "signals": [
         {
           "id": "permit:WAU-202604815",
@@ -1378,6 +1424,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-26",
+      "last_arrival": "2026-05-26",
       "signals": [
         {
           "id": "permit:WAU-202605708",
@@ -1406,6 +1453,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-22",
+      "last_arrival": "2026-05-22",
       "signals": [
         {
           "id": "permit:WAU-202605516",
@@ -1434,6 +1482,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-21",
+      "last_arrival": "2026-05-21",
       "signals": [
         {
           "id": "permit:WAU-202605482",
@@ -1462,6 +1511,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-18",
+      "last_arrival": "2026-05-18",
       "signals": [
         {
           "id": "permit:WAU-202605360",
@@ -1490,6 +1540,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-18",
+      "last_arrival": "2026-05-18",
       "signals": [
         {
           "id": "license:wausau-2069-6.c",
@@ -1498,10 +1549,10 @@
           "observed": "2026-05-18",
           "summary": "License transfer to new location: The Story Cellar (The Story Cellar LLC)",
           "receipt": {
-            "body": "Wausau Public Health & Safety Committee",
-            "meeting_date": "2026-05-18",
             "agenda_item": "6.c: Consider approval or denial of Alcohol Beverage License Transfer of the \"Class C\" Wine License for The Story Cellar currently located at 205 Callon Street, Suite 2 to new location at 416 N. 3rd Street, The Story Cellar LLC, owners Laura Spaeth.",
             "applicant": "The Story Cellar LLC",
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-05-18",
             "trade_name": "The Story Cellar"
           },
           "url": "https://wausauwi.portal.civicclerk.com/event/2069/overview"
@@ -1520,6 +1571,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-18",
+      "last_arrival": "2026-05-18",
       "signals": [
         {
           "id": "permit:WAU-202605363",
@@ -1548,6 +1600,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-14",
+      "last_arrival": "2026-05-14",
       "signals": [
         {
           "id": "permit:WAU-202605098",
@@ -1576,6 +1629,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-14",
+      "last_arrival": "2026-05-14",
       "signals": [
         {
           "id": "permit:WAU-202605099",
@@ -1604,6 +1658,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-12",
+      "last_arrival": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202604999",
@@ -1632,6 +1687,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-12",
+      "last_arrival": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202605023",
@@ -1660,6 +1716,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-12",
+      "last_arrival": "2026-05-12",
       "signals": [
         {
           "id": "permit:WAU-202605004",
@@ -1688,6 +1745,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-11",
+      "last_arrival": "2026-05-11",
       "signals": [
         {
           "id": "permit:RIB-202604958",
@@ -1716,6 +1774,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-08",
+      "last_arrival": "2026-05-08",
       "signals": [
         {
           "id": "permit:WAU-202604904",
@@ -1744,6 +1803,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-06",
+      "last_arrival": "2026-05-06",
       "signals": [
         {
           "id": "permit:WAU-202604819",
@@ -1772,6 +1832,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604786",
@@ -1800,6 +1861,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604776",
@@ -1828,6 +1890,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604752",
@@ -1856,6 +1919,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604777",
@@ -1884,6 +1948,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604774",
@@ -1912,6 +1977,7 @@
       "note": null,
       "opened": null,
       "first_seen": "2026-05-04",
+      "last_arrival": "2026-05-04",
       "signals": [
         {
           "id": "permit:WAU-202604778",

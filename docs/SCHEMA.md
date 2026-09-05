@@ -91,10 +91,14 @@ with no signals (catches stale entries and key typos).
   review. Internal by convention, not secrecy (it's all public record).
 
 `first_seen` is the date the location's earliest signal entered the signals
-ledger (`data/signals_ledger.json`, see `pipeline/ledger.py`). Permits
-surface in monthly batches weeks after their issue dates, so signal dates
-alone can't tell "new to us" from "old news"; the editor queue uses this
-for its "new" markers.
+ledger (`data/signals_ledger.json`, see `pipeline/ledger.py`) and
+`last_arrival` the date its newest one did. Permits surface in monthly
+batches weeks after their issue dates, so signal dates alone can't tell
+"new to us" from "old news"; the editor queue marks "New" on
+`last_arrival`, so a fresh permit at an address that already had a sale
+surfaces as new. (The ledger was seeded on 2026-09-05 with `first_seen`
+carried over from the earlier location-level stamps, i.e. each location's
+newest signal date at the time.)
 
 The ledger is the pipeline's memory: every signal any source has ever
 emitted, accrue-only, keyed by signal id and storing the address as the

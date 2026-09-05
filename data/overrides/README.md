@@ -5,11 +5,12 @@ groups them by address. **Nothing is published until you confirm it here.**
 
 ## Workflow
 
-1. Open `public/queue.json` — every location sitting at `signal` status, with
-   its receipts.
+1. Open the editor queue page (`/queue.html` on the deployed site) — every
+   location sitting at `signal` status, with its receipts, sorted by newest
+   arrivals or strongest signals. (`public/queue.json` is the raw file.)
 2. Verify what's actually going in (call, drive by, check the license agenda).
-3. Add a block to `locations:` in `locations.yaml`, keyed by the location's
-   `key` copied exactly from the queue:
+3. Use the page's "Copy confirm YAML" button and paste the block under
+   `locations:` in `locations.yaml` — the key is copied exactly:
 
    ```yaml
    "301 WASHINGTON ST|WAUSAU":
@@ -19,7 +20,8 @@ groups them by address. **Nothing is published until you confirm it here.**
      note: "Confirmed by owner 8/12; targeting October."
    ```
 
-4. Commit. The next build publishes it.
+4. Commit and push. A build runs on any push to this folder — the public page
+   updates within a few minutes (the nightly run also picks it up).
 
 ## Other moves
 

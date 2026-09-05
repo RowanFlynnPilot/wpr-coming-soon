@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 10 * * *"   # ~05:17 America/Chicago
+  push:
+    paths:
+      - "data/overrides/**"   # an editor's commit publishes within minutes
 permissions:
   contents: write
   pages: write
@@ -24,13 +27,19 @@ jobs:
       - run: pytest
       - run: python -m pipeline
       - name: Commit data
+        # always(): the ledger is saved before merge/build run, so a gate or
+        # override failure must still commit tonight's signals — otherwise a
+        # transfer that rolls off the sibling feed meanwhile is lost for good.
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/ data/signals_ledger.json
           git diff --staged --quiet || git commit -m "data: nightly build"
-          git pull --rebase origin main   # an editor may have pushed meanwhile
-          git push
+          for attempt in 1 2 3; do   # an editor may push meanwhile
+            git pull --rebase origin main && git push && break
+            sleep 15
+          done
       - uses: actions/setup-node@v7
         with:
           node-version: "22"

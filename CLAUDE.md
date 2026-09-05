@@ -48,18 +48,21 @@ sources/*.fetch()  →  ledger  →  merge(signals, overrides)  →  build()  �
 
 - `pip install -e ".[dev]"` — setup
 - `pytest` — run before every commit (also gates the nightly build)
-- `python -m pipeline` — full build against the live feeds; writes
-  `public/*.json` and updates `data/transfers_ledger.json`
+- `python -m pipeline` — full build against the live feeds; updates
+  `data/signals_ledger.json` and writes `public/*.json`
 
 ## Status / next steps
 
 Fully live (2026-08-19). All three adapters run (wiring decisions in each
 docstring — licenses.py reads Wausau's CivicClerk API directly and ingests
-posted agendas up to 14 days ahead; transfers accrue into a committed
-ledger because the sibling feed is a rolling 30-day window). The nightly
-cron tests, builds, commits data, and deploys the widget + editor queue
-page to Pages in WPR house branding, with a deploy-time geo join for the
-map view. The batched license-PDF idea was investigated and is a documented
+posted agendas up to 14 days ahead); every signal accrues into the signals
+ledger, which the build reads. The build workflow runs nightly, on
+dispatch, and on any push touching `data/overrides/` (an editor's commit
+publishes within minutes); it tests, builds, commits data, and deploys the
+widget + editor queue page to Pages in WPR house branding, with a
+deploy-time geo join for the map view. CI runs pytest — including an
+offline build of the committed ledger against the committed overrides, so
+a gate error or orphaned override fails at push time, not at 5 a.m. The batched license-PDF idea was investigated and is a documented
 dead end (docs/SIGNALS.md) — the report's Address column is the licensee's
 mailing address, not the premises.
 
