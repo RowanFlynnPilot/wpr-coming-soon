@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T14:23:06+00:00",
+  "generated": "2026-09-05T06:29:02+00:00",
   "locations": [
     {
       "key": "6215 VOLKMAN ST|WESTON",
@@ -28,11 +28,11 @@
       ]
     },
     {
-      "key": "1750 & 1800 WESTWOOD CENTER BLVD|WAUSAU",
+      "key": "1750 WESTWOOD CENTER BLVD|WAUSAU",
       "status": "signal",
       "name": null,
       "category": null,
-      "address": "1750 & 1800 Westwood Center Blvd",
+      "address": "1750 Westwood Center Blvd",
       "municipality": "Wausau",
       "note": null,
       "opened": null,

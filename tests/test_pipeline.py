@@ -33,6 +33,11 @@ NO_OVERRIDES = Overrides(aliases={}, locations={})
     # Suffix abbreviation is positional — street NAMES keep their words.
     ("3402 Terrace Court", "Wausau", "3402 TERRACE CT|WAUSAU"),
     ("3402 Terrace Ct", "Wausau", "3402 TERRACE CT|WAUSAU"),
+    # Multi-parcel filings key to the first parcel (both forms seen in real
+    # DOR transfer returns).
+    ("514 S 17Th Ave / 516 S 17Th Ave, 1704 Garfield Ave", "Wausau", "514 S 17TH AVE|WAUSAU"),
+    ("1750 & 1800 Westwood Center Blvd", "Wausau", "1750 WESTWOOD CENTER BLVD|WAUSAU"),
+    ("514/516 S 17th Ave", "Wausau", "514 S 17TH AVE|WAUSAU"),
 ])
 def test_normalize(raw, muni, expected):
     assert normalize_address(raw, muni) == expected

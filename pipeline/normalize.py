@@ -2,7 +2,9 @@
 
 One canonical form: ``"<NUMBER> <STREET TOKENS>|<MUNICIPALITY>"``, all upper
 case, punctuation stripped, unit/suite dropped, directions and street suffixes
-abbreviated to USPS short forms.
+abbreviated to USPS short forms. A multi-parcel filing ("514 S 17TH AVE /
+516 S 17TH AVE, 1704 GARFIELD AVE", "1750 & 1800 WESTWOOD CENTER BLVD")
+keys to its first parcel.
 
     "1300 N. 3rd Street, Ste 200" + "Wausau"  ->  "1300 N 3RD ST|WAUSAU"
 
@@ -50,6 +52,11 @@ _ORDINALS = {
 
 _UNIT_RE = re.compile(r"\s+(?:STE|SUITE|UNIT|APT|#)\s*[\w-]+$")
 _LEADING_NUMBER_RE = re.compile(r"^(\d+)\s+(.+)$")
+# Multi-parcel filings (DOR transfer returns list every parcel in one field):
+# "514 S 17TH AVE / 516 S 17TH AVE, 1704 GARFIELD AVE" or "1750 & 1800
+# WESTWOOD CENTER BLVD". The location is the first parcel, deterministically.
+_PARCEL_LIST_RE = re.compile(r"\s*(?:,|/).*$")
+_NUMBER_RANGE_RE = re.compile(r"^(\d+)\s*(?:&|/|-)\s*\d+\s+")
 
 
 def normalize_address(raw: str, municipality: str) -> str:
@@ -59,8 +66,10 @@ def normalize_address(raw: str, municipality: str) -> str:
     if not municipality or not municipality.strip():
         raise AddressError(f"empty municipality for address {raw!r}")
 
-    text = raw.upper()
-    text = re.sub(r"[.,]", " ", text)
+    text = raw.upper().strip()
+    text = _NUMBER_RANGE_RE.sub(r"\1 ", text)   # "1750 & 1800 X" -> "1750 X"
+    text = _PARCEL_LIST_RE.sub("", text)        # keep the first parcel / drop ", STE 2"
+    text = re.sub(r"[.]", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     text = _UNIT_RE.sub("", text)
 
