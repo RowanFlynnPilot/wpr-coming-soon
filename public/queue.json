@@ -1,6 +1,118 @@
 {
-  "generated": "2026-09-05T13:28:05+00:00",
+  "generated": "2026-09-06T13:41:23+00:00",
   "locations": [
+    {
+      "key": "310 E KENT ST|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "310 E Kent St",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-09-06",
+      "last_arrival": "2026-09-06",
+      "signals": [
+        {
+          "id": "transfer:1943963",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-09-04",
+          "summary": "Sold for $1,000,000 to WAUSAU BUDGET STORAGE LLC, A WISCONSIN LIMITED LIABILITY COMPANY",
+          "receipt": {
+            "document_number": "1943963",
+            "grantor": "BUDGET STORAGE OF WAUSAU LLC, A WISCONSIN LIMITED LIABILITY COMPANY",
+            "grantee": "WAUSAU BUDGET STORAGE LLC, A WISCONSIN LIMITED LIABILITY COMPANY",
+            "consideration": "1000000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "510 ALDERSON ST|SCHOFIELD",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "510 Alderson St",
+      "municipality": "Schofield",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-09-06",
+      "last_arrival": "2026-09-06",
+      "signals": [
+        {
+          "id": "transfer:1943796",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-09-02",
+          "summary": "Sold for $555,000 to TAK LAND LLC",
+          "receipt": {
+            "document_number": "1943796",
+            "grantor": "MAS PROPERTIES L.L.C.",
+            "grantee": "TAK LAND LLC",
+            "consideration": "555000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "6201 SCHOFIELD AVE|WESTON",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "6201 Schofield Ave",
+      "municipality": "Weston",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-09-06",
+      "last_arrival": "2026-09-06",
+      "signals": [
+        {
+          "id": "transfer:1943737",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-09-01",
+          "summary": "Sold for $950,000 to KJR HOLDING, LLC",
+          "receipt": {
+            "document_number": "1943737",
+            "grantor": "NELSEN, STEVEN",
+            "grantee": "KJR HOLDING, LLC",
+            "consideration": "950000"
+          },
+          "url": null
+        }
+      ]
+    },
+    {
+      "key": "506 RING RD AND 520 RING RD|MOSINEE",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "506 Ring Rd And 520 Ring Rd",
+      "municipality": "Mosinee",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-09-06",
+      "last_arrival": "2026-09-06",
+      "signals": [
+        {
+          "id": "transfer:1943688",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-08-31",
+          "summary": "Sold for $500,000 to SLI PROPERTIES, LLC",
+          "receipt": {
+            "document_number": "1943688",
+            "grantor": "NOWACK, RUSSELL J.",
+            "grantee": "SLI PROPERTIES, LLC",
+            "consideration": "500000"
+          },
+          "url": null
+        }
+      ]
+    },
     {
       "key": "6215 VOLKMAN ST|WESTON",
       "status": "signal",
@@ -161,10 +273,10 @@
           "observed": "2026-08-06",
           "summary": "Sold for $1,165,000 to DMW ACRES LLC",
           "receipt": {
+            "consideration": "1165000",
             "document_number": "1942247",
-            "grantor": "YOUNG BROS. PROPERTIES, LLC",
             "grantee": "DMW ACRES LLC",
-            "consideration": "1165000"
+            "grantor": "YOUNG BROS. PROPERTIES, LLC"
           },
           "url": null
         }
@@ -189,10 +301,10 @@
           "observed": "2026-08-04",
           "summary": "Sold for $1,015,200 to OBERHOLTZER, MATTHEW",
           "receipt": {
+            "consideration": "1015200",
             "document_number": "1942104",
-            "grantor": "MARTIN, DANIEL E.",
             "grantee": "OBERHOLTZER, MATTHEW",
-            "consideration": "1015200"
+            "grantor": "MARTIN, DANIEL E."
           },
           "url": null
         }
