@@ -37,7 +37,7 @@
   "address": "5512 Stewart Avenue",
   "first_seen": "2026-07-28",
   "kind": "alcohol_license_application",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-20",
   "receipt": {
@@ -55,7 +55,7 @@
   "address": "303 N. 3rd Street",
   "first_seen": "2026-08-17",
   "kind": "alcohol_license_application",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-08-17",
   "receipt": {
@@ -73,7 +73,7 @@
   "address": "223978 LAKESHORE DR",
   "first_seen": "2026-05-11",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Rib Mountain",
   "observed": "2026-05-11",
   "receipt": {
@@ -89,7 +89,7 @@
   "address": "150801 ROBIN LN",
   "first_seen": "2026-06-04",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Rib Mountain",
   "observed": "2026-06-04",
   "receipt": {
@@ -105,7 +105,7 @@
   "address": "226126 HUMMINGBIRD RD",
   "first_seen": "2026-07-21",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Rib Mountain",
   "observed": "2026-07-21",
   "receipt": {
@@ -121,7 +121,7 @@
   "address": "310 ROSS AVE",
   "first_seen": "2026-05-29",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-05-29",
   "receipt": {
@@ -137,7 +137,7 @@
   "address": "1468 SCHOFIELD AVE",
   "first_seen": "2026-07-24",
   "kind": "new_commercial_construction",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-06-12",
   "receipt": {
@@ -153,7 +153,7 @@
   "address": "1468 SCHOFIELD AVE",
   "first_seen": "2026-07-24",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-07-24",
   "receipt": {
@@ -169,7 +169,7 @@
   "address": "1110 GREENHECK DR",
   "first_seen": "2026-07-28",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-07-28",
   "receipt": {
@@ -185,7 +185,7 @@
   "address": "201 W WASHINGTON ST",
   "first_seen": "2026-05-04",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -201,7 +201,7 @@
   "address": "407 GRANT ST",
   "first_seen": "2026-05-04",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -217,7 +217,7 @@
   "address": "1611 CHELLIS ST",
   "first_seen": "2026-05-04",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -233,7 +233,7 @@
   "address": "3402 TERRACE CT",
   "first_seen": "2026-05-04",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -249,7 +249,7 @@
   "address": "500 FOREST ST",
   "first_seen": "2026-05-04",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -265,7 +265,7 @@
   "address": "109 S 17TH AVE",
   "first_seen": "2026-05-04",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-04",
   "receipt": {
@@ -281,7 +281,7 @@
   "address": "102 JEFFERSON ST",
   "first_seen": "2026-05-26",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-06",
   "receipt": {
@@ -297,7 +297,7 @@
   "address": "903 S 60TH AVE",
   "first_seen": "2026-05-06",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-06",
   "receipt": {
@@ -313,7 +313,7 @@
   "address": "2620 STEWART AVE",
   "first_seen": "2026-05-08",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-08",
   "receipt": {
@@ -329,7 +329,7 @@
   "address": "1811 BADGER AVE",
   "first_seen": "2026-05-12",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-12",
   "receipt": {
@@ -345,7 +345,7 @@
   "address": "516 MCCLELLAN ST",
   "first_seen": "2026-05-12",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-12",
   "receipt": {
@@ -361,7 +361,7 @@
   "address": "500 N 17TH AVE",
   "first_seen": "2026-05-12",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-12",
   "receipt": {
@@ -377,7 +377,7 @@
   "address": "217 SCOTT ST",
   "first_seen": "2026-05-14",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-14",
   "receipt": {
@@ -393,7 +393,7 @@
   "address": "620 N 3RD ST",
   "first_seen": "2026-05-14",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-14",
   "receipt": {
@@ -409,7 +409,7 @@
   "address": "3901 STEWART AVE",
   "first_seen": "2026-05-18",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-18",
   "receipt": {
@@ -425,7 +425,7 @@
   "address": "7333 STEWART AVE",
   "first_seen": "2026-05-18",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-18",
   "receipt": {
@@ -441,7 +441,7 @@
   "address": "215 LAVINA DR",
   "first_seen": "2026-05-21",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-21",
   "receipt": {
@@ -457,7 +457,7 @@
   "address": "500 N 4TH AVE",
   "first_seen": "2026-05-22",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-22",
   "receipt": {
@@ -473,7 +473,7 @@
   "address": "1918 LAMONT ST",
   "first_seen": "2026-05-26",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-26",
   "receipt": {
@@ -489,7 +489,7 @@
   "address": "102 JEFFERSON ST",
   "first_seen": "2026-05-26",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-26",
   "receipt": {
@@ -505,7 +505,7 @@
   "address": "404 FRANKLIN ST",
   "first_seen": "2026-05-28",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-05-28",
   "receipt": {
@@ -521,7 +521,7 @@
   "address": "616 WOODS PL",
   "first_seen": "2026-06-01",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-01",
   "receipt": {
@@ -537,7 +537,7 @@
   "address": "400 GRAND AVE",
   "first_seen": "2026-06-02",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-02",
   "receipt": {
@@ -553,7 +553,7 @@
   "address": "1000 W CAMPUS DR",
   "first_seen": "2026-07-08",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-02",
   "receipt": {
@@ -569,7 +569,7 @@
   "address": "1440 W CAMPUS DR",
   "first_seen": "2026-06-02",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-02",
   "receipt": {
@@ -585,7 +585,7 @@
   "address": "1506 N RIVER DR",
   "first_seen": "2026-06-03",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-03",
   "receipt": {
@@ -601,7 +601,7 @@
   "address": "505 S 24TH AVE",
   "first_seen": "2026-06-08",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-08",
   "receipt": {
@@ -617,7 +617,7 @@
   "address": "606 JACKSON ST",
   "first_seen": "2026-06-08",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-08",
   "receipt": {
@@ -633,7 +633,7 @@
   "address": "5511 STEWART AVE",
   "first_seen": "2026-06-09",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-09",
   "receipt": {
@@ -649,7 +649,7 @@
   "address": "1201 STEWART AVE",
   "first_seen": "2026-06-09",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-09",
   "receipt": {
@@ -665,7 +665,7 @@
   "address": "3200 N 6TH ST",
   "first_seen": "2026-06-09",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-09",
   "receipt": {
@@ -681,7 +681,7 @@
   "address": "1509 N 5TH ST",
   "first_seen": "2026-06-11",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-11",
   "receipt": {
@@ -697,7 +697,7 @@
   "address": "940 S 5TH AVE",
   "first_seen": "2026-06-15",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-15",
   "receipt": {
@@ -713,7 +713,7 @@
   "address": "3500 STEWART AVE",
   "first_seen": "2026-06-17",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-17",
   "receipt": {
@@ -729,7 +729,7 @@
   "address": "308 STEWART AVE",
   "first_seen": "2026-06-22",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-22",
   "receipt": {
@@ -745,7 +745,7 @@
   "address": "550 N 17TH AVE",
   "first_seen": "2026-06-23",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-23",
   "receipt": {
@@ -761,7 +761,7 @@
   "address": "327 N 17TH AVE",
   "first_seen": "2026-06-24",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-24",
   "receipt": {
@@ -777,7 +777,7 @@
   "address": "2609 STEWART AVE",
   "first_seen": "2026-06-26",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-26",
   "receipt": {
@@ -793,7 +793,7 @@
   "address": "1400 STEWART AVE",
   "first_seen": "2026-06-29",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-29",
   "receipt": {
@@ -809,7 +809,7 @@
   "address": "333 PINE RIDGE BLVD",
   "first_seen": "2026-06-30",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-06-30",
   "receipt": {
@@ -825,7 +825,7 @@
   "address": "1000 W CAMPUS DR",
   "first_seen": "2026-07-08",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-08",
   "receipt": {
@@ -841,7 +841,7 @@
   "address": "2510 STEWART AVE",
   "first_seen": "2026-07-08",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-08",
   "receipt": {
@@ -857,7 +857,7 @@
   "address": "630 S 3RD AVE",
   "first_seen": "2026-07-10",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-10",
   "receipt": {
@@ -873,7 +873,7 @@
   "address": "2125 FRANKLIN ST",
   "first_seen": "2026-07-11",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-11",
   "receipt": {
@@ -889,7 +889,7 @@
   "address": "2105 N 6TH ST",
   "first_seen": "2026-07-13",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-13",
   "receipt": {
@@ -905,7 +905,7 @@
   "address": "180 E WAUSAU AVE",
   "first_seen": "2026-07-15",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-15",
   "receipt": {
@@ -921,7 +921,7 @@
   "address": "131 RIVER DR",
   "first_seen": "2026-07-16",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-16",
   "receipt": {
@@ -937,7 +937,7 @@
   "address": "1702 W THOMAS ST",
   "first_seen": "2026-07-21",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-20",
   "receipt": {
@@ -953,7 +953,7 @@
   "address": "1702 W THOMAS ST",
   "first_seen": "2026-07-21",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-21",
   "receipt": {
@@ -969,7 +969,7 @@
   "address": "605 S 24TH AVE",
   "first_seen": "2026-07-21",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-21",
   "receipt": {
@@ -985,7 +985,7 @@
   "address": "330 MCCLELLAN ST",
   "first_seen": "2026-07-24",
   "kind": "commercial_alteration",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-24",
   "receipt": {
@@ -1001,7 +1001,7 @@
   "address": "5512 STEWART AVE",
   "first_seen": "2026-07-28",
   "kind": "sign_permit",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-07-28",
   "receipt": {
@@ -1083,7 +1083,7 @@
   "address": "514 S 17Th Ave / 516 S 17Th Ave, 1704 Garfield Ave",
   "first_seen": "2026-08-07",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-08-07",
   "receipt": {
@@ -1100,7 +1100,7 @@
   "address": "754 Alderson Street",
   "first_seen": "2026-08-17",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-08-17",
   "receipt": {
@@ -1117,7 +1117,7 @@
   "address": "1750 & 1800 Westwood Center Blvd",
   "first_seen": "2026-08-18",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-08-18",
   "receipt": {
@@ -1134,7 +1134,7 @@
   "address": "6215 Volkman Street",
   "first_seen": "2026-08-21",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Weston",
   "observed": "2026-08-21",
   "receipt": {
@@ -1151,7 +1151,7 @@
   "address": "506 Ring Rd And 520 Ring Rd",
   "first_seen": "2026-09-06",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Mosinee",
   "observed": "2026-08-31",
   "receipt": {
@@ -1168,7 +1168,7 @@
   "address": "6201 Schofield Ave",
   "first_seen": "2026-09-06",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Weston",
   "observed": "2026-09-01",
   "receipt": {
@@ -1185,7 +1185,7 @@
   "address": "510 Alderson St",
   "first_seen": "2026-09-06",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Schofield",
   "observed": "2026-09-02",
   "receipt": {
@@ -1202,7 +1202,7 @@
   "address": "310 E. Kent St",
   "first_seen": "2026-09-06",
   "kind": "commercial_sale",
-  "last_seen": "2026-09-10",
+  "last_seen": "2026-09-11",
   "municipality": "Wausau",
   "observed": "2026-09-04",
   "receipt": {
