@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T13:37:28+00:00",
+  "generated": "2026-09-13T14:23:39+00:00",
   "locations": [
     {
       "key": "310 E KENT ST|WAUSAU",
@@ -245,10 +245,10 @@
           "observed": "2026-08-07",
           "summary": "Sold for $650,000 to ELEVATED HOLDINGS LLC",
           "receipt": {
+            "consideration": "650000",
             "document_number": "1942292",
-            "grantor": "V&K INVESTMENT PROPERTIES LLC",
             "grantee": "ELEVATED HOLDINGS LLC",
-            "consideration": "650000"
+            "grantor": "V&K INVESTMENT PROPERTIES LLC"
           },
           "url": null
         }
