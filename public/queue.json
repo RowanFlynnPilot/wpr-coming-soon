@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T14:31:54+00:00",
+  "generated": "2026-09-19T13:56:06+00:00",
   "locations": [
     {
       "key": "310 E KENT ST|WAUSAU",
@@ -356,10 +356,10 @@
           "observed": "2026-07-20",
           "summary": "Extension to open for business: The Copper Kettle Steakhouse (The Copper Kettle Steakhouse)",
           "receipt": {
-            "body": "Wausau Public Health & Safety Committee",
-            "meeting_date": "2026-07-20",
             "agenda_item": "3.b: Consider request granting a 90 day extension to open for business for good cause for The Copper Kettle Steakhouse located at 5512 Stewart Avenue, The Copper Kettle Steakhouse, LLC., agent Robert A. Lamovec.",
             "applicant": "The Copper Kettle Steakhouse",
+            "body": "Wausau Public Health & Safety Committee",
+            "meeting_date": "2026-07-20",
             "trade_name": "The Copper Kettle Steakhouse"
           },
           "url": "https://wausauwi.portal.civicclerk.com/event/2467/overview"
