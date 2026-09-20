@@ -1,6 +1,34 @@
 {
-  "generated": "2026-09-19T13:56:06+00:00",
+  "generated": "2026-09-20T14:14:01+00:00",
   "locations": [
+    {
+      "key": "208 GRAND AVE|WAUSAU",
+      "status": "signal",
+      "name": null,
+      "category": null,
+      "address": "208 Grand Ave",
+      "municipality": "Wausau",
+      "note": null,
+      "opened": null,
+      "first_seen": "2026-09-20",
+      "last_arrival": "2026-09-20",
+      "signals": [
+        {
+          "id": "transfer:1944612",
+          "source": "transfer",
+          "kind": "commercial_sale",
+          "observed": "2026-09-17",
+          "summary": "Sold for $1,100,000 to GDRE WAUSAU, LLC",
+          "receipt": {
+            "document_number": "1944612",
+            "grantor": "GRAND S LLC",
+            "grantee": "GDRE WAUSAU, LLC",
+            "consideration": "1100000"
+          },
+          "url": null
+        }
+      ]
+    },
     {
       "key": "310 E KENT ST|WAUSAU",
       "status": "signal",
@@ -160,10 +188,10 @@
           "observed": "2026-08-18",
           "summary": "Sold for $1,600,000 to R O TRUST, OF JANUARY 13, 2023",
           "receipt": {
+            "consideration": "1600000",
             "document_number": "1942905",
-            "grantor": "THE WESTWOOD CENTER, LLC",
             "grantee": "R O TRUST, OF JANUARY 13, 2023",
-            "consideration": "1600000"
+            "grantor": "THE WESTWOOD CENTER, LLC"
           },
           "url": null
         }
@@ -217,10 +245,10 @@
           "observed": "2026-08-17",
           "summary": "Sold for $737,546 to VISION COVE, LLC",
           "receipt": {
+            "consideration": "737546",
             "document_number": "1942692",
-            "grantor": "WYNN AND JOAN JONES REVOCABLE TRUST DATED JANUARY 24, 1992",
             "grantee": "VISION COVE, LLC",
-            "consideration": "737546"
+            "grantor": "WYNN AND JOAN JONES REVOCABLE TRUST DATED JANUARY 24, 1992"
           },
           "url": null
         }
